@@ -1,3 +1,6 @@
+<?php
+include 'php/conn.php'
+?>
 
 <div class="card col-md-12 mx-auto" style="padding:2%">
 
@@ -7,7 +10,7 @@
   <img class="img-card-top" src="Recources/logo_text.png" alt="Card image cap">
 </div>
 
-<form class="" action="index.html" method="post">
+<form class="" method="post">
 <div class="row">
 
   <div class="col-md-6">
@@ -15,12 +18,12 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <input class="form-control form-control-lg" type="text" name="" value="" placeholder="First name" required />
+          <input class="form-control form-control-lg" type="text" name="fname" value="" placeholder="First name" required />
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <input class="form-control form-control-lg" type="text" name="" value="" placeholder="Last name"  required/>
+          <input class="form-control form-control-lg" type="text" name="lname" value="" placeholder="Last name"  required/>
         </div>
       </div>
     </div>
@@ -56,7 +59,7 @@
       <h2>-</h2>
       <div class="col-md-5">
         <div class="form-group">
-          <input class="form-control form-control-lg" type="text" name="postaç" value="" placeholder="Postal" required />
+          <input class="form-control form-control-lg" type="text" name="postal" value="" placeholder="Postal" required />
         </div>
       </div>
     </div>
@@ -74,6 +77,19 @@
 
   </div>
   <br>
-  <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn_sub"> Login </button>
+  <button type="submit" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub"> Registar </button>
   </form>
+
+  <?php
+  if(isset($_POST['submeter'])){
+    include 'php/conn.php';
+
+    $codpost = $_POST['codigo'].'-'.$_POST['postal'];
+    //falta  cliente_img_path
+    mysqli_query($conn,"INSERT INTO  cliente (  cliente_username,cliente_password, cliente_nome,	  cliente_apelido,	 cliente_datanasc,  cliente_morada,	 	  cliente_codigopostal,	 	 cliente_idpais ,	 	cliente_nif	,	 cliente_tele	,	 cliente_email	,	  cliente_tipo )
+    VALUES ('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]',0)");
+
+    include 'php/deconn.php';
+  }
+  ?>
 </div>

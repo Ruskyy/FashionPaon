@@ -9,6 +9,6 @@ $conn = mysqli_connect($servername, $user, $pass);
 if(!$conn){
   die("Error:" . mysqli_connect_error());
 }
-mysqli_select_db($conn,"corkexpress");
+mysqli_select_db($conn,"fashedot");
 mysqli_set_charset($conn,'utf8');
  ?>

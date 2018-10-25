@@ -1,8 +1,14 @@
 
 <div class="card col-md-12 mx-auto" style="padding:2%">
-  <form class="" action="index.html" method="post">
-<div class="row">
 
+
+
+<div class="row col-md-2" style="margin-bottom:2%;">
+  <img class="img-card-top" src="Recources/logo_text.png" alt="Card image cap">
+</div>
+
+<form class="" action="index.html" method="post">
+<div class="row">
 
   <div class="col-md-6">
 
@@ -56,7 +62,7 @@
     </div>
 
     <br>
-    
+
     <input class="form-control form-control-lg" type="text" name="tele" value="" placeholder="TELEFONE" maxlength="9" size="9" required>
     <br>
     <input class="form-control form-control-lg" type="text" name="nif" value="" placeholder="NIF" maxlength="9" size="9" required>

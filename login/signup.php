@@ -7,7 +7,7 @@ include 'php/conn.php'
 
 
 <div class="row col-md-2" style="margin-bottom:2%;">
-  <img class="img-card-top" src="Recources/logo_text.png" alt="Card image cap">
+  <img class="img-card-top" src="00_Recources/logo_text.png" alt="Card image cap">
 </div>
 
 <form class="" method="post">

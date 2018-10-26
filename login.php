@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-grid.css">
+  
     <link rel="stylesheet" href="css/styles-front.css">
     <script type="text/javascript"></script>
     <style>

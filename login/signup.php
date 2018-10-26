@@ -73,7 +73,6 @@ include 'php/conn.php'
   <?php
   if(isset($_POST['submeter'])){
     include 'php/conn.php';
-<<<<<<< HEAD
 
     $codpost = $_POST['codigo'].'-'.$_POST['postal'];
     //falta  cliente_img_path
@@ -82,7 +81,6 @@ include 'php/conn.php'
     */
 
     mysqli_query($conn,"CALL simpleproc('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]')");
-=======
     $username=mysqli_fetch_array(mysqli_query($conn,"SELECT cliente_username FROM cliente WHERE cliente_username='$_POST[user]'"));
     $email=mysqli_fetch_array(mysqli_query($conn,"SELECT cliente_email FROM cliente WHERE cliente_email='$_POST[email]'"));
 
@@ -99,7 +97,7 @@ include 'php/conn.php'
         echo 'O email é repetido';
       }
     }
->>>>>>> 029331d6445b007384c1f94a576f3ad5fa219f2b
+
     include 'php/deconn.php';
   }
   ?>

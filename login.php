@@ -3,20 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Login</title>
-
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-grid.css">
+  
     <link rel="stylesheet" href="css/styles-front.css">
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript"></script>
     <style>
       .style-container{
         position: absolute;
         top: 50%; left:50%;
         transform: translateX(-50%) translateY(-50%);
       }
-
     </style>
   </head>
   <body>
@@ -51,17 +47,9 @@
           <?php
               }
           ?>
-
-
-
-
         </div>
       </div>
-
     </div>
-
-
-
     <script type="text/javascript" src="vendor/bootstrap/bootstrap.js"></script>
   </body>
 </html>

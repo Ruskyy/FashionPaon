@@ -10,3 +10,7 @@
     </form>
   </div>
 </div>
+
+<!-- INSERT INTO cliente
+(cliente_id, cliente_username, cliente_password, cliente_nome, cliente_apelido, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_email, cliente_tipo, cliente_img_path)
+VALUES (id,username,password,nome,apelido,datanasc,morada,codigopostal,idpais,nif,tele,email,tipo,imgpath) -->

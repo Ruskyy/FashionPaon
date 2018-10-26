@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Admin Panel</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -34,7 +34,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-4.png">
 
     <!--
 
@@ -44,59 +44,51 @@
     -->
 
     	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
-                </a>
+            <div class="logo text-center">
+							<img src="../images/icons/logo.png" alt="" width="150px">
             </div>
 
             <ul class="nav">
-                <li>
-                    <a href="dashboard.html">
+                <li id="navact1" class="sidabarmenu active">
+                    <a href="dashboard.php?dhb=1#">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="user.html">
+                <li id="navact2" class="sidabarmenu">
+                    <a href="dashboard.php?dhb=2#">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li>
-                    <a href="table.html">
+                <li id="navact3" class="sidabarmenu">
+                    <a href="dashboard.php?dhb=3#">
                         <i class="pe-7s-note2"></i>
                         <p>Table List</p>
                     </a>
                 </li>
-                <li>
-                    <a href="typography.html">
+                <li id="navact4" class="sidabarmenu">
+                    <a href="dashboard.php?dhb=4#">
                         <i class="pe-7s-news-paper"></i>
                         <p>Typography</p>
                     </a>
                 </li>
-                <li>
-                    <a href="icons.html">
+                <li id="navact5" class="sidabarmenu">
+                    <a href="dashboard.php?dhb=5#">
                         <i class="pe-7s-science"></i>
                         <p>Icons</p>
                     </a>
                 </li>
-                <li>
-                    <a href="maps.html">
+                <li id="navact6" class="sidabarmenu">
+                    <a href="dashboard.php?dhb=6#">
                         <i class="pe-7s-map-marker"></i>
                         <p>Maps</p>
                     </a>
                 </li>
-                <li>
-                    <a href="notifications.html">
+                <li id="navact7" class="sidabarmenu">
+                    <a href="dashboard.php?dhb=7#">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
                     </a>
                 </li>
             </ul>
@@ -104,7 +96,7 @@
     </div>
 
     <div class="main-panel">
-		<nav class="navbar navbar-default navbar-fixed">
+        <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -113,7 +105,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Upgrade</a>
+                    <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -126,8 +118,7 @@
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-sm hidden-xs"></b>
-                                    <span class="notification hidden-sm hidden-xs">5</span>
+                                    <b class="caret hidden-lg hidden-md"></b>
 									<p class="hidden-lg hidden-md">
 										5 Notifications
 										<b class="caret"></b>
@@ -178,7 +169,7 @@
                                 <p>Log out</p>
                             </a>
                         </li>
-						<li class="separator hidden-lg hidden-md"></li>
+						<li class="separator hidden-lg"></li>
                     </ul>
                 </div>
             </div>
@@ -186,81 +177,20 @@
 
 
         <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-					<div class="col-md-8 col-md-offset-2">
-                        <div class="card">
-                            <div class="header text-center">
-                                <h4 class="title">Light Bootstrap Dashboard PRO</h4>
-                                <p class="category">Are you looking for more components? Please check our Premium Version of Light Bootstrap Dashboard.</p>
-								<br>
-                            </div>
-                            <div class="content table-responsive table-full-width table-upgrade">
-                                <table class="table">
-                                    <thead>
-                                        <th></th>
-                                    	<th class="text-center">Free</th>
-                                    	<th class="text-center">PRO</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>Components</td>
-                                        	<td>16</td>
-                                        	<td>115+</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Plugins</td>
-                                        	<td>4</td>
-                                        	<td>14+</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Example Pages</td>
-                                        	<td>4</td>
-                                        	<td>22+</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Documentation</td>
-                                        	<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>SASS Files</td>
-											<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Login/Register/Lock Pages</td>
-											<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-										<tr>
-                                        	<td>Premium Support</td>
-											<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-										<tr>
-                                        	<td></td>
-											<td>Free</td>
-                                        	<td>Just $39</td>
-                                        </tr>
-										<tr>
-											<td></td>
-											<td>
-												<a href="#" class="btn btn-round btn-fill btn-default disabled">Current Version</a>
-											</td>
-											<td>
-												<a target="_blank" href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro/?ref=lbdupgrade" class="btn btn-round btn-fill btn-info">Upgrade to PRO</a>
-											</td>
-										</tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+					<?php
+							@$dashboard = $_GET['dhb'];
+							switch ($dashboard) {
+								case '1':
+									include 'backoff_home.php';
+									break;
+								case '2':
+									include '.php';
+									break;
+								default:
+									include '.php';
+									break;
+							}
+						 ?>
         </div>
 
 
@@ -320,5 +250,51 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
+
+	<script type="text/javascript">
+    	$(document).ready(function(){
+
+        	demo.initChartist();
+					$( "p:even" ).removeClass( "blue" );
+        	$.notify({
+            	icon: 'pe-7s-gift',
+            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+
+            },{
+                type: 'info',
+                timer: 4000
+            });
+
+    	});
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("li").click(function() {
+
+			});
+		});
+
+		var dhb = '<?php echo $_GET["dhb"] ?>' ;
+		$(".sidabarmenu").removeClass("active");
+		if (dhb == '1') {
+			$("#navact1").toggleClass("active");
+		}else if (dhb == '2') {
+			$("#navact2").toggleClass("active");
+		}else if(dhb == '3'){
+			$("#navact3").toggleClass("active");
+		}else if(dhb == '4'){
+			$("#navact4").toggleClass("active");
+		}else if(dhb == '5'){
+			$("#navact5").toggleClass("active");
+		}else if(dhb == '6'){
+			$("#navact6").toggleClass("active");
+		}else if(dhb == '7'){
+			$("#navact7").toggleClass("active");
+		}else {
+			$("#navact1").toggleClass("active");
+		}
+
+	</script>
 
 </html>

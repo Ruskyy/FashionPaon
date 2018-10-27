@@ -140,7 +140,7 @@ $(document).ready(function(){
 function myFunction(x){
 		$tipo = x;
 		$.ajax({
-				url:"menu.php",
+				url:"ajax_files/menu.php",
 				method:"POST",
 				data: {tipo: $tipo},
 				success:function(data){

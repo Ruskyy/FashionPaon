@@ -162,7 +162,7 @@ function myFunction(x){
     	<div class="sidebar-wrapper">
             <div class="logo text-center">
 							<a href="#">
-								<img id="navact0" onclick="myFunction(1)" src="../images/icons/logo.png" alt="" width="150px">
+								<img id="navact0" onclick="myFunction(0)" src="../images/icons/logo.png" alt="" width="150px">
 						 </a>
             </div>
 
@@ -178,13 +178,13 @@ function myFunction(x){
 											<li id="navact11" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-graph"></i>
-															<p onclick="myFunction(2)">Adicionar</p>
+															<p onclick="myFunction(1)">Adicionar</p>
 													</a>
 											</li>
 											<li id="navact12" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-graph"></i>
-															<p onclick="myFunction(3)">Listar</p>
+															<p onclick="myFunction(2)">Listar</p>
 													</a>
 											</li>
 										</ul>

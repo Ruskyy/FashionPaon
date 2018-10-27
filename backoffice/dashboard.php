@@ -23,7 +23,7 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />
-
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -32,7 +32,123 @@
 
 </head>
 <body>
+<script>
+$(document).ready(function(){
+	$(".sidabarsubmenu").hide();
+	$(".sidabarmenu").removeClass("active");
+	$(".sidabarsubsubmenu").removeClass("active");
+		// 0
+		$("#navact0").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
+	});
+		// 1
+		$("#navact1").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
 
+			$("#navactasub1").show();
+			$("#navact1").addClass("active");
+			$("#change").html("Clientes");
+	});
+
+		// 2
+		$("#navact2").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
+
+			$("#navactasub2").show();
+			$("#navact2").addClass("active");
+			$("#change").html("Admins");
+	});
+		// 3
+		$("#navact3").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
+
+			$("#navactasub3").show();
+			$("#navact3").addClass("active");
+			$("#change").html("Produtos");
+	});	// 4
+		$("#navact4").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
+			$("#navact4").addClass("active");
+	});	// 5
+		$("#navact5").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
+
+			$("#navact5").addClass("active");
+		});	// 6
+		$("#navact6").click(function(){
+			$(".sidabarsubmenu").hide();
+			$(".sidabarsubsubmenu").removeClass("active");
+			$(".sidabarmenu").removeClass("active");
+
+			$("#navact6").addClass("active");
+		});	// 7
+			$("#navact7").click(function(){
+				$(".sidabarsubmenu").hide();
+				$(".sidabarsubsubmenu").removeClass("active");
+				$(".sidabarmenu").removeClass("active");
+
+				$("#navact7").addClass("active");
+			});
+
+
+			// 1.1
+			$("#navact11").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact11").addClass("active");
+			});
+			// 1.2
+			$("#navact12").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact12").addClass("active");
+			});
+			// 2.1
+			$("#navact21").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact21").addClass("active");
+			});
+			// 2.2
+			$("#navact22").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact22").addClass("active");
+			});
+			// 3.1
+			$("#navact31").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact31").addClass("active");
+			});
+			// 3.2
+			$("#navact32").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact32").addClass("active");
+			});
+
+});
+</script>
+<script>
+function myFunction(x){
+		$tipo = x;
+		$.ajax({
+				url:"menu.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#menu_aqui').html(data);
+				}
+		});
+}
+</script>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-4.png">
 
@@ -45,48 +161,95 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo text-center">
-							<img src="../images/icons/logo.png" alt="" width="150px">
+							<a href="#">
+								<img id="navact0" onclick="myFunction(1)" src="../images/icons/logo.png" alt="" width="150px">
+						 </a>
             </div>
 
             <ul class="nav">
-                <li id="navact1" class="sidabarmenu active">
-                    <a href="dashboard.php?dhb=1#">
+                <li id="navact1" class="sidabarmenu">
+                    <a href="#">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Clientes</p>
                     </a>
                 </li>
+								<!-- submenu -->
+										<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub1">
+											<li id="navact11" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-graph"></i>
+															<p onclick="myFunction(2)">Adicionar</p>
+													</a>
+											</li>
+											<li id="navact12" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-graph"></i>
+															<p onclick="myFunction(3)">Listar</p>
+													</a>
+											</li>
+										</ul>
                 <li id="navact2" class="sidabarmenu">
-                    <a href="dashboard.php?dhb=2#">
+                    <a href="#">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>Admins</p>
                     </a>
                 </li>
+								<!-- submenu -->
+										<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub2">
+											<li id="navact21" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-user"></i>
+															<p>Adicionar</p>
+													</a>
+											</li>
+											<li id="navact22" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-user"></i>
+															<p>Listar</p>
+													</a>
+											</li>
+										</ul>
                 <li id="navact3" class="sidabarmenu">
-                    <a href="dashboard.php?dhb=3#">
+                    <a href="#">
                         <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
+                        <p>Produtos</p>
                     </a>
                 </li>
+								<!-- submenu -->
+										<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub3">
+											<li id="navact31" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-note2"></i>
+															<p>Adicionar</p>
+													</a>
+											</li>
+											<li id="navact32" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-note2"></i>
+															<p>Listar</p>
+													</a>
+											</li>
+										</ul>
                 <li id="navact4" class="sidabarmenu">
-                    <a href="dashboard.php?dhb=4#">
+                    <a href="#">
                         <i class="pe-7s-news-paper"></i>
                         <p>Typography</p>
                     </a>
                 </li>
                 <li id="navact5" class="sidabarmenu">
-                    <a href="dashboard.php?dhb=5#">
+                    <a href="#">
                         <i class="pe-7s-science"></i>
                         <p>Icons</p>
                     </a>
                 </li>
                 <li id="navact6" class="sidabarmenu">
-                    <a href="dashboard.php?dhb=6#">
+                    <a href="#">
                         <i class="pe-7s-map-marker"></i>
                         <p>Maps</p>
                     </a>
                 </li>
                 <li id="navact7" class="sidabarmenu">
-                    <a href="dashboard.php?dhb=7#">
+                    <a href="#">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>
@@ -105,7 +268,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href="#"><p id="change">Dashboard</p></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -174,26 +337,9 @@
                 </div>
             </div>
         </nav>
+        <div id="menu_aqui" class="content">
 
-
-        <div class="content">
-					<?php
-							@$dashboard = $_GET['dhb'];
-							switch ($dashboard) {
-								case '1':
-									include 'backoff_home.php';
-									break;
-								case '2':
-									include '.php';
-									break;
-								default:
-									include '.php';
-									break;
-							}
-						 ?>
         </div>
-
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -228,10 +374,7 @@
 
     </div>
 </div>
-
-
 </body>
-
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
@@ -250,51 +393,4 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
-
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-					$( "p:even" ).removeClass( "blue" );
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("li").click(function() {
-
-			});
-		});
-
-		var dhb = '<?php echo $_GET["dhb"] ?>' ;
-		$(".sidabarmenu").removeClass("active");
-		if (dhb == '1') {
-			$("#navact1").toggleClass("active");
-		}else if (dhb == '2') {
-			$("#navact2").toggleClass("active");
-		}else if(dhb == '3'){
-			$("#navact3").toggleClass("active");
-		}else if(dhb == '4'){
-			$("#navact4").toggleClass("active");
-		}else if(dhb == '5'){
-			$("#navact5").toggleClass("active");
-		}else if(dhb == '6'){
-			$("#navact6").toggleClass("active");
-		}else if(dhb == '7'){
-			$("#navact7").toggleClass("active");
-		}else {
-			$("#navact1").toggleClass("active");
-		}
-
-	</script>
-
 </html>

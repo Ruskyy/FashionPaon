@@ -217,3 +217,31 @@
         </div>
     </div>
 </div> -->
+
+
+
+<script>
+  $(document).ready(function(){
+    $(".sidabarsubmenu").hide();
+  });
+  var dhb = '<?php echo $_GET["dhb"] ?>' ;
+  $(".sidabarsubmenu").hide();
+  $(".sidabarmenu").removeClass("active");
+  if (dhb == '1') {
+    $("#navact1").toggleClass("active");
+    $("#navactasub1").show();
+  }else if (dhb == '2') {
+    $("#navact2").toggleClass("active");
+  }else if(dhb == '3'){
+    $("#navact3").toggleClass("active");
+  }else if(dhb == '4'){
+    $("#navact4").toggleClass("active");
+  }else if(dhb == '5'){
+    $("#navact5").toggleClass("active");
+  }else if(dhb == '6'){
+    $("#navact6").toggleClass("active");
+  }else if(dhb == '7'){
+    $("#navact7").toggleClass("active");
+  }
+
+</script>

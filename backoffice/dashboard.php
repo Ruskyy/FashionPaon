@@ -23,7 +23,7 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />
-		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -42,6 +42,7 @@ $(document).ready(function(){
 			$(".sidabarsubmenu").hide();
 			$(".sidabarsubsubmenu").removeClass("active");
 			$(".sidabarmenu").removeClass("active");
+			$("#change").html("FashionPaon");
 	});
 		// 1
 		$("#navact1").click(function(){
@@ -49,9 +50,9 @@ $(document).ready(function(){
 			$(".sidabarsubsubmenu").removeClass("active");
 			$(".sidabarmenu").removeClass("active");
 
-			$("#navactasub1").show();
-			$("#navact1").addClass("active");
-			$("#change").html("Clientes");
+				$("#navactasub1").show();
+				$("#navact1").addClass("active");
+				$("#change").html("Clientes");
 	});
 
 		// 2
@@ -167,7 +168,7 @@ function myFunction(x){
             </div>
 
             <ul class="nav">
-                <li id="navact1" class="sidabarmenu">
+                <li id="navact1" class="sidabarmenu active">
                     <a href="#">
                         <i class="pe-7s-graph"></i>
                         <p>Clientes</p>

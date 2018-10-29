@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
-  
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/styles-front.css">
     <script type="text/javascript"></script>
     <style>
@@ -15,7 +15,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="bodylogin">
     <div class="container style-container">
       <div class="row row-styles form_login">
       <?php

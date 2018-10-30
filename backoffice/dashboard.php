@@ -79,13 +79,18 @@ $(document).ready(function(){
 			$(".sidabarsubmenu").hide();
 			$(".sidabarsubsubmenu").removeClass("active");
 			$(".sidabarmenu").removeClass("active");
+
+			$("#navactasub4").show();
 			$("#navact4").addClass("active");
+			$("#change").html("Loja");
 	});	// 5
 		$("#navact5").click(function(){
 			$(".sidabarsubmenu").hide();
 			$(".sidabarsubsubmenu").removeClass("active");
 			$(".sidabarmenu").removeClass("active");
 
+			$("#navactasub5").show();
+			$("#change").html("Sistema");
 			$("#navact5").addClass("active");
 		});	// 6
 		$("#navact6").click(function(){
@@ -134,6 +139,31 @@ $(document).ready(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact32").addClass("active");
 			});
+			// 3.3
+			$("#navact33").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact33").addClass("active");
+			});
+			// 4.1
+			$("#navact41").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact41").addClass("active");
+			});
+			// 4.2
+			$("#navact42").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact42").addClass("active");
+			});
+			//4.3
+			$("#navact43").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact43").addClass("active");
+			});
+			//5.1
+			$("#navact51").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact51").addClass("active");
+			});
 
 });
 </script>
@@ -150,6 +180,7 @@ function myFunction(x){
 		});
 }
 </script>
+
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-4.png">
 
@@ -200,13 +231,13 @@ function myFunction(x){
 											<li id="navact21" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-user"></i>
-															<p>Adicionar</p>
+															<p onclick="myFunction(3)">Adicionar</p>
 													</a>
 											</li>
 											<li id="navact22" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-user"></i>
-															<p>Listar</p>
+															<p onclick="myFunction(4)">Listar</p>
 													</a>
 											</li>
 										</ul>
@@ -221,28 +252,65 @@ function myFunction(x){
 											<li id="navact31" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-note2"></i>
-															<p>Adicionar</p>
+															<p onclick="myFunction(5)">Adicionar</p>
 													</a>
 											</li>
 											<li id="navact32" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-note2"></i>
-															<p>Listar</p>
+															<p onclick="myFunction(6)">Listar</p>
+													</a>
+											</li>
+											<li id="navact33" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-note2"></i>
+															<p onclick="myFunction(7)">Imagens</p>
 													</a>
 											</li>
 										</ul>
                 <li id="navact4" class="sidabarmenu">
                     <a href="#">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                        <p>Configuração</p>
                     </a>
                 </li>
+								<!-- submenu -->
+										<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub4">
+											<li id="navact41" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-news-paper"></i>
+															<p onclick="myFunction(9)">SlideShow</p>
+													</a>
+											</li>
+											<li id="navact42" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-news-paper"></i>
+															<p onclick="myFunction(10)">Parallax</p>
+													</a>
+											</li>
+											<li id="navact43" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-news-paper"></i>
+															<p onclick="myFunction(11)">Vídeo</p>
+													</a>
+											</li>
+										</ul>
                 <li id="navact5" class="sidabarmenu">
                     <a href="#">
                         <i class="pe-7s-science"></i>
-                        <p>Icons</p>
+                        <p>Sistema</p>
                     </a>
                 </li>
+								<!-- submenu -->
+										<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub5">
+											<li id="navact51" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-science"></i>
+															<p onclick="myFunction(12)">Stock</p>
+													</a>
+											</li>
+										</ul>
+
                 <li id="navact6" class="sidabarmenu">
                     <a href="#">
                         <i class="pe-7s-map-marker"></i>
@@ -339,7 +407,7 @@ function myFunction(x){
             </div>
         </nav>
         <div id="menu_aqui" class="content">
-					
+
         </div>
         <footer class="footer">
             <div class="container-fluid">

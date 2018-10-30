@@ -158,20 +158,20 @@
                                 <div class="row">
                                   <div class="col-md-6">
                                     <div class="form-group">
-                                      <input class="form-control form-control-lg" type="text" name="fname" value="" placeholder="First name" maxlength="20" required />
+                                      <input class="form-control form-control-lg" type="text" name="fname" value="" placeholder="First name" required />
                                     </div>
                                   </div>
                                   <div class="col-md-6">
                                     <div class="form-group">
-                                      <input class="form-control form-control-lg" type="text" name="lname" value="" placeholder="Last name" maxlength="20" required/>
+                                      <input class="form-control form-control-lg" type="text" name="lname" value="" placeholder="Last name"  required/>
                                     </div>
                                   </div>
                                 </div>
-                                <input class="form-control form-control-lg" type="text" name="user" value="" placeholder="Username" maxlength="20" required>
+                                <input class="form-control form-control-lg" type="text" name="user" value="" placeholder="Username" required>
                                 <br>
-                                <input class="form-control form-control-lg" type="password" name="pass" value="" placeholder="Password" maxlength="20" required>
+                                <input class="form-control form-control-lg" type="password" name="pass" value="" placeholder="Password" required>
                                 <br>
-                                <input class="form-control form-control-lg" type="password" name="confpass" value="" placeholder="Confirm Password" maxlength="20" required>
+                                <input class="form-control form-control-lg" type="password" name="confpass" value="" placeholder="Confirm Password" required>
                                 <br>
                                 <input class="form-control form-control-lg" type="date" name="data" value="" required>
                                 <br>
@@ -196,30 +196,20 @@
                                       <br>
                                       <div class="row form-group">
                                         <div class="col-xs-6">
-                                            <input class="form-control form-control-lg" type="number" name="codigo" value="" placeholder="Codigo"  maxlength="4" max="9999" required />
+                                            <input class="form-control form-control-lg" type="number" name="codigo" value="" placeholder="Codigo" required />
                                         </div>
                                         <div class="col-xs-6">
-                                            <input class="form-control form-control-lg" type="number" name="postal" value="" placeholder="Postal"  maxlength="4" max="9999" required />
+                                            <input class="form-control form-control-lg" type="number" name="postal" value="" placeholder="Postal" required />
                                         </div>
                                       </div>
-                                      <input class="form-control form-control-lg" type="number" name="tele" value="" placeholder="TELEFONE" maxlength="9" max="9999999999" required>
+                                      <input class="form-control form-control-lg" type="number" name="tele" value="" placeholder="TELEFONE" maxlength="9" size="9" required>
                                       <br>
-                                      <input class="form-control form-control-lg" type="number" name="nif" value="" placeholder="NIF" maxlength="9" max="9999999999" required>
+                                      <input class="form-control form-control-lg" type="number" name="nif" value="" placeholder="NIF" maxlength="9" size="9" required>
                                     </div>
                                 <br>
                               </div>
                               </div>
                               <br>
-
-                              <script type="text/javascript">
-                                          function enforce_maxlength(event) {
-                                            var t = event.target;
-                                            if (t.hasAttribute('maxlength')) {
-                                            t.value = t.value.slice(0, t.getAttribute('maxlength'));
-                                              }
-                                            }
-                                            document.body.addEventListener('input', enforce_maxlength);
-                                      </script>
                               <button type="submit" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub"> Gravar </button>
                             </form>
 

@@ -136,4 +136,22 @@ include 'php/functions.php';
     include 'php/deconn.php';
   }
   ?>
+
+  <div class="row">
+    <div class="mx-auto text-center" style="margin-top:2%;">
+      <?php
+        if ($login=='register') {
+      ?>
+          <a href="login.php?opc=login">Sign In</a>
+      <?php
+          }
+        else{
+      ?>
+          <a href="login.php?opc=register">Sign Up</a>
+      <?php
+          }
+      ?>
+    </div>
+  </div>
+
 </div>

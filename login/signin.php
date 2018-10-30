@@ -11,8 +11,10 @@
   </div>
     <?php
     if (isset($_POST['login'])) {
+      include 'php/conn.php';
       include 'php/functions.php';
       login($_POST['username'],$_POST['password']);
+      include 'php/deconn.php';
     } ?>
   <div class="row">
     <div class="mx-auto text-center">

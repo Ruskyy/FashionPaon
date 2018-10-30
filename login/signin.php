@@ -1,14 +1,19 @@
 <div class=" card col-md-5 mx-auto" style="padding:2%">
   <img class="card-img-top" src="00_Recources/logo.png" alt="Card image cap" width="50%" height="50%">
   <div class="card-body">
-    <form class="" action="index.html" method="post">
-      <input class="form-control form-control-lg" type="text" placeholder="Username" required>
+    <form class="" action="" method="post">
+      <input class="form-control form-control-lg" type="text" placeholder="Username" name="username" required>
       <br>
-      <input class="form-control form-control-lg" type="password" placeholder="Password" required>
+      <input class="form-control form-control-lg" type="password" placeholder="Password" name="password" required>
       <br>
-      <button type="input" class="btn btn-primary btn-lg btn-block" id="btn_sub"> Login </button>
+      <button type="input" class="btn btn-primary btn-lg btn-block" id="btn_sub" name="login"> Login </button>
     </form>
   </div>
+    <?php
+    if (isset($_POST['login'])) {
+      include 'php/functions.php';
+      login($_POST['username'],$_POST['password']);
+    } ?>
   <div class="row">
     <div class="mx-auto text-center">
       <?php

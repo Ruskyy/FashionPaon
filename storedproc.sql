@@ -5,7 +5,7 @@ CREATE PROCEDURE IF NOT EXISTS usp_login(
   IN password varchar(50)
 )
 BEGIN
-SELECT cliente_id, cliente_username, cliente_nome, cliente_apelido, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_email, cliente_img_path
+SELECT cliente_id, cliente_tipo, cliente_username, cliente_nome, cliente_apelido, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_email, cliente_img_path
 FROM cliente WHERE cliente_username like username AND cliente_password like password;
 END;;
 

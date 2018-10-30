@@ -105,7 +105,7 @@ include 'php/functions.php';
         $img_path="images/uploads/".$generatedname;
          move_uploaded_file($file_tmp,"images/uploads/".$generatedname);
       }else{
-         echo($errors);
+         // echo($errors);
       }
     }else {
         $img_path="images/unknown.png";
@@ -122,7 +122,7 @@ include 'php/functions.php';
       VALUES ('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]',0)");*/
 
 
-      mysqli_query($conn,"CALL usp_register('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
+      @mysqli_query($conn,"CALL usp_register('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
 
       echo 'sucesso';
     }else {

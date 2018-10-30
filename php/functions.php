@@ -6,9 +6,7 @@ function login($username,$password){
     </div>';
   }else {
     include 'connections/conn.php';
-    $qlogin = mysqli_query($conn,"SELECT func_user, func_pass, func_tipo, func_id, func_avatar_path
-       FROM funcionario
-       WHERE func_user = '$username' AND func_pass = '$password'");
+    $qlogin = mysqli_query($conn,"CALL usp_login('$_POST[username]','$_POST[password]')");
     $alogin = mysqli_fetch_array($qlogin);
     $count= mysqli_num_rows($qlogin);
     if($count == 0){
@@ -18,14 +16,22 @@ function login($username,$password){
     }
     else{
       session_start();
-      $_SESSION["id"] = $alogin["func_id"];
-      $_SESSION["tipo"] = $alogin["func_tipo"];
-      $_SESSION["username"] = $alogin["func_user"];
-      $_SESSION["imagepath"] = $alogin["func_avatar_path"];
-      if ($alogin["func_tipo"] != 1) {
-        echo "<meta http-equiv='refresh' content='0; URL=user/index.php'>";
-      }else {
+      $_SESSION["id"] = $alogin["cliente_id"];
+      $_SESSION["username"] = $alogin["cliente_username"];
+      $_SESSION["tipo"] = $alogin["cliente_tipo"];
+      $_SESSION["nome"] = $alogin["cliente_nome"];
+      $_SESSION["apelido"] = $alogin["cliente_apelido"];
+      $_SESSION["datanasc"] = $alogin["cliente_datanasc"];
+      $_SESSION["morada"] = $alogin["cliente_morada"];
+      $_SESSION["idpais"] = $alogin["cliente_idpais"];
+      $_SESSION["nif"] = $alogin["cliente_nif"];
+      $_SESSION["tele"] = $alogin["cliente_tele"];
+      $_SESSION["email"] = $alogin["cliente_email"];
+      $_SESSION["imagepath"] = $alogin["cliente_img_path"];
+      if ($alogin["cliente_tipo"] != 1) {
         echo "<meta http-equiv='refresh' content='0; URL=index.php'>";
+      }else {
+        echo "<meta http-equiv='refresh' content='0; URL=backoffice/dashboard.php'>";
       }
     }
   }

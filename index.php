@@ -203,7 +203,11 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						<?php echo $_SESSION["username"]; ?>
+						<?php if (!isset($_SESSION)) {
+							echo $_SESSION["username"];
+						}else {
+							echo "Guest";
+						} ?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -214,9 +218,40 @@
 					</div>
 
 					<!--  -->
-					<a href="#" class="header-wrapicon1 dis-block m-l-30">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+
+					<div class="header-wrapicon1 dis-block m-l-30">
+						<img src="images/icons/icon-header-01.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+
+						<!-- Header cart noti -->
+						<div class="header-cart header-dropdown ">
+							<div class="text-center">
+							<li> <img src="images/uploads/6SyKYK4oDqfwa6V4bwqxKTBRuVNxuRRwlo9h7KtNsEcwpk9rAtH05kGcvBqtVvNPWM7HECe4ELvp2pLGnimmOD8pT9riJ250V2sZ.jpg" alt="" width="100px" height="100px"> </li>
+							</div>
+
+
+							<li style="margin-top:2%;">
+								<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									Profile
+								</a>
+							</li>
+
+							<li style="margin-top:2%;">
+									<?php
+									if (!isset($_SESSION)) {
+										?>
+										<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4"> Log In </a>
+									<?php
+									}else {
+										?>
+											<a href="php/fecharsessao.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4"> Log Out </a>
+									<?php
+									}
+										?>
+
+							</li>
+
+						</div>
+					</div>
 
 					<span class="linedivide1"></span>
 

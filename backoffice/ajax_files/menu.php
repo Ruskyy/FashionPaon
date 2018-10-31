@@ -2,16 +2,16 @@
 $dhb = $_POST['tipo'];
     switch ($dhb) {
       case 1:
-        include '../menu_files/add_cliente.php';
+        include '../menu_files/Clientes/add_cliente.php';
         break;
       case 2:
-        include '../menu_files/list_cliente.php';
+        include '../menu_files/Clientes/list_cliente.php';
         break;
       case 3:
-        include '../menu_files/add_admin.php';
+        include '../menu_files/Admins/add_admin.php';
         break;
       case 4:
-        include '../menu_files/list_admin.php';
+        include '../menu_files/Admins/list_admin.php';
         break;
       case 5:
         include '../menu_files/.php';

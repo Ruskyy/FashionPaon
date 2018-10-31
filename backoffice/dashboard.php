@@ -179,6 +179,18 @@ function myFunction(x){
 				}
 		});
 }
+
+function mySubFunction(x){
+		$tipo = x;
+		$.ajax({
+				url:"ajax_files/sub_menu.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#sub_menu_aqui').html(data);
+				}
+		});
+}
 </script>
 
 <div class="wrapper">

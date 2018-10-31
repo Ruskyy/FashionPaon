@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php
+	require_once 'php/functions.php';
+	session_start();
+	?>
 	<title>Fashion Paon</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +44,7 @@
 	<!-- header fixed -->
 	<div class="wrap_header fixed-header2 trans-0-4">
 		<!-- Logo -->
-		<a href="index.html" class="logo">
+		<a href="index.php" class="logo">
 			<img src="images/icons/logo.png" alt="IMG-LOGO">
 		</a>
 
@@ -49,31 +53,31 @@
 			<nav class="menu">
 				<ul class="main_menu">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="index.php">Home</a>
 					</li>
 
 					<li>
-						<a href="product.html">Shop</a>
+						<a href="product.php">Shop</a>
 					</li>
 
 					<li class="sale-noti">
-						<a href="product.html">Sale</a>
+						<a href="product.php">Sale</a>
 					</li>
 
 					<li>
-						<a href="cart.html">Cart</a>
+						<a href="cart.php">Cart</a>
 					</li>
 
 					<li>
-						<a href="blog.html">Blog</a>
+						<a href="blog.php">Blog</a>
 					</li>
 
 					<li>
-						<a href="about.html">About</a>
+						<a href="about.php">About</a>
 					</li>
 
 					<li>
-						<a href="contact.html">Contact</a>
+						<a href="contact.php">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -150,7 +154,7 @@
 					<div class="header-cart-buttons">
 						<div class="header-cart-wrapbtn">
 							<!-- Button -->
-							<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+							<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 								View Cart
 							</a>
 						</div>
@@ -170,7 +174,7 @@
 	<!-- top noti
 	<div class="flex-c-m size22 bg0 s-text21 pos-relative">
 		20% off everything!
-		<a href="product.html" class="s-text22 hov6 p-l-5">
+		<a href="product.php" class="s-text22 hov6 p-l-5">
 			Shop Now
 		</a>
 
@@ -193,13 +197,13 @@
 				</div>
 
 				<!-- Logo2 -->
-				<a href="index.html" class="logo2">
+				<a href="index.php" class="logo2">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						fashe@example.com
+						<?php echo $_SESSION["username"]; ?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -279,7 +283,7 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
@@ -303,27 +307,27 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="index.php">Home</a>
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.php">Shop</a>
 							</li>
 
 							<li class="sale-noti">
-								<a href="product.html">Sale</a>
+								<a href="product.php">Sale</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="blog.php">Blog</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="about.php">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -339,7 +343,7 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a href="index.php" class="logo-mobile">
 				<img src="images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
@@ -416,7 +420,7 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
@@ -476,32 +480,32 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.html">Home</a>
+						<a href="index.php">Home</a>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Shop</a>
+						<a href="product.php">Shop</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Sale</a>
+						<a href="product.php">Sale</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="cart.html">Features</a>
+						<a href="cart.php">Features</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="blog.html">Blog</a>
+						<a href="blog.php">Blog</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="about.html">About</a>
+						<a href="about.php">About</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="contact.html">Contact</a>
+						<a href="contact.php">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -524,7 +528,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product.php" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Shop Now
 							</a>
 						</div>
@@ -543,7 +547,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product.php" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Shop Now
 							</a>
 						</div>
@@ -562,7 +566,7 @@
 
 						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
 							<!-- Button -->
-							<a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+							<a href="product.php" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
 								Shop Now
 							</a>
 						</div>
@@ -677,7 +681,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -710,7 +714,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -743,7 +747,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Coach slim easton black
 										</a>
 
@@ -776,7 +780,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -809,7 +813,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -842,7 +846,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -875,7 +879,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Coach slim easton black
 										</a>
 
@@ -908,7 +912,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Frayed denim shorts
 										</a>
 
@@ -950,7 +954,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Frayed denim shorts
 										</a>
 
@@ -987,7 +991,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1020,7 +1024,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -1053,7 +1057,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1086,7 +1090,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Frayed denim shorts
 										</a>
 
@@ -1123,7 +1127,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1156,7 +1160,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -1194,7 +1198,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1227,7 +1231,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -1260,7 +1264,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1293,7 +1297,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -1331,7 +1335,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1364,7 +1368,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -1397,7 +1401,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Coach slim easton black
 										</a>
 
@@ -1430,7 +1434,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Frayed denim shorts
 										</a>
 
@@ -1467,7 +1471,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Coach slim easton black
 										</a>
 
@@ -1500,7 +1504,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Frayed denim shorts
 										</a>
 
@@ -1537,7 +1541,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Herschel supply co 25l
 										</a>
 
@@ -1570,7 +1574,7 @@
 									</div>
 
 									<div class="block2-txt p-t-20">
-										<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+										<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
 											Denim jacket blue
 										</a>
 
@@ -1621,13 +1625,13 @@
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+						<a href="blog-detail.php" class="block3-img dis-block hov-img-zoom">
 							<img src="images/blog-01.jpg" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
 							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
+								<a href="blog-detail.php" class="m-text11">
 									Black Friday Guide: Best Sales & Discount Codes
 								</a>
 							</h4>
@@ -1645,13 +1649,13 @@
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+						<a href="blog-detail.php" class="block3-img dis-block hov-img-zoom">
 							<img src="images/blog-02.jpg" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
 							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
+								<a href="blog-detail.php" class="m-text11">
 									The White Sneakers Nearly Every Fashion Girls Own
 								</a>
 							</h4>
@@ -1669,13 +1673,13 @@
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
-						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+						<a href="blog-detail.php" class="block3-img dis-block hov-img-zoom">
 							<img src="images/blog-03.jpg" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
 							<h4 class="p-b-7">
-								<a href="blog-detail.html" class="m-text11">
+								<a href="blog-detail.php" class="m-text11">
 									New York SS 2018 Street Style: Annina Mislin
 								</a>
 							</h4>
@@ -2071,14 +2075,14 @@
 	<script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		$('.block2-btn-addcart').each(function(){
-			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+			var nameProduct = $(this).parent().parent().parent().find('.block2-name').php();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to cart !", "success");
 			});
 		});
 
 		$('.block2-btn-addwishlist').each(function(){
-			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+			var nameProduct = $(this).parent().parent().parent().find('.block2-name').php();
 			$(this).on('click', function(){
 				swal(nameProduct, "is added to wishlist !", "success");
 			});

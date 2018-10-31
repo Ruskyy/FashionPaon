@@ -6,12 +6,12 @@ function login($username,$password){
     </div>';
   }else {
     include 'conn.php';
-    $hashtest = mysqli_fetch_array(mysqli_query($conn, "SELECT cliente_password FROM cliente WHERE cliente_username = '$username'"));
 
-    if (password_verify($password,$hashtest['cliente_password'])){
+    $qlogin = mysqli_query($conn,"CALL usp_login('$username','$password')");
+    @$alogin = mysqli_fetch_array($qlogin);
+    $count= mysqli_num_rows($qlogin);
+    if ($qlogin != 0){
       echo "ENTROU";
-      $qlogin = mysqli_query($conn,"CALL usp_login('$_POST[username]','$hashtest[cliente_password]')");
-      @$alogin = mysqli_fetch_array($qlogin);
         session_start();
         $_SESSION["id"] = $alogin["cliente_id"];
         $_SESSION["username"] = $alogin["cliente_username"];
@@ -26,8 +26,8 @@ function login($username,$password){
         $_SESSION["email"] = $alogin["cliente_email"];
         $_SESSION["imagepath"] = $alogin["cliente_img_path"];
         if ($alogin["cliente_tipo"] != 1) {
-          /*echo "<meta http-equiv='refresh' content='0; URL=index.html'>";*/
-          echo "KAPPA";
+          echo "<meta http-equiv='refresh' content='0; URL=index.php'>";
+          // echo "KAPPA";
         }else {
           echo "<meta http-equiv='refresh' content='0; URL=backoffice/dashboard.php'>";
         }
@@ -51,9 +51,9 @@ function validar(){
   if(!$_SESSION["id"]){
     echo "<meta http-equiv='refresh' content='0; URL=login.php'>";
   }else {
-      if($_SESSION["tipo"] !=1){
-        echo "<meta http-equiv='refresh' content='0; URL=user/index.php'>";
-      }
+      // if($_SESSION["tipo"] != 1){
+        echo "<meta http-equiv='refresh' content='0; URL=index.php'>";
+      // }
   }
 }
 

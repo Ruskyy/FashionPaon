@@ -66,7 +66,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="index.php" class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -75,31 +75,31 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="index.php">Home</a>
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.php">Shop</a>
 							</li>
 
 							<li class="sale-noti">
-								<a href="product.html">Sale</a>
+								<a href="product.php">Sale</a>
 							</li>
 
 							<li>
-								<a href="cart.html">Features</a>
+								<a href="cart.php">Features</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="blog.php">Blog</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="about.php">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -176,7 +176,7 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
@@ -197,7 +197,7 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a href="index.php" class="logo-mobile">
 				<img src="images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
@@ -274,7 +274,7 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
@@ -334,32 +334,32 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.html">Home</a>
+						<a href="index.php">Home</a>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Shop</a>
+						<a href="product.php">Shop</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Sale</a>
+						<a href="product.php">Sale</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="cart.html">Features</a>
+						<a href="cart.php">Features</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="blog.html">Blog</a>
+						<a href="blog.php">Blog</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="about.html">About</a>
+						<a href="about.php">About</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="contact.html">Contact</a>
+						<a href="contact.php">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -381,7 +381,7 @@
 					<div class="p-r-50 p-r-0-lg">
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
-							<a href="blog-detail.html" class="item-blog-img pos-relative dis-block hov-img-zoom">
+							<a href="blog-detail.php" class="item-blog-img pos-relative dis-block hov-img-zoom">
 								<img src="images/blog-04.jpg" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
@@ -391,7 +391,7 @@
 
 							<div class="item-blog-txt p-t-33">
 								<h4 class="p-b-11">
-									<a href="blog-detail.html" class="m-text24">
+									<a href="blog-detail.php" class="m-text24">
 										Black Friday Guide: Best Sales & Discount Codes
 									</a>
 								</h4>
@@ -416,7 +416,7 @@
 									Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
 								</p>
 
-								<a href="blog-detail.html" class="s-text20">
+								<a href="blog-detail.php" class="s-text20">
 									Continue Reading
 									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
 								</a>
@@ -425,7 +425,7 @@
 
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
-							<a href="blog-detail.html" class="item-blog-img pos-relative dis-block hov-img-zoom">
+							<a href="blog-detail.php" class="item-blog-img pos-relative dis-block hov-img-zoom">
 								<img src="images/blog-05.jpg" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
@@ -435,7 +435,7 @@
 
 							<div class="item-blog-txt p-t-33">
 								<h4 class="p-b-11">
-									<a href="blog-detail.html" class="m-text24">
+									<a href="blog-detail.php" class="m-text24">
 										The White Sneakers Nearly Every Fashion Girls Own
 									</a>
 								</h4>
@@ -460,7 +460,7 @@
 									Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
 								</p>
 
-								<a href="blog-detail.html" class="s-text20">
+								<a href="blog-detail.php" class="s-text20">
 									Continue Reading
 									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
 								</a>
@@ -469,7 +469,7 @@
 
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
-							<a href="blog-detail.html" class="item-blog-img pos-relative dis-block hov-img-zoom">
+							<a href="blog-detail.php" class="item-blog-img pos-relative dis-block hov-img-zoom">
 								<img src="images/blog-08.jpg" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
@@ -479,7 +479,7 @@
 
 							<div class="item-blog-txt p-t-33">
 								<h4 class="p-b-11">
-									<a href="blog-detail.html" class="m-text24">
+									<a href="blog-detail.php" class="m-text24">
 										Black Friday Guide: Best Sales & Discount Codes
 									</a>
 								</h4>
@@ -504,7 +504,7 @@
 									Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
 								</p>
 
-								<a href="blog-detail.html" class="s-text20">
+								<a href="blog-detail.php" class="s-text20">
 									Continue Reading
 									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
 								</a>
@@ -513,7 +513,7 @@
 
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
-							<a href="blog-detail.html" class="item-blog-img pos-relative dis-block hov-img-zoom">
+							<a href="blog-detail.php" class="item-blog-img pos-relative dis-block hov-img-zoom">
 								<img src="images/blog-02.jpg" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
@@ -523,7 +523,7 @@
 
 							<div class="item-blog-txt p-t-33">
 								<h4 class="p-b-11">
-									<a href="blog-detail.html" class="m-text24">
+									<a href="blog-detail.php" class="m-text24">
 										Black Friday Guide: Best Sales & Discount Codes
 									</a>
 								</h4>
@@ -548,7 +548,7 @@
 									Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
 								</p>
 
-								<a href="blog-detail.html" class="s-text20">
+								<a href="blog-detail.php" class="s-text20">
 									Continue Reading
 									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
 								</a>
@@ -557,7 +557,7 @@
 
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
-							<a href="blog-detail.html" class="item-blog-img pos-relative dis-block hov-img-zoom">
+							<a href="blog-detail.php" class="item-blog-img pos-relative dis-block hov-img-zoom">
 								<img src="images/blog-03.jpg" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
@@ -567,7 +567,7 @@
 
 							<div class="item-blog-txt p-t-33">
 								<h4 class="p-b-11">
-									<a href="blog-detail.html" class="m-text24">
+									<a href="blog-detail.php" class="m-text24">
 										Black Friday Guide: Best Sales & Discount Codes
 									</a>
 								</h4>
@@ -592,7 +592,7 @@
 									Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
 								</p>
 
-								<a href="blog-detail.html" class="s-text20">
+								<a href="blog-detail.php" class="s-text20">
 									Continue Reading
 									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
 								</a>
@@ -662,12 +662,12 @@
 
 						<ul class="bgwhite">
 							<li class="flex-w p-b-20">
-								<a href="product-detail.html" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
 									<img src="images/item-16.jpg" alt="IMG-PRODUCT">
 								</a>
 
 								<div class="w-size23 p-t-5">
-									<a href="product-detail.html" class="s-text20">
+									<a href="product-detail.php" class="s-text20">
 										White Shirt With Pleat Detail Back
 									</a>
 
@@ -678,12 +678,12 @@
 							</li>
 
 							<li class="flex-w p-b-20">
-								<a href="product-detail.html" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
 									<img src="images/item-17.jpg" alt="IMG-PRODUCT">
 								</a>
 
 								<div class="w-size23 p-t-5">
-									<a href="product-detail.html" class="s-text20">
+									<a href="product-detail.php" class="s-text20">
 										Converse All Star Hi Black Canvas
 									</a>
 
@@ -694,12 +694,12 @@
 							</li>
 
 							<li class="flex-w p-b-20">
-								<a href="product-detail.html" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
 									<img src="images/item-08.jpg" alt="IMG-PRODUCT">
 								</a>
 
 								<div class="w-size23 p-t-5">
-									<a href="product-detail.html" class="s-text20">
+									<a href="product-detail.php" class="s-text20">
 										Nixon Porter Leather Watch In Tan
 									</a>
 
@@ -710,12 +710,12 @@
 							</li>
 
 							<li class="flex-w p-b-20">
-								<a href="product-detail.html" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
 									<img src="images/item-03.jpg" alt="IMG-PRODUCT">
 								</a>
 
 								<div class="w-size23 p-t-5">
-									<a href="product-detail.html" class="s-text20">
+									<a href="product-detail.php" class="s-text20">
 										Denim jacket blue
 									</a>
 
@@ -726,12 +726,12 @@
 							</li>
 
 							<li class="flex-w p-b-20">
-								<a href="product-detail.html" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
 									<img src="images/item-05.jpg" alt="IMG-PRODUCT">
 								</a>
 
 								<div class="w-size23 p-t-5">
-									<a href="product-detail.html" class="s-text20">
+									<a href="product-detail.php" class="s-text20">
 										Nixon Porter Leather Watch In Tan
 									</a>
 

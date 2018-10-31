@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Cart</title>
+	<title>Blog Detail</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -66,7 +66,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="index.php" class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -75,27 +75,31 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="index.html">Home</a>
+								<a href="index.php">Home</a>
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.php">Shop</a>
 							</li>
 
 							<li class="sale-noti">
-								<a href="product.html">Sale</a>
+								<a href="product.php">Sale</a>
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="cart.php">Features</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="blog.php">Blog</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="about.php">About</a>
+							</li>
+
+							<li>
+								<a href="contact.php">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -172,7 +176,7 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
@@ -193,7 +197,7 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a href="index.php" class="logo-mobile">
 				<img src="images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
@@ -270,7 +274,7 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										View Cart
 									</a>
 								</div>
@@ -330,208 +334,405 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.html">Home</a>
+						<a href="index.php">Home</a>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Shop</a>
+						<a href="product.php">Shop</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="product.html">Sale</a>
+						<a href="product.php">Sale</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="blog.html">Blog</a>
+						<a href="cart.php">Features</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="about.html">About</a>
+						<a href="blog.php">Blog</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="contact.html">Contact</a>
+						<a href="about.php">About</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="contact.php">Contact</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-01.jpg);">
-		<h2 class="l-text2 t-center">
-			Cart
-		</h2>
-	</section>
+	<!-- breadcrumb -->
+	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+		<a href="index.php" class="s-text16">
+			Home
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
 
-	<!-- Cart -->
-	<section class="cart bgwhite p-t-70 p-b-100">
+		<a href="blog.php" class="s-text16">
+			Blog
+			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+		</a>
+
+		<span class="s-text17">
+			Black Friday Guide: Best Sales & Discount Codes
+		</span>
+	</div>
+
+	<!-- content page -->
+	<section class="bgwhite p-t-60 p-b-25">
 		<div class="container">
-			<!-- Cart item -->
-			<div class="container-table-cart pos-relative">
-				<div class="wrap-table-shopping-cart bgwhite">
-					<table class="table-shopping-cart">
-						<tr class="table-head">
-							<th class="column-1"></th>
-							<th class="column-2">Product</th>
-							<th class="column-3">Price</th>
-							<th class="column-4 p-l-70">Quantity</th>
-							<th class="column-5">Total</th>
-						</tr>
+			<div class="row">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-50 p-r-0-lg">
+						<div class="p-b-40">
+							<div class="blog-detail-img wrap-pic-w">
+								<img src="images/blog-04.jpg" alt="IMG-BLOG">
+							</div>
 
-						<tr class="table-row">
-							<td class="column-1">
-								<div class="cart-img-product b-rad-4 o-f-hidden">
-									<img src="images/item-10.jpg" alt="IMG-PRODUCT">
+							<div class="blog-detail-txt p-t-33">
+								<h4 class="p-b-11 m-text24">
+									Black Friday Guide: Best Sales & Discount Codes
+								</h4>
+
+								<div class="s-text8 flex-w flex-m p-b-21">
+									<span>
+										By Admin
+										<span class="m-l-3 m-r-6">|</span>
+									</span>
+
+									<span>
+										28 Dec, 2018
+										<span class="m-l-3 m-r-6">|</span>
+									</span>
+
+									<span>
+										Cooking, Food
+										<span class="m-l-3 m-r-6">|</span>
+									</span>
+
+									<span>
+										8 Comments
+									</span>
 								</div>
-							</td>
-							<td class="column-2">Men Tshirt</td>
-							<td class="column-3">$36.00</td>
-							<td class="column-4">
-								<div class="flex-w bo5 of-hidden w-size17">
-									<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-									</button>
 
-									<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
+								<p class="p-b-25">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed turpis sed lorem dignissim vulputate nec cursus ante. Nunc sit amet tempor magna. Donec eros sem, porta eget leo et, varius eleifend mauris. Donec eu leo congue, faucibus quam eu, viverra mauris. Nulla consectetur lorem mi, at scelerisque metus hendrerit vitae. Proin vel magna vel neque porta ultricies non eget mauris. Suspendisse potenti.
+								</p>
 
-									<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-									</button>
+								<p class="p-b-25">
+									Aliquam faucibus scelerisque placerat. Vestibulum vel libero eu nulla varius pretium eget eu magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean dictum faucibus felis, ac vestibulum risus mollis in. Phasellus neque dolor, euismod vitae auctor eget, dignissim a felis. Etiam malesuada elit a nibh aliquam, placerat ultricies nibh dictum. Nam ut egestas velit. Pellentesque viverra tincidunt tellus. Etiam cursus, ligula id vehicula cursus, turpis mauris facilisis massa, eget tincidunt est purus et odio. Nam quis luctus libero, non posuere velit. Ut eu varius diam, eu euismod elit. Donec efficitur, neque eu consectetur consectetur, dui sem consectetur felis, vitae rutrum risus urna vel arcu. Aliquam semper ullamcorper laoreet. Sed arcu lectus, fermentum imperdiet purus eu, ornare ornare libero.
+								</p>
+							</div>
+
+							<div class="flex-m flex-w p-t-20">
+								<span class="s-text20 p-r-20">
+									Tags
+								</span>
+
+								<div class="wrap-tags flex-w">
+									<a href="#" class="tag-item">
+										Streetstyle
+									</a>
+
+									<a href="#" class="tag-item">
+										Crafts
+									</a>
 								</div>
-							</td>
-							<td class="column-5">$36.00</td>
-						</tr>
+							</div>
+						</div>
 
-						<tr class="table-row">
-							<td class="column-1">
-								<div class="cart-img-product b-rad-4 o-f-hidden">
-									<img src="images/item-05.jpg" alt="IMG-PRODUCT">
-								</div>
-							</td>
-							<td class="column-2">Mug Adventure</td>
-							<td class="column-3">$16.00</td>
-							<td class="column-4">
-								<div class="flex-w bo5 of-hidden w-size17">
-									<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-									</button>
+						<!-- Leave a comment -->
+						<form class="leave-comment">
+							<h4 class="m-text25 p-b-14">
+								Leave a Comment
+							</h4>
 
-									<input class="size8 m-text18 t-center num-product" type="number" name="num-product2" value="1">
+							<p class="s-text8 p-b-40">
+								Your email address will not be published. Required fields are marked *
+							</p>
 
-									<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-									</button>
-								</div>
-							</td>
-							<td class="column-5">$16.00</td>
-						</tr>
-					</table>
-				</div>
-			</div>
+							<textarea class="dis-block s-text7 size18 bo12 p-l-18 p-r-18 p-t-13 m-b-20" name="comment" placeholder="Comment..."></textarea>
 
-			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-				<div class="flex-w flex-m w-full-sm">
-					<div class="size11 bo4 m-r-10">
-						<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Coupon Code">
+							<div class="bo12 of-hidden size19 m-b-20">
+								<input class="sizefull s-text7 p-l-18 p-r-18" type="text" name="name" placeholder="Name *">
+							</div>
+
+							<div class="bo12 of-hidden size19 m-b-20">
+								<input class="sizefull s-text7 p-l-18 p-r-18" type="text" name="email" placeholder="Email *">
+							</div>
+
+							<div class="bo12 of-hidden size19 m-b-30">
+								<input class="sizefull s-text7 p-l-18 p-r-18" type="text" name="website" placeholder="Website">
+							</div>
+
+							<div class="w-size24">
+								<!-- Button -->
+								<button class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									Post Comment
+								</button>
+							</div>
+						</form>
 					</div>
-
-					<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-						<!-- Button -->
-						<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-							Apply coupon
-						</button>
-					</div>
 				</div>
 
-				<div class="size10 trans-0-4 m-t-10 m-b-10">
-					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-						Update Cart
-					</button>
-				</div>
-			</div>
+				<div class="col-md-4 col-lg-3 p-b-80">
+					<div class="rightbar">
+						<!-- Search -->
+						<div class="pos-relative bo11 of-hidden">
+							<input class="s-text7 size16 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search">
 
-			<!-- Total -->
-			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-				<h5 class="m-text20 p-b-24">
-					Cart Totals
-				</h5>
-
-				<!--  -->
-				<div class="flex-w flex-sb-m p-b-12">
-					<span class="s-text18 w-size19 w-full-sm">
-						Subtotal:
-					</span>
-
-					<span class="m-text21 w-size20 w-full-sm">
-						$39.00
-					</span>
-				</div>
-
-				<!--  -->
-				<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
-					<span class="s-text18 w-size19 w-full-sm">
-						Shipping:
-					</span>
-
-					<div class="w-size20 w-full-sm">
-						<p class="s-text8 p-b-23">
-							There are no shipping methods available. Please double check your address, or contact us if you need any help.
-						</p>
-
-						<span class="s-text19">
-							Calculate Shipping
-						</span>
-
-						<div class="rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12">
-							<select class="selection-2" name="country">
-								<option>Select a country...</option>
-								<option>US</option>
-								<option>UK</option>
-								<option>Japan</option>
-							</select>
-						</div>
-
-						<div class="size13 bo4 m-b-12">
-						<input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="state" placeholder="State /  country">
-						</div>
-
-						<div class="size13 bo4 m-b-22">
-							<input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="postcode" placeholder="Postcode / Zip">
-						</div>
-
-						<div class="size14 trans-0-4 m-b-10">
-							<!-- Button -->
-							<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-								Update Totals
+							<button class="flex-c-m size5 ab-r-m color1 color0-hov trans-0-4">
+								<i class="fs-13 fa fa-search" aria-hidden="true"></i>
 							</button>
 						</div>
+
+						<!-- Categories -->
+						<h4 class="m-text23 p-t-56 p-b-34">
+							Categories
+						</h4>
+
+						<ul>
+							<li class="p-t-6 p-b-8 bo6">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Fashion
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Beauty
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Street Style
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									Life Style
+								</a>
+							</li>
+
+							<li class="p-t-6 p-b-8 bo7">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									DIY & Crafts
+								</a>
+							</li>
+						</ul>
+
+						<!-- Featured Products -->
+						<h4 class="m-text23 p-t-65 p-b-34">
+							Featured Products
+						</h4>
+
+						<ul class="bgwhite">
+							<li class="flex-w p-b-20">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+									<img src="images/item-16.jpg" alt="IMG-PRODUCT">
+								</a>
+
+								<div class="w-size23 p-t-5">
+									<a href="product-detail.php" class="s-text20">
+										White Shirt With Pleat Detail Back
+									</a>
+
+									<span class="dis-block s-text17 p-t-6">
+										$19.00
+									</span>
+								</div>
+							</li>
+
+							<li class="flex-w p-b-20">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+									<img src="images/item-17.jpg" alt="IMG-PRODUCT">
+								</a>
+
+								<div class="w-size23 p-t-5">
+									<a href="product-detail.php" class="s-text20">
+										Converse All Star Hi Black Canvas
+									</a>
+
+									<span class="dis-block s-text17 p-t-6">
+										$39.00
+									</span>
+								</div>
+							</li>
+
+							<li class="flex-w p-b-20">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+									<img src="images/item-08.jpg" alt="IMG-PRODUCT">
+								</a>
+
+								<div class="w-size23 p-t-5">
+									<a href="product-detail.php" class="s-text20">
+										Nixon Porter Leather Watch In Tan
+									</a>
+
+									<span class="dis-block s-text17 p-t-6">
+										$17.00
+									</span>
+								</div>
+							</li>
+
+							<li class="flex-w p-b-20">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+									<img src="images/item-03.jpg" alt="IMG-PRODUCT">
+								</a>
+
+								<div class="w-size23 p-t-5">
+									<a href="product-detail.php" class="s-text20">
+										Denim jacket blue
+									</a>
+
+									<span class="dis-block s-text17 p-t-6">
+										$39.00
+									</span>
+								</div>
+							</li>
+
+							<li class="flex-w p-b-20">
+								<a href="product-detail.php" class="dis-block wrap-pic-w w-size22 m-r-20 trans-0-4 hov4">
+									<img src="images/item-05.jpg" alt="IMG-PRODUCT">
+								</a>
+
+								<div class="w-size23 p-t-5">
+									<a href="product-detail.php" class="s-text20">
+										Nixon Porter Leather Watch In Tan
+									</a>
+
+									<span class="dis-block s-text17 p-t-6">
+										$17.00
+									</span>
+								</div>
+							</li>
+						</ul>
+
+						<!-- Archive -->
+						<h4 class="m-text23 p-t-50 p-b-16">
+							Archive
+						</h4>
+
+						<ul>
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									July 2018
+								</a>
+
+								<span class="s-text13">
+									(9)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									June 2018
+								</a>
+
+								<span class="s-text13">
+									(39)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									May 2018
+								</a>
+
+								<span class="s-text13">
+									(29)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									April  2018
+								</a>
+
+								<span class="s-text13">
+									(35)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									March 2018
+								</a>
+
+								<span class="s-text13">
+									(22)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									February 2018
+								</a>
+
+								<span class="s-text13">
+									(32)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									January 2018
+								</a>
+
+								<span class="s-text13">
+									(21)
+								</span>
+							</li>
+
+							<li class="flex-sb-m">
+								<a href="#" class="s-text13 p-t-5 p-b-5">
+									December 2017
+								</a>
+
+								<span class="s-text13">
+									(26)
+								</span>
+							</li>
+						</ul>
+
+						<!-- Tags -->
+						<h4 class="m-text23 p-t-50 p-b-25">
+							Tags
+						</h4>
+
+						<div class="wrap-tags flex-w">
+							<a href="#" class="tag-item">
+								Fashion
+							</a>
+
+							<a href="#" class="tag-item">
+								Lifestyle
+							</a>
+
+							<a href="#" class="tag-item">
+								Denim
+							</a>
+
+							<a href="#" class="tag-item">
+								Streetstyle
+							</a>
+
+							<a href="#" class="tag-item">
+								Crafts
+							</a>
+						</div>
 					</div>
-				</div>
-
-				<!--  -->
-				<div class="flex-w flex-sb-m p-t-26 p-b-30">
-					<span class="m-text22 w-size19 w-full-sm">
-						Total:
-					</span>
-
-					<span class="m-text21 w-size20 w-full-sm">
-						$39.00
-					</span>
-				</div>
-
-				<div class="size15 trans-0-4">
-					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-						Proceed to Checkout
-					</button>
 				</div>
 			</div>
 		</div>
 	</section>
-
 
 
 	<!-- Footer -->

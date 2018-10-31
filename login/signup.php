@@ -88,7 +88,7 @@ include 'php/functions.php';
       $file_size =$_FILES['image']['size'];
       $file_tmp =$_FILES['image']['tmp_name'];
       $file_type=$_FILES['image']['type'];
-      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      @$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
       $expensions= array("jpeg","jpg","png");
 
@@ -121,8 +121,8 @@ include 'php/functions.php';
       /*mysqli_query($conn,"INSERT INTO  cliente (cliente_username, cliente_password, cliente_nome, cliente_apelido, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif,	cliente_tele, cliente_email,	cliente_tipo )
       VALUES ('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]',0)");*/
 
-      $hashed_password = password_hash($_POST['pass'], PASSWORD_BCRYPT);
-      @mysqli_query($conn,"CALL usp_register('$_POST[user]','$hashed_password','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
+
+      @mysqli_query($conn,"CALL usp_register('$_POST[user]','$_POST[pass]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
 
       echo 'sucesso';
     }else {

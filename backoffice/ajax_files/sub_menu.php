@@ -11,7 +11,7 @@ $dhb = $_POST['tipo'];
         include '../menu_files/Clientes/editar.php';
         break;
       case 4:
-        include '../menu_files/.php';
+        include '../menu_files/Clientes/carrinho2.php';
         break;
     }
    ?>

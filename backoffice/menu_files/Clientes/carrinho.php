@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-          <div class="card" style="height:600px;">
+          <div class="card" style="height:650px;">
             <div class="header">
               <h4 class="title">Striped Table with Hover</h4>
               <p class="category">Here is a subtitle for this table</p>
@@ -145,6 +145,13 @@
                         </td>
                       </tr>
                   </tbody>
+                  <thead>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Total</th>
+                    <th>300€</th>
+                  </thead>
               </table>
               <script>
                   $('table.paginated2').each(function() {

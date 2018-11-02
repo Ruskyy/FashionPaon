@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-          <div class="card" style="height:650px;">
+          <div class="card" style="height:615px;">
             <div class="header">
               <h4 class="title">Striped Table with Hover</h4>
               <p class="category">Here is a subtitle for this table</p>
@@ -151,6 +151,7 @@
                     <th></th>
                     <th>Total</th>
                     <th>300€</th>
+                    <th></th>
                   </thead>
               </table>
               <script>

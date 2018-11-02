@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div id="btns" class="header">
+                <div class="header">
                     <h4 class="title">Striped Table with Hover</h4>
-                    <p class="category">Here is a subtitle for this table</p>
+                    <p id="btns" class="category">Here is a subtitle for this table</p>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-hover table-striped" id="myTable">

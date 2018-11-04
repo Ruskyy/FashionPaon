@@ -14,10 +14,10 @@ $dhb = $_POST['tipo'];
         include '../menu_files/Admins/list_admin.php';
         break;
       case 5:
-        include '../menu_files/.php';
+        include '../menu_files/Produtos/add_produto.php';
         break;
       case 6:
-        include '../menu_files/.php';
+        include '../menu_files/Produtos/list_produto.php';
         break;
       case 7:
         include '../menu_files/.php';

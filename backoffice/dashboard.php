@@ -24,7 +24,6 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -34,6 +33,7 @@
 <body>
 <script>
 $(document).ready(function(){
+	$("#4521").hide();
 	$(".sidabarsubmenu").hide();
 	$(".sidabarmenu").removeClass("active");
 	$(".sidabarsubsubmenu").removeClass("active");
@@ -82,7 +82,7 @@ $(document).ready(function(){
 
 			$("#navactasub4").show();
 			$("#navact4").addClass("active");
-			$("#change").html("Loja");
+			$("#change").html("Configuração");
 	});	// 5
 		$("#navact5").click(function(){
 			$(".sidabarsubmenu").hide();
@@ -166,6 +166,7 @@ $(document).ready(function(){
 			});
 
 });
+
 </script>
 <script>
 function myFunction(x){
@@ -191,6 +192,19 @@ function mySubFunction(x){
 				}
 		});
 }
+
+function mySuubFunction(x){
+		$tipo = x;
+		$.ajax({
+				url:"ajax_files/suub_menu.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+
+				}
+		});
+}
+
 </script>
 
 <div class="wrapper">
@@ -276,7 +290,7 @@ function mySubFunction(x){
 											<li id="navact33" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-note2"></i>
-															<p onclick="myFunction(7)">Imagens</p>
+															<p onclick="myFunction(7)">Descontos</p>
 													</a>
 											</li>
 										</ul>

@@ -23,7 +23,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -37,7 +37,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -51,7 +51,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -65,7 +65,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -79,7 +79,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -93,7 +93,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -107,7 +107,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -121,7 +121,7 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>
@@ -135,7 +135,49 @@
                         <td>Dakota Rice</td>
                         <td>$36,738</td>
                         <td>
-                          <input type="text" name="" value="" maxlength="2"oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" size="1">
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
+                        </td>
+                        <td>Niger</td>
+                        <td>
+                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+                              <i class="fa fa-times"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><img src="../00_Recources/final-4914.jpg" style="width:40px; height:60px;"></td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
+                        </td>
+                        <td>Niger</td>
+                        <td>
+                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+                              <i class="fa fa-times"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><img src="../00_Recources/final-4914.jpg" style="width:40px; height:60px;"></td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
+                        </td>
+                        <td>Niger</td>
+                        <td>
+                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+                              <i class="fa fa-times"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><img src="../00_Recources/final-4914.jpg" style="width:40px; height:60px;"></td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>
+                          <input class="form-control form-control-lg" type="text" name="" value="" maxlength="1"oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" style="width:36px;">
                         </td>
                         <td>Niger</td>
                         <td>

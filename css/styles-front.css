@@ -11,3 +11,8 @@
 .bodylogin{
   background-image: url("../images/wallpaper.jpg");
 }
+
+.avatar {
+    vertical-align: middle;
+    border-radius: 50%;
+}

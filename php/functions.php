@@ -6,32 +6,32 @@ function login($username,$password){
     </div>';
   }else {
     include 'conn.php';
-    
+
     $unencryptedpassword = md5($password);
 
     $qlogin = mysqli_query($conn,"CALL usp_login('$username','$unencryptedpassword')");
-    @$alogin = mysqli_fetch_array($qlogin);
+    $alogin = mysqli_fetch_array($qlogin);
     $count= mysqli_num_rows($qlogin);
     if ($count != 0){
-      echo "ENTROU";
         session_start();
         $_SESSION["id"] = $alogin["cliente_id"];
-        $_SESSION["username"] = $alogin["cliente_username"];
         $_SESSION["tipo"] = $alogin["cliente_tipo"];
+        $_SESSION["username"] = $alogin["cliente_username"];
         $_SESSION["nome"] = $alogin["cliente_nome"];
         $_SESSION["apelido"] = $alogin["cliente_apelido"];
         $_SESSION["datanasc"] = $alogin["cliente_datanasc"];
         $_SESSION["morada"] = $alogin["cliente_morada"];
+        $_SESSION["codigopos"] = $alogin["cliente_codigopostal"];
         $_SESSION["idpais"] = $alogin["cliente_idpais"];
         $_SESSION["nif"] = $alogin["cliente_nif"];
         $_SESSION["tele"] = $alogin["cliente_tele"];
         $_SESSION["email"] = $alogin["cliente_email"];
         $_SESSION["imagepath"] = $alogin["cliente_img_path"];
         if ($alogin["cliente_tipo"] != 1) {
-          echo "<meta http-equiv='refresh' content='0; URL=index.php'>";
+        echo "<meta http-equiv='refresh' content='0; URL=index.php'>";
           // echo "KAPPA";
         }else {
-          echo "<meta http-equiv='refresh' content='0; URL=backoffice/dashboard.php'>";
+        echo "<meta http-equiv='refresh' content='0; URL=backoffice/dashboard.php'>";
         }
       }else {
       echo '<div class="alert alert-danger" role="alert">

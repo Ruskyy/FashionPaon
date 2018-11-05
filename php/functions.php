@@ -6,11 +6,13 @@ function login($username,$password){
     </div>';
   }else {
     include 'conn.php';
+    
+    $unencryptedpassword = md5($password);
 
-    $qlogin = mysqli_query($conn,"CALL usp_login('$username','$password')");
+    $qlogin = mysqli_query($conn,"CALL usp_login('$username','$unencryptedpassword')");
     @$alogin = mysqli_fetch_array($qlogin);
     $count= mysqli_num_rows($qlogin);
-    if ($qlogin != 0){
+    if ($count != 0){
       echo "ENTROU";
         session_start();
         $_SESSION["id"] = $alogin["cliente_id"];

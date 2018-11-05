@@ -12,7 +12,7 @@
               <table class="table table-hover table-striped paginated2">
                   <thead>
                     <th>Tamanho</th>
-                    <th>Quantidade</th>
+                    <th>Descrição</th>
                     <th>Preço</th>
                   </thead>
                   <tbody style="border:2px solid #bfbfbf;">

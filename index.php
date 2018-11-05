@@ -1,10 +1,10 @@
 <!DOCTYPE html>
+<?php
+include 'php/functions.php';
+session_start();
+?>
 <html lang="en">
 <head>
-	<?php
-	require_once 'php/functions.php';
-	session_start();
-	?>
 	<title>Fashion Paon</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -203,7 +203,7 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						<?php if (!isset($_SESSION)) {
+						<?php if (isset($_SESSION["username"])) {
 							echo $_SESSION["username"];
 						}else {
 							echo "Guest";
@@ -237,7 +237,7 @@
 
 							<li style="margin-top:2%;">
 									<?php
-									if (!isset($_SESSION)) {
+									if (!isset($_SESSION["username"])) {
 										?>
 										<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4"> Log In </a>
 									<?php

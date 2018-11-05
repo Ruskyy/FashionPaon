@@ -206,7 +206,6 @@ function mySuubFunction(x){
 }
 
 </script>
-
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-4.png">
 

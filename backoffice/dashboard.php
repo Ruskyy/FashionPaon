@@ -118,6 +118,16 @@ $(document).ready(function(){
 			$("#navact12").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact12").addClass("active");
+						$tipo = 0;
+						$.ajax({
+								url:"menu_files/Clientes/list_cliente.php",
+								method:"POST",
+								data: {tipo: $tipo},
+								success:function(data){
+									$('#menu_aqui').html(data);
+
+								}
+						});
 			});
 			// 2.1
 			$("#navact21").click(function(){
@@ -169,14 +179,16 @@ $(document).ready(function(){
 
 </script>
 <script>
-function myFunction(x){
-		$tipo = x;
+
+//1-> 0cliente,1Admin
+function myFunction_inf(x){
+		$id = x;
 		$.ajax({
-				url:"ajax_files/menu.php",
+				url:"menu_files/Share_files/listar.php",
 				method:"POST",
-				data: {tipo: $tipo},
+				data: {id: $id},
 				success:function(data){
-					$('#menu_aqui').html(data);
+					$('#sub_menu_aqui').html(data);
 				}
 		});
 }
@@ -219,7 +231,7 @@ function mySuubFunction(x){
     	<div class="sidebar-wrapper">
             <div class="logo text-center">
 							<a href="#">
-								<img id="navact0" onclick="myFunction(0)" src="../images/icons/logo.png" alt="" width="150px">
+								<img id="navact0" onclick="" src="../images/icons/logo.png" alt="" width="150px">
 						 </a>
             </div>
 
@@ -235,13 +247,13 @@ function mySuubFunction(x){
 											<li id="navact11" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-graph"></i>
-															<p onclick="myFunction(1)">Adicionar</p>
+															<p onclick="">Adicionar</p>
 													</a>
 											</li>
 											<li id="navact12" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-graph"></i>
-															<p onclick="myFunction(2)">Listar</p>
+															<p onclick="">Listar</p>
 													</a>
 											</li>
 										</ul>
@@ -256,13 +268,13 @@ function mySuubFunction(x){
 											<li id="navact21" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-user"></i>
-															<p onclick="myFunction(3)">Adicionar</p>
+															<p onclick="">Adicionar</p>
 													</a>
 											</li>
 											<li id="navact22" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-user"></i>
-															<p onclick="myFunction(4)">Listar</p>
+															<p onclick="">Listar</p>
 													</a>
 											</li>
 										</ul>
@@ -277,19 +289,19 @@ function mySuubFunction(x){
 											<li id="navact31" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-note2"></i>
-															<p onclick="myFunction(5)">Adicionar</p>
+															<p onclick="">Adicionar</p>
 													</a>
 											</li>
 											<li id="navact32" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-note2"></i>
-															<p onclick="myFunction(6)">Listar</p>
+															<p onclick="">Listar</p>
 													</a>
 											</li>
 											<li id="navact33" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-note2"></i>
-															<p onclick="myFunction(7)">Descontos</p>
+															<p onclick="">Descontos</p>
 													</a>
 											</li>
 										</ul>
@@ -304,19 +316,19 @@ function mySuubFunction(x){
 											<li id="navact41" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-news-paper"></i>
-															<p onclick="myFunction(9)">SlideShow</p>
+															<p onclick="">SlideShow</p>
 													</a>
 											</li>
 											<li id="navact42" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-news-paper"></i>
-															<p onclick="myFunction(10)">Parallax</p>
+															<p onclick="">Parallax</p>
 													</a>
 											</li>
 											<li id="navact43" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-news-paper"></i>
-															<p onclick="myFunction(11)">Vídeo</p>
+															<p onclick="">Vídeo</p>
 													</a>
 											</li>
 										</ul>
@@ -331,7 +343,7 @@ function mySuubFunction(x){
 											<li id="navact51" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-science"></i>
-															<p onclick="myFunction(12)">Stock</p>
+															<p onclick="">Stock</p>
 													</a>
 											</li>
 										</ul>

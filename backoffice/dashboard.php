@@ -180,7 +180,7 @@ $(document).ready(function(){
 </script>
 <script>
 
-//1-> 0cliente,1Admin
+
 function myFunction_inf(x){
 		$id = x;
 		$.ajax({

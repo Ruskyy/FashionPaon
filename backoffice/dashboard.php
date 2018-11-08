@@ -19,6 +19,8 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
+		<!--Css Pessoal-->
+		<link rel="stylesheet" href="../css/styles-front.css">
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />

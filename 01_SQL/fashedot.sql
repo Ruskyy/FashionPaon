@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Nov-2018 às 17:07
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 08-Nov-2018 às 17:48
+-- Versão do servidor: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -73,6 +71,15 @@ CREATE TABLE `categoria` (
   `categoria_nome` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`categoria_id`, `categoria_nome`) VALUES
+(1, 'Roupa'),
+(2, 'Calçado'),
+(3, 'Acessórios');
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +110,39 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`cliente_id`, `cliente_username`, `cliente_password`, `cliente_nome`, `cliente_apelido`, `cliente_datanasc`, `cliente_morada`, `cliente_codigopostal`, `cliente_idpais`, `cliente_nif`, `cliente_tele`, `cliente_email`, `cliente_tipo`, `cliente_img_path`) VALUES
 (11, 'teste1', 'e959088c6049f1104c84c9bde5560a13', 'Goncalo', 'Lavrador', '2017-10-26', 'Sapiente quia et laboriosam occaecat in porro enim eum ullamco et consequatur dicta esse', '34-86', 0, 75, 47, 'goxyhosi@mailinator.net', 0, ''),
 (12, 'teste2', '38851536d87701d2191990e24a7f8d4e', 'Nilton', 'Fontes', '2011-08-16', 'Harum eaque consequatur Omnis asperiores', '36-3', 0, 98, 26, 'jidesot@mailinator.com', 0, 'images/uploads/ZW3lc87l2syaeqeb8ja1qyUal4WELCXipBf9h8y033btKj845wPVQdLIvepbKP2lDkdLxZd7VSMbvBCzPgYN1VCxCwlaFdrWdnPQ.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `imagem`
+--
+
+CREATE TABLE `imagem` (
+  `id_imagem` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  `id_imgcategoria` int(11) NOT NULL,
+  `nome_imagem` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `imgcategoria`
+--
+
+CREATE TABLE `imgcategoria` (
+  `id_imgcategoria` int(11) NOT NULL,
+  `nome_imgcategoria` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `imgcategoria`
+--
+
+INSERT INTO `imgcategoria` (`id_imgcategoria`, `nome_imgcategoria`) VALUES
+(1, 'principal'),
+(2, 'icon'),
+(3, 'galeria');
 
 -- --------------------------------------------------------
 
@@ -412,8 +452,29 @@ CREATE TABLE `produto` (
   `produto_id` int(11) NOT NULL,
   `produto_idcategoria` int(11) NOT NULL,
   `produto_nome` varchar(50) NOT NULL,
-  `produto_desc` varchar(100) NOT NULL
+  `produto_desc` varchar(100) NOT NULL,
+  `id_publico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `publico`
+--
+
+CREATE TABLE `publico` (
+  `id_publico` int(11) NOT NULL,
+  `nome_publico` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `publico`
+--
+
+INSERT INTO `publico` (`id_publico`, `nome_publico`) VALUES
+(1, 'Homem'),
+(2, 'Mulher'),
+(3, 'Unisexo');
 
 -- --------------------------------------------------------
 
@@ -425,8 +486,8 @@ CREATE TABLE `stock` (
   `stock_id` int(11) NOT NULL,
   `stock_idproduto` int(11) NOT NULL,
   `stock_quantidade` int(11) NOT NULL,
-  `stock_prodtamanho` int(11) NOT NULL,
-  `stock_prodpreco` int(11) NOT NULL
+  `stock_prodtamanho` varchar(50) NOT NULL,
+  `stock_prodpreco` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -458,6 +519,18 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`cliente_id`);
 
 --
+-- Indexes for table `imagem`
+--
+ALTER TABLE `imagem`
+  ADD PRIMARY KEY (`id_imagem`);
+
+--
+-- Indexes for table `imgcategoria`
+--
+ALTER TABLE `imgcategoria`
+  ADD PRIMARY KEY (`id_imgcategoria`);
+
+--
 -- Indexes for table `paises`
 --
 ALTER TABLE `paises`
@@ -468,6 +541,12 @@ ALTER TABLE `paises`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`produto_id`);
+
+--
+-- Indexes for table `publico`
+--
+ALTER TABLE `publico`
+  ADD PRIMARY KEY (`id_publico`);
 
 --
 -- Indexes for table `stock`
@@ -484,38 +563,46 @@ ALTER TABLE `stock`
 --
 ALTER TABLE `carrinho`
   MODIFY `carrinho_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `carrinho_stock`
 --
 ALTER TABLE `carrinho_stock`
   MODIFY `carstock_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+--
+-- AUTO_INCREMENT for table `imagem`
+--
+ALTER TABLE `imagem`
+  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `imgcategoria`
+--
+ALTER TABLE `imgcategoria`
+  MODIFY `id_imgcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
   MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT for table `publico`
+--
+ALTER TABLE `publico`
+  MODIFY `id_publico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
   MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

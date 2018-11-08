@@ -508,7 +508,15 @@ function mySuubFunction(x){
 
         </div>
 				<?php
-
+					if (isset($_POST['submeter_produto'])) {
+						include '../php/conn.php';
+						echo "kasdasd";
+						$query = "INSERT INTO produto(produto_nome,produto_idcategoria,produto_desc,id_publico) VALUES('$_POST[nome_produto]','$_POST[categoria_produto]','$_POST[descricao_produto]','$_POST[categoria_publico]')";
+						mysqli_query($conn,$query);
+						include '../php/deconn.php';
+					}
+				 ?>
+				<?php
 				if(isset($_POST['submeter'])){
 					require_once '../php/functions.php';
 					include '../php/conn.php';

@@ -21,11 +21,11 @@ session_start();
                           <div class="col-md-12">
                             <div class="form-group">
                               <label>Nome do Produto</label>
-                              <input class="form-control form-control-lg" type="text" name="nome_produto" value="" placeholder="Nome do Produto" required />
+                              <input id="nome_produto" class="form-control form-control-lg" type="text" name="nome_produto" value="" placeholder="Nome do Produto" required />
                             </div>
                             <div class="form-group">
                               <label>Categoria do Produto</label>
-                              <select class="form-control" name="categoria" style="position:relative; top:15px;">
+                              <select id="categoria_produto" class="form-control" name="categoria_produto" style="position:relative; top:15px;">
                                 <?php
                                 include '../../../php/conn.php';
                                 $querycategoria = "SELECT categoria_id, categoria_nome FROM categoria";
@@ -39,12 +39,35 @@ session_start();
                               ?>
                               </select>
                             </div>
+                            <br>
+                            <div class="form-group">
+                              <label>Público</label>
+                              <select id="categoria_publico" class="form-control" name="categoria_publico" style="position:relative; top:15px;">
+                                <?php
+                                include '../../../php/conn.php';
+                                $querypublico = "SELECT id_publico, nome_publico FROM publico";
+                                $publico = mysqli_query($conn,$querypublico);
+                                while ($genero=mysqli_fetch_assoc($publico)) {
+                                  ?>
+                                <option value="<?php echo $genero['id_publico'];?>"><?php echo $genero['nome_publico'];?></option>
+                              <?php
+                              }
+                              include '../../../php/deconn.php';
+                                ?>
+                                </select>
+                            </div>
+                            <br>
+                              <div class="form-group">
+                              <label>Descrição</label>
+                              <input type="text" name="descricao_produto" value="" class="form-control form-control-lg">
+                            </div>
                           </div>
                         </div>
                       </div>
                       </div>
                       <br>
-                      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="addFunction()" name="submeter" id="btn_sub"> Adicionar </button>
+                      <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="addFunction()" name="submeter_produto" id="btn_sub"> Adicionar </button>
+
                       <script type="text/java">
                                   function enforce_maxlength(event) {
                                     var t = event.target;
@@ -60,9 +83,3 @@ session_start();
           </div>
     </div>
 </div>
-
-<script type="text/javascript">
-  function addFunction(){
-    
-  }
-</script>

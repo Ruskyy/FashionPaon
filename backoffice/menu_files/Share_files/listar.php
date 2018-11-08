@@ -6,7 +6,7 @@ session_start();
   $output = '';
 
   $dado=mysqli_fetch_assoc(mysqli_query($conn,"SELECT cliente_id, cliente_password, cliente_apelido, cliente_nome, cliente_apelido, cliente_email, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_img_path  FROM cliente WHERE cliente_id = $id"));
-
+$decpassword = md5($dado['cliente_password']);
 $codigo = strtok($dado['cliente_codigopostal'],  '-');
 $postal = explode('-', $dado['cliente_codigopostal']);
 
@@ -23,7 +23,7 @@ $output .='
                   <form class="" method="post" style="padding: 20px; position:relative; top:-100px;">
                     <div class="row">
                       <div style=" border: 4px double #d9dbdd; width:130px; height:130px; position:relative; top:30px;left:610px;">
-                        <img src="'.$dado['cliente_img_path'].'" style="width:120px; height:120px;"/>
+                        <img src="../'.$dado['cliente_img_path'].'" style="width:120px; height:120px;"/>
                       </div>
                       <div class="col-md-5" style="position:relative; left: 30px;">
                         <div class="row">
@@ -42,12 +42,6 @@ $output .='
                         </div>
                         <label>Username</label>
                         <input class="form-control form-control-lg" type="text" name="user" value="'.$dado['cliente_apelido'].'" placeholder="Username" disabled>
-                        <br>
-                        <label>Password</label><button type="button" id="btn2"><i class="fa fa-eye"></i></button><button type="button" id="btn3"><i class="fa fa-eye-slash"></i></button>
-                        <input class="form-control form-control-lg pass" type="password" name="pass" value="'.$dado['cliente_password'].'" placeholder="Password" disabled>
-                        <br>
-                        <label>Confirmar Password</label>
-                        <input class="form-control form-control-lg pass" type="password" name="confpass" value="'.$dado['cliente_password'].'" placeholder="Confirm Password" disabled>
                         <br>
                         <label>Data</label>
                         <input class="form-control form-control-lg" type="text" name="data" value="'.$dado['cliente_datanasc'].'" placeholder="Data" disabled>

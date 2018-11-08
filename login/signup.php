@@ -105,7 +105,7 @@ include 'php/functions.php';
         $img_path="images/uploads/".$generatedname;
          move_uploaded_file($file_tmp,"images/uploads/".$generatedname);
       }else{
-         // echo($errors);
+         echo($errors);
       }
     }else {
         $img_path="images/unknown.png";

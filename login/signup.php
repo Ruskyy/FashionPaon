@@ -124,7 +124,7 @@ include 'php/functions.php';
       //Encripta a password
       $encpassword =md5( $_POST['pass']);
 
-      @mysqli_query($conn,"CALL usp_register('$_POST[user]','$encpassword','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
+      @mysqli_query($conn,"CALL usp_register_user('$_POST[user]','$encpassword','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
 
       echo 'sucesso';
     }else {

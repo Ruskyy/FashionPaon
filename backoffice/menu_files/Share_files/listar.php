@@ -23,7 +23,7 @@ $output .='
                   <form class="" method="post" style="padding: 20px; position:relative; top:-100px;">
                     <div class="row">
                       <div style=" border: 4px double #d9dbdd; width:130px; height:130px; position:relative; top:30px;left:610px;">
-                        <img src="../'.$dado['cliente_img_path'].'" style="width:120px; height:120px;"/>
+                        <img src="'.$dado['cliente_img_path'].'" style="width:120px; height:120px;"/>
                       </div>
                       <div class="col-md-5" style="position:relative; left: 30px;">
                         <div class="row">

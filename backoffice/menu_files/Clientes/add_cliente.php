@@ -90,11 +90,13 @@ session_start();
                               <label>NIF</label>
                               <input id="nif" class="form-control form-control-lg" type="number" name="nif" value="" placeholder="NIF" maxlength="9" size="9" required>
                             </div>
+
                             </div>
                         <br>
                       </div>
                       </div>
                       <br>
+                      <input type="hidden" name="tipo" value="0">
                       <button type="submit" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub"> Adicionar </button>
                       <script type="text/java">
                           function enforce_maxlength(event) {
@@ -112,24 +114,3 @@ session_start();
         echo $output;
         include '../../../php/deconn.php';
 ?>
-            <!--  Model for ajax
-            <tr>
-              <td>1</td>
-              <td>Dakota Rice</td>
-              <td>$36,738</td>
-              <td>Niger</td>
-              <td>
-                <button type="button" rel="tooltip" title="List" class="btn btn-warning btn-simple btn-xs">
-                    <i class="fa fa-list-alt"></i>
-                </button>
-                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                    <i class="fa fa-edit"></i>
-                </button>
-                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                    <i class="fa fa-times"></i>
-                </button>
-              </td>
-
-            </tr>
-
-            -->

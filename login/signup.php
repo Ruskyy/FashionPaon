@@ -38,7 +38,18 @@ include 'php/functions.php';
           <input class="form-control form-control-lg" type="text" name="morada2" value="" placeholder="Lote, nº Predio" required>
         </div>
         <select class="form-control" name="paises">
-          <option value="0">PAIS</option>
+          <?php
+            include '../php/conn.php';
+            $querypaises = "SELECT paisId, paisNome FROM paises";
+            $paises = mysqli_query($conn,$querypaises);
+            while ($pais=mysqli_fetch_assoc($paises)) {
+              ?>
+              <option value="<?php echo $pais['paisId']; ?>"> <?php echo $pais['paisNome']; ?> </option>
+          <?php
+            }
+            include '../php/deconn.php';
+            ?>
+
           <!--
           $paises = mysqli_query($conn,"SELECT numero_pais, pais FROM pais ");
           while ($row=mysqli_fetch_assoc($paises)){

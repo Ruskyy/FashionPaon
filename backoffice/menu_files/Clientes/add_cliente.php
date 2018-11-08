@@ -70,8 +70,13 @@ session_start();
                         <br>
                         <div style="position:relative; top:24px;">
                           <label>Países</label>
-                              <select class="form-control" id="paises" name="paises" style="position:relative; top:6px;">
-                                <option value="0">-- Select --</option>
+                              <select class="form-control" id="paises" name="paises" style="position:relative; top:6px;">';
+                              $querypaises = "SELECT paisId, paisNome FROM paises";
+                              $paises = mysqli_query($conn,$querypaises);
+                              while ($pais=mysqli_fetch_assoc($paises)) {
+                                $output.='<option value="<'.$pais['paisId'].'">'.$pais['paisNome'].'</option>';
+                              }
+                                $output.='
                               </select>
                               <br>
                               <div class="row form-group">

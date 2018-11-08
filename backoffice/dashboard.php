@@ -173,11 +173,31 @@ $(document).ready(function(){
 			$("#navact31").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact31").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Produtos/add_produto.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+
+						}
+				});
 			});
 			// 3.2
 			$("#navact32").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact32").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Produtos/list_produto.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+
+						}
+				});
 			});
 			// 3.3
 			$("#navact33").click(function(){
@@ -188,6 +208,15 @@ $(document).ready(function(){
 			$("#navact41").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact41").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Configuracao/SlideShow.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
 			});
 			// 4.2
 			$("#navact42").click(function(){

@@ -1,3 +1,10 @@
+<?php
+require_once '../../../php/functions.php';
+session_start();
+  include '../../../php/conn.php';
+  $tipo = $_POST['tipo'];
+  $output = '';
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -14,18 +21,22 @@
                           <div class="col-md-12">
                             <div class="form-group">
                               <label>Nome do Produto</label>
-                              <input class="form-control form-control-lg" type="text" name="fname" value="" placeholder="Nome do Produto" required />
+                              <input class="form-control form-control-lg" type="text" name="nome_produto" value="" placeholder="Nome do Produto" required />
                             </div>
                             <div class="form-group">
                               <label>Categoria do Produto</label>
                               <select class="form-control" name="categoria" style="position:relative; top:15px;">
-                                <option value="0">-- Select --</option>
-                                <!--
-                                $paises = mysqli_query($conn,"SELECT numero_pais, pais FROM pais ");
-                                while ($row=mysqli_fetch_assoc($paises)){
-                                  echo '<option value="'.$row['numero_pais'].'">'.$row['pais'].'</option>';
-                                }
-                               -->
+                                <?php
+                                include '../../../php/conn.php';
+                                $querycategoria = "SELECT categoria_id, categoria_nome FROM categoria";
+                                $categorias = mysqli_query($conn,$querycategoria);
+                                while ($categoria=mysqli_fetch_assoc($categorias)) {
+                                  ?>
+                                <option value="<?php echo $categoria['categoria_id'];?>"><?php echo $categoria['categoria_nome'];?></option>
+                              <?php
+                            }
+                            include '../../../php/deconn.php';
+                              ?>
                               </select>
                             </div>
                           </div>
@@ -33,7 +44,7 @@
                       </div>
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub"> Adicionar </button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="addFunction()" name="submeter" id="btn_sub"> Adicionar </button>
                       <script type="text/java">
                                   function enforce_maxlength(event) {
                                     var t = event.target;
@@ -49,3 +60,9 @@
           </div>
     </div>
 </div>
+
+<script type="text/javascript">
+  function addFunction(){
+    
+  }
+</script>

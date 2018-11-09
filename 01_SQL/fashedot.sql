@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Nov-2018 às 17:48
--- Versão do servidor: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: 09-Nov-2018 às 20:01
+-- Versão do servidor: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,7 +31,12 @@ SELECT cliente_id, cliente_tipo, cliente_username, cliente_nome, cliente_apelido
 FROM cliente WHERE cliente_username like username AND cliente_password like password;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_register` (IN `username` VARCHAR(20), IN `password` VARCHAR(50), IN `nome` VARCHAR(20), IN `apelido` VARCHAR(20), IN `datanasc` DATE, IN `morada` VARCHAR(100), IN `codigopostal` VARCHAR(11), IN `idpais` INT, IN `nif` INT, IN `tele` INT, IN `email` VARCHAR(100), IN `img` VARCHAR(10000))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_register_admin` (IN `username` VARCHAR(20), IN `password` VARCHAR(50), IN `nome` VARCHAR(20), IN `apelido` VARCHAR(20), IN `datanasc` DATE, IN `morada` VARCHAR(100), IN `codigopostal` VARCHAR(11), IN `idpais` INT, IN `nif` INT, IN `tele` INT, IN `email` VARCHAR(100), IN `img` VARCHAR(10000))  BEGIN
+INSERT INTO cliente (cliente_username,cliente_password,cliente_nome,cliente_apelido,cliente_datanasc,cliente_morada,cliente_codigopostal,cliente_idpais,cliente_nif,cliente_tele,cliente_email,cliente_tipo,cliente_img_path)
+  VALUES (username,password,nome,apelido,datanasc,morada,codigopostal,idpais,nif,tele,email,1,img);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_register_user` (IN `username` VARCHAR(20), IN `password` VARCHAR(50), IN `nome` VARCHAR(20), IN `apelido` VARCHAR(20), IN `datanasc` DATE, IN `morada` VARCHAR(100), IN `codigopostal` VARCHAR(11), IN `idpais` INT, IN `nif` INT, IN `tele` INT, IN `email` VARCHAR(100), IN `img` VARCHAR(10000))  BEGIN
 INSERT INTO cliente (cliente_username,cliente_password,cliente_nome,cliente_apelido,cliente_datanasc,cliente_morada,cliente_codigopostal,cliente_idpais,cliente_nif,cliente_tele,cliente_email,cliente_tipo,cliente_img_path)
   VALUES (username,password,nome,apelido,datanasc,morada,codigopostal,idpais,nif,tele,email,0,img);
 END$$
@@ -479,6 +486,66 @@ INSERT INTO `publico` (`id_publico`, `nome_publico`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `slider`
+--
+
+CREATE TABLE `slider` (
+  `id_slide` int(11) NOT NULL,
+  `slide_state` int(11) NOT NULL,
+  `image_slide` varchar(150) NOT NULL,
+  `title_slide` varchar(50) NOT NULL,
+  `title_effect` varchar(50) NOT NULL,
+  `title_anim` varchar(50) NOT NULL,
+  `desc_slide` varchar(150) NOT NULL,
+  `desc_anim` varchar(50) NOT NULL,
+  `button_slide` varchar(10) NOT NULL DEFAULT 'off',
+  `button_text` varchar(50) NOT NULL,
+  `buton_anim` varchar(50) NOT NULL,
+  `button_link` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `slider`
+--
+
+INSERT INTO `slider` (`id_slide`, `slide_state`, `image_slide`, `title_slide`, `title_effect`, `title_anim`, `desc_slide`, `desc_anim`, `button_slide`, `button_text`, `buton_anim`, `button_link`) VALUES
+(4, 1, 'images/slider/nC72yzDMTcSbzD6LUdHHQ3YIyJMG2gc5UMUQXATsHbUfl3B8PyOyDYudf9tbwO1UKChp0bE2D40i83zbnGg6BZCEDiCPizgk0UQ3.jpg', 'Novo Slider', 'bo6', 'fadeInUp', 'Este é dinamico !', 'fadeInDown', 'on', 'OLHA UM BUTAO', 'zoomIn', '#'),
+(5, 1, 'images/slider/8WH71sWnUs2WPNM4FhohGb9JieZ3NUyndUoP8p4cTYvoUVVm9UGkOVegple1hvy9pDhUM3m9U0oei4sTBAzhqYJQe5SMIiPYsOry.jpg', 'Langerie', 'bo4', 'bounce', 'Sem butao', 'bounce', 'off', '', 'bounce', ''),
+(6, 1, 'images/slider/5d475jS5eFaHqC43KR2AWZSuzpypKCjnSo75GpuYgo4ZMfsZirkOEqOy3RIll6C1prfAbKlZ8vU90JdgMcOxQ4bUsehJzBa42eWH.jpg', 'Nilton e uma russa', 'bo6', 'jackInTheBox', 'Ele tem gosto', 'jello', 'on', 'Manboas', 'lightSpeedIn', 'http://www.redtube.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `slider_texteffects`
+--
+
+CREATE TABLE `slider_texteffects` (
+  `id_texteffect` int(11) NOT NULL,
+  `code_texteffect` varchar(50) NOT NULL,
+  `desc_texteffect` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `slider_texteffects`
+--
+
+INSERT INTO `slider_texteffects` (`id_texteffect`, `code_texteffect`, `desc_texteffect`) VALUES
+(1, 'bo1', 'white square'),
+(2, 'bo2', 'start end stripes'),
+(3, 'bo3', 'top bar'),
+(4, 'bo4', 'square (light)'),
+(5, 'bo5', 'square (bold)'),
+(6, 'bo9', 'square (light rounder corners)'),
+(7, 'bo6', 'top bottom stripes'),
+(8, 'bo7', 'underline (light)'),
+(9, 'bo4', 'underline (bold)'),
+(10, 'bo8', 'open box'),
+(11, 'bo10', 'stitched'),
+(12, 'bo13', 'typing cursor');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `stock`
 --
 
@@ -549,6 +616,18 @@ ALTER TABLE `publico`
   ADD PRIMARY KEY (`id_publico`);
 
 --
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id_slide`);
+
+--
+-- Indexes for table `slider_texteffects`
+--
+ALTER TABLE `slider_texteffects`
+  ADD PRIMARY KEY (`id_texteffect`);
+
+--
 -- Indexes for table `stock`
 --
 ALTER TABLE `stock`
@@ -563,46 +642,68 @@ ALTER TABLE `stock`
 --
 ALTER TABLE `carrinho`
   MODIFY `carrinho_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `carrinho_stock`
 --
 ALTER TABLE `carrinho_stock`
   MODIFY `carstock_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `imagem`
 --
 ALTER TABLE `imagem`
   MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `imgcategoria`
 --
 ALTER TABLE `imgcategoria`
   MODIFY `id_imgcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
   MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `publico`
 --
 ALTER TABLE `publico`
   MODIFY `id_publico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `slider_texteffects`
+--
+ALTER TABLE `slider_texteffects`
+  MODIFY `id_texteffect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
   MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -413,63 +413,41 @@ session_start();
 	<section class="slide1">
 		<div class="wrap-slick1">
 			<div class="slick1">
-				<div class="item-slick1 item1-slick1" style="background-image: url(images/home_slider/slider1.jpg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<h2 class="caption1-slide1 xl-text2 t-center bo6 p-b-6 animated visible-false m-b-22" data-appear="fadeInUp">
-							Fall Collection
-						</h2>
 
-						<span class="caption2-slide1 m-text1 t-center animated visible-false m-b-33" data-appear="fadeInDown">
-							Collection 2018 now available
-						</span>
+				<?php
+				include 'php/conn.php';
 
-						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-							<!-- Button -->
-							<a href="product.php" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-								Shop Now
-							</a>
+				$queryslides= "SELECT slide_state,image_slide,title_slide,title_effect,title_anim,desc_slide,desc_anim,button_slide,button_text,buton_anim,button_link FROM slider WHERE slide_state like '1'";
+				$slides = mysqli_query($conn,$queryslides);
+				while ($slide=mysqli_fetch_assoc($slides)) {
+					echo '
+					<div class="item-slick1 item1-slick1" style="background-image: url('.$slide['image_slide'].');">
+						<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+							<h2 class="caption1-slide1 xl-text2 t-center '.$slide['title_effect'].' p-b-6 animated visible-false m-b-22" data-appear="'.$slide['title_anim'].'">
+								'.$slide['title_slide'].'
+							</h2>
+
+							<span class="caption2-slide1 m-text1 t-center animated visible-false m-b-33" data-appear="fadeInDown">
+								'.$slide['desc_slide'].'
+							</span>';
+
+							if ($slide['button_slide']=='on') {
+								echo '<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="'.$slide['buton_anim'].'">
+
+									<a href="'.$slide['button_link'].'" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+										'.$slide['button_text'].'
+									</a>
+								</div>
+							</div>
+						</div>';
+					}else {
+						echo '
 						</div>
-					</div>
-				</div>
+					</div>';
+					}
 
-				<div class="item-slick1 item2-slick1" style="background-image: url(images/home_slider/slider2.jpg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<h2 class="caption1-slide1 xl-text2 t-center bo7 p-b-6 animated visible-false m-b-22" data-appear="fadeInUp">
-							Winter Pre-Sales
-						</h2>
-
-						<span class="caption2-slide1 m-text1 t-center animated visible-false m-b-33" data-appear="fadeInDown">
-							Get ready !
-						</span>
-
-						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-							<!-- Button -->
-							<a href="product.php" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-								Shop Now
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick1 item3-slick1" style="background-image: url(images/home_slider/slider3.jpg);">
-					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-						<h2 class="caption1-slide1 xl-text2 t-center bo6 p-b-6 animated visible-false m-b-22" data-appear="fadeInUp">
-							Lingerie Sale
-						</h2>
-
-						<span class="caption2-slide1 m-text1 t-center animated visible-false m-b-33" data-appear="fadeInDown">
-							30% to 50% off
-						</span>
-
-						<div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-							<!-- Button -->
-							<a href="product.php" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-								Shop Now
-							</a>
-						</div>
-					</div>
-				</div>
-
+				} ?>
+				
 			</div>
 		</div>
 	</section>

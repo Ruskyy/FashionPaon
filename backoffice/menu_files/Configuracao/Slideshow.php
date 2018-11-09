@@ -12,7 +12,7 @@
             reader.readAsDataURL(event.target.files[0]);
           };
         </script>
-          <div class="card" style="height:1400px;">
+          <div class="card" style="height:1500px;">
               <div class="header">
                 <h4 class="title">SlideShow</h4>
                 <hr>
@@ -24,18 +24,18 @@
                 <div class="col-md-6 form-group" style="margin-top:1%;">
                   <h4 class="title">Adicionar Slide</h4>
                   <hr>
-                  <form class="" action="index.html" method="post" enctype="multipart/form-data">
+                  <form class="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="slider_img">Imagem</label>
-                      <input type="file" class="form-control-file" id="slider_img" name="image" accept="image/*" onchange="loadFile(event)">
+                      <input type="file" class="form-control-file" id="slider_img" name="slider_img" accept="image/*" onchange="loadFile(event)" required>
                     </div>
                     <div class="form-group">
                       <label for="slide_title">Titulo</label>
-                      <input type="text" class="form-control" id="slide_title"  placeholder="Titulo">
+                      <input type="text" class="form-control" name="slide_titulo"  placeholder="Titulo" required>
                     </div>
                     <div class="form-group">
                     <label for="anim_titulo"> Animação Titulo</label>
-                    <select class="form-control" id="animacao_titulo" name="anim_titulo">
+                    <select class="form-control" name="anim_titulo" required>
                             <optgroup label="Attention Seekers">
                               <option value="bounce">bounce</option>
                               <option value="flash">flash</option>
@@ -158,17 +158,24 @@
                     </div>
                     <div class="form-group">
                     <label for="anim_titulo"> Efeito Titulo</label>
-                    <select class="form-control" id="effect_titulo" name="effect_titulo">
-                      <option value="0">None</option>
+                    <select class="form-control" name="effect_titulo" required>
+                      <!-- <option value="0">None</option> -->
+                      <?php
+                      include '../../../php/conn.php';
+                      $queryeffects = "SELECT code_texteffect, desc_texteffect FROM slider_texteffects";
+                      $efects = mysqli_query($conn,$queryeffects);
+                      while ($efect=mysqli_fetch_assoc($efects)) {
+                        echo '<option value="'.$efect['code_texteffect'].'">'.$efect['desc_texteffect'].'</option>';
+                      } ?>
                     </select>
                     </div>
                     <div class="form-group">
                       <label for="desc">Descrição</label>
-                      <input type="text" class="form-control" id="slide_title"  placeholder="Titulo">
+                      <input type="text" class="form-control" name="slide_desc"  placeholder="Titulo">
                     </div>
                     <div class="form-group">
                       <label for="anim_titulo"> Animação Descrição</label>
-                    <select class="form-control" id="animacao_dec" name="anim_desc">
+                    <select class="form-control" name="anim_desc">
                               <optgroup label="Attention Seekers">
                                 <option value="bounce">bounce</option>
                                 <option value="flash">flash</option>
@@ -289,26 +296,52 @@
                               </optgroup>
                         </select>
                     </div>
-                    <div class="form-group">
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
+
+                    <div class="container" style="margin-bottom:2%;">
+                    <div class="row">
+                      <div class="col">
+                          <label>Butão: </label>
+                      </div>
+                      <div class="col">
+                        <label class="switch">
+                          <input class="togBtn" name="buton_status" type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
                     </div>
-                    <div>
+                  </div>
+
+                    <script>
+                    $(document).ready(function(){
+                      $("#buttoninfo").hide();
+                    var switchStatus = false;
+                    $(".togBtn").on('change', function() {
+                      if ($(this).is(':checked')) {
+                          switchStatus = $(this).is(':checked');
+                          $("#buttoninfo").show();
+                      }
+                      else {
+                         switchStatus = $(this).is(':checked');
+                         $("#buttoninfo").hide();
+                      }
+                      });
+                    });
+                    </script>
+
+                    <div id="buttoninfo">
                       <div class="form-group">
                         <label for="slide_title">Texto Butão</label>
-                        <input type="text" class="form-control" id="slide_title"  placeholder="Titulo">
+                        <input type="text" class="form-control" name="button_text"  placeholder="Titulo">
                       </div>
 
                       <div class="form-group">
                         <label for="slide_title">Link Butão</label>
-                        <input type="text" class="form-control" id="slide_title"  placeholder="Titulo">
+                        <input type="text" class="form-control" name="button_link"  placeholder="Titulo">
                       </div>
 
                       <div class="form-group">
                         <label for="anim_titulo"> Animação Butão</label>
-                        <select class="form-control" id="animacao_button" name="anim_button">
+                        <select class="form-control" name="anim_button">
                                 <optgroup label="Attention Seekers">
                                   <option value="bounce">bounce</option>
                                   <option value="flash">flash</option>
@@ -431,9 +464,43 @@
                       </div>
                     </div>
 
-                    <button type="submit" class="btn btn-success">Adicionar</button>
+                    <button type="submit" name="submeter_slide" class="btn btn-success">Adicionar</button>
 
                   </form>
+                  <?php
+
+                   ?>
+                </div>
+
+                <div class="col-md-6 form-group" style="margin-top:1%;">
+                  <h4 class="title">Slides</h4>
+                  <hr>
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Desc.</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>
+                          <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
+                              <i class="fa fa-eye"></i>
+                          </button>
+                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+                              <i class="fa fa-times"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
                 </div>
 
               </div>

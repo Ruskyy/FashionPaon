@@ -331,12 +331,12 @@
                     <div id="buttoninfo">
                       <div class="form-group">
                         <label for="slide_title">Texto Butão</label>
-                        <input type="text" class="form-control" name="button_text"  placeholder="Titulo">
+                        <input type="text" class="form-control" name="button_text"  placeholder="Ex:. Saber Mais">
                       </div>
 
                       <div class="form-group">
                         <label for="slide_title">Link Butão</label>
-                        <input type="text" class="form-control" name="button_link"  placeholder="Titulo">
+                        <input type="text" class="form-control" name="button_link"  placeholder="Caso nada preencher com #">
                       </div>
 
                       <div class="form-group">

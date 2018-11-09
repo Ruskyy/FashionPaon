@@ -74,7 +74,7 @@ session_start();
                               $querypaises = "SELECT paisId, paisNome FROM paises";
                               $paises = mysqli_query($conn,$querypaises);
                               while ($pais=mysqli_fetch_assoc($paises)) {
-                                $output.='<option value="<'.$pais['paisId'].'">'.$pais['paisNome'].'</option>';
+                                $output.='<option value="'.$pais['paisId'].'">'.$pais['paisNome'].'</option>';
                               }
                                 $output.='
                               </select>

@@ -224,6 +224,15 @@ $(document).ready(function(){
 			$("#navact42").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact42").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Configuracao/parallax.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
 			});
 			//4.3
 			$("#navact43").click(function(){
@@ -432,12 +441,12 @@ function mySuubFunction(x){
 															<p onclick="">Parallax</p>
 													</a>
 											</li>
-											<li id="navact43" class="sidabarsubsubmenu">
+											<!-- <li id="navact43" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-news-paper"></i>
 															<p onclick="">Vídeo</p>
 													</a>
-											</li>
+											</li> -->
 										</ul>
                 <li id="navact5" class="sidabarmenu">
                     <a href="#">

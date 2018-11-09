@@ -12,8 +12,7 @@ session_start();
           <div class="col-md-6">
               <div class="card">
                   <div class="header">
-                      <h4 class="title">Cliente</h4>
-                      <p id="btns" class="category">Listar</p>
+                      <h4 class="title">Clientes > Listar</h4>
                   </div>
                   <div class="content table-responsive table-full-width">
                       <table class="table table-hover table-striped" id="myTable">

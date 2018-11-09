@@ -14,7 +14,7 @@
         </script>
           <div class="card" style="height:1500px;">
               <div class="header">
-                <h4 class="title">SlideShow</h4>
+                <h4 class="title">Configuração > SlideShow</h4>
                 <hr>
               </div>
               <div class="content table-responsive table-full-width">

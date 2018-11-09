@@ -10,8 +10,7 @@ session_start();
         <div class="col-md-6">
             <div class="card" style="height:750px;">
                 <div class="header">
-                  <h4 class="title">Adicionar</h4>
-                  <p class="category">Clientes</p>
+                  <h4 class="title">Admins > Adicionar</h4>
                 </div>
                 <div class="content table-responsive table-full-width">
                   <form class="" method="post" style="padding: 20px; position:relative; top:-100px;"  enctype="multipart/form-data">

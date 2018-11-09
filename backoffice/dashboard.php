@@ -234,6 +234,15 @@ $(document).ready(function(){
 			$("#navact51").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact51").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Sistema/tamanhos.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
 			});
 
 });
@@ -450,7 +459,7 @@ function mySuubFunction(x){
 											<li id="navact51" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-science"></i>
-															<p onclick="">Stock</p>
+															<p onclick="">Tamanhos</p>
 													</a>
 											</li>
 										</ul>
@@ -628,7 +637,15 @@ function mySuubFunction(x){
 					include '../php/deconn.php';
 				}
 				?>
+				<?php
 
+					if (isset($_REQUEST['addtamanho'])) {
+						require_once '../php/functions.php';
+						addTamanho($_POST['nome'], $_POST['categoria_insert']);
+
+					}
+
+				 ?>
 
 				<?php
 				if(isset($_POST['submeter_slide'])){

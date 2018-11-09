@@ -70,4 +70,23 @@ function generateRandomString($length) {
     return $randomString;
 }
 
+function addTamanho($nome, $cat){
+  echo 'asdsadasdasdsa';
+
+  $querytam = "SELECT nome_tamanho, id_categoria_tamanho FROM tamanho";
+  $listatamanhos = mysqli_query($conn, $querytam);
+  include 'conn.php';
+  $queryaddtam = "INSERT INTO tamanho(nome_tamanho,id_categoria_tamanho) VALUES('$_POST[nome]','$_POST[categoria_insert]')";
+
+    $exists = mysqli_query($conn, $querytam." WHERE nome_tamanho like ".$nome." AND id_categoria_tamanho = ".$cat."");
+    if (!$exists) {
+      mysqli_query($conn,$queryaddtam);
+    }
+    else {
+      alert("Modelo Ja Existe");
+    }
+
+  include 'deconn.php';
+}
+
  ?>

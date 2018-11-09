@@ -37,5 +37,8 @@ $dhb = $_POST['tipo'];
       case 11:
         include '../menu_files/Produtos/editar.php';
         break;
+      case 12:
+        include '../menu_files/Sistema/tamanhos.php';
+        break;
     }
    ?>

@@ -52,7 +52,7 @@ $output .='
                         <input class="form-control form-control-lg" type="email" name="email" value="'.$dado['cliente_email'].'" placeholder="email@email.com" >
                         <br>
                         <label>Password</label>
-                        <input class="form-control form-control-lg" type="text" name="password" value="'.$dado['cliente_password'].'" placeholder="email@email.com" >
+                        <input class="form-control form-control-lg" type="text" name="password" value="'.$dado['cliente_password'].'" placeholder="email@email.com" disabled>
                         <br>
                         <button class="btn btn-primary btn-lg btn-block" type="submit" name="editar">EDITAR</button>
 

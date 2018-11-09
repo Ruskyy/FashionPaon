@@ -241,16 +241,28 @@ $(document).ready(function(){
 </script>
 <script>
 
-function myFunction_list(){
+function myFunction_list(x){
+	var tipo = x;
 	$tipo = 0;
-	$.ajax({
-			url:"menu_files/Clientes/list_cliente.php",
-			method:"POST",
-			data: {tipo: $tipo},
-			success:function(data){
-				$('#menu_aqui').html(data);
-			}
-	});
+	if(x == 0){
+		$.ajax({
+				url:"menu_files/Clientes/list_cliente.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#menu_aqui').html(data);
+				}
+		});
+	}else{
+		$.ajax({
+				url:"menu_files/Admins/list_admin.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#menu_aqui').html(data);
+				}
+		});
+	}
 }
 
 function myFunction_inf(x){
@@ -283,7 +295,7 @@ function myFunction_delet(x){
 				method:"POST",
 				data: {id: $id},
 				success:function(data){
-					myFunction_list();
+					myFunction_list(data);
 				}
 		});
 }

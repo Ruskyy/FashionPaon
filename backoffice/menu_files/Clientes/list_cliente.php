@@ -4,7 +4,7 @@ session_start();
   include '../../../php/conn.php';
   $tipo = $_POST['tipo'];
   $output = '';
-  $dado =mysqli_query($conn,"SELECT cliente_id, cliente_username, cliente_nome, cliente_apelido, cliente_email  FROM cliente WHERE cliente_tipo = 0");
+  $dado =mysqli_query($conn,"SELECT cliente_id, cliente_username, cliente_nome, cliente_apelido, cliente_email  FROM cliente WHERE cliente_tipo = $tipo");
 
   $output .='
   <div class="container-fluid">

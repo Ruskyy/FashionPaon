@@ -224,6 +224,15 @@ $(document).ready(function(){
 			$("#navact42").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact42").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Configuracao/parallax.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
 			});
 			//4.3
 			$("#navact43").click(function(){
@@ -234,6 +243,15 @@ $(document).ready(function(){
 			$("#navact51").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$("#navact51").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Sistema/tamanhos.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
 			});
 
 });
@@ -456,12 +474,12 @@ function mySuubFunction(x){
 															<p onclick="">Parallax</p>
 													</a>
 											</li>
-											<li id="navact43" class="sidabarsubsubmenu">
+											<!-- <li id="navact43" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-news-paper"></i>
 															<p onclick="">Vídeo</p>
 													</a>
-											</li>
+											</li> -->
 										</ul>
                 <li id="navact5" class="sidabarmenu">
                     <a href="#">
@@ -474,7 +492,7 @@ function mySuubFunction(x){
 											<li id="navact51" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-science"></i>
-															<p onclick="">Stock</p>
+															<p onclick="">Tamanhos</p>
 													</a>
 											</li>
 										</ul>
@@ -652,6 +670,57 @@ function mySuubFunction(x){
 					include '../php/deconn.php';
 				}
 				?>
+				<?php
+
+					if (isset($_REQUEST['addtamanho'])) {
+						require_once '../php/functions.php';
+						addTamanho($_POST['nome'], $_POST['categoria_insert']);
+
+					}
+
+				 ?>
+
+				<?php
+				if(isset($_POST['submeter_slide'])){
+					require_once '../php/functions.php';
+					include '../php/conn.php';
+
+					if(isset($_FILES['slider_img'])){
+						$file_name = $_FILES['slider_img']['name'];
+						$file_size = $_FILES['slider_img']['size'];
+						$file_tmp =$_FILES['slider_img']['tmp_name'];
+						$file_type=$_FILES['slider_img']['type'];
+						@$file_ext=strtolower(end(explode('.',$_FILES['slider_img']['name'])));
+
+						$expensions= array("jpeg","jpg","png");
+
+
+						if(in_array($file_ext,$expensions)== false){
+							 echo "Extension not allowed, please choose a JPEG or PNG file.";
+						}
+						if($_FILES['slider_img']['size'] > 2097152 ||$_FILES['slider_img']['size'] == 0 ){
+							 echo 'ERROR : File size error, it must be excately 2 MB';
+						}else{
+							$generatedname = generateRandomString(100).'.'.$file_ext;
+							$img_path="images/slider/".$generatedname;
+							 move_uploaded_file($file_tmp,"../images/slider/".$generatedname);
+						}
+					}
+
+						mysqli_query($conn,"INSERT INTO slider(slide_state, image_slide, title_slide, title_effect, title_anim, desc_slide, desc_anim, button_slide, button_text, buton_anim, button_link)
+						VALUES (0,'$img_path','$_POST[slide_titulo]','$_POST[effect_titulo]','$_POST[anim_titulo]','$_POST[slide_desc]','$_POST[anim_desc]','$_POST[buton_status]','$_POST[button_text]','$_POST[anim_button]','$_POST[button_link]')");
+
+						echo $_POST['buton_status'];
+
+
+
+						echo 'Sucesso';
+						include '../php/deconn.php';
+					}
+
+				?>
+
+
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">

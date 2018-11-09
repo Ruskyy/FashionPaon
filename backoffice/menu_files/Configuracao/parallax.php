@@ -73,7 +73,14 @@
                       <small id="emailHelp" class="form-text text-muted">O Link deve ser o embed to youtube</small>
                     </div>
                   </div>
-                    <button type="submit" name="submeter_slide" class="btn btn-primary">Alterar</button>
+                    <button type="submit" name="submeter_paralax" class="btn btn-primary">Alterar</button>
+                    <button type="reset" name="submeter_slide" id="resetbtnus" class="btn btn-danger" onclick="hideOnReset()">Reset</button>
+
+                    <script>
+                    function hideOnReset() {
+                      $("#buttoninfo").hide();
+                    }
+                    </script>
                 </form>
               </div>
 

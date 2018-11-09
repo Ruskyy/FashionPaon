@@ -19,7 +19,7 @@
               </div>
               <div class="content table-responsive table-full-width">
 
-                <img src="../images/slide-example.jpg" id="output" width="100%" height="400px">
+                <img src="../images/slide-example.jpg" id="output" style="object-fit: cover;" width="100%" height="400px">
 
                 <div class="col-md-6 form-group" style="margin-top:1%;">
                   <h4 class="title">Adicionar Slide</h4>

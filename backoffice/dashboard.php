@@ -241,6 +241,17 @@ $(document).ready(function(){
 </script>
 <script>
 
+function myFunction_list(){
+	$tipo = 0;
+	$.ajax({
+			url:"menu_files/Clientes/list_cliente.php",
+			method:"POST",
+			data: {tipo: $tipo},
+			success:function(data){
+				$('#menu_aqui').html(data);
+			}
+	});
+}
 
 function myFunction_inf(x){
 		$id = x;
@@ -250,6 +261,18 @@ function myFunction_inf(x){
 				data: {id: $id},
 				success:function(data){
 					$('#sub_menu_aqui').html(data);
+				}
+		});
+}
+
+function myFunction_delet(x){
+		$id = x;
+		$.ajax({
+				url:"menu_files/Share_files/delete.php",
+				method:"POST",
+				data: {id: $id},
+				success:function(data){
+					myFunction_list();
 				}
 		});
 }

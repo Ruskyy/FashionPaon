@@ -40,7 +40,7 @@ session_start();
                       <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
                           <i class="fa fa-edit"></i>
                       </button>
-                      <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+                      <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_delet('.$rows['cliente_id'].')">
                           <i class="fa fa-times"></i>
                       </button>
                     </td>

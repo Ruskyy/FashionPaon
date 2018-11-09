@@ -14,12 +14,12 @@
         </script>
           <div class="card" style="height:1500px;">
               <div class="header">
-                <h4 class="title">SlideShow</h4>
+                <h4 class="title">Configuração > SlideShow</h4>
                 <hr>
               </div>
               <div class="content table-responsive table-full-width">
 
-                <img src="../images/slide-example.jpg" id="output" width="100%" height="400px">
+                <img src="../images/slide-example.jpg" id="output" style="object-fit: cover;" width="100%" height="400px">
 
                 <div class="col-md-6 form-group" style="margin-top:1%;">
                   <h4 class="title">Adicionar Slide</h4>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                       <label for="slide_title">Titulo</label>
-                      <input type="text" class="form-control" name="slide_titulo"  placeholder="Titulo" required>
+                      <input type="text" class="form-control" name="slide_titulo"  placeholder="Titulos a apresentar em cima da imagem" maxlength="35" required>
                     </div>
                     <div class="form-group">
                     <label for="anim_titulo"> Animação Titulo</label>
@@ -171,7 +171,7 @@
                     </div>
                     <div class="form-group">
                       <label for="desc">Descrição</label>
-                      <input type="text" class="form-control" name="slide_desc"  placeholder="Titulo">
+                      <input type="text" class="form-control" name="slide_desc"  maxlength="35" placeholder="Desc.">
                     </div>
                     <div class="form-group">
                       <label for="anim_titulo"> Animação Descrição</label>
@@ -331,12 +331,12 @@
                     <div id="buttoninfo">
                       <div class="form-group">
                         <label for="slide_title">Texto Butão</label>
-                        <input type="text" class="form-control" name="button_text"  placeholder="Titulo">
+                        <input type="text" class="form-control" name="button_text"  placeholder="Ex:. Saber Mais">
                       </div>
 
                       <div class="form-group">
                         <label for="slide_title">Link Butão</label>
-                        <input type="text" class="form-control" name="button_link"  placeholder="Titulo">
+                        <input type="text" class="form-control" name="button_link"  placeholder="Caso nada preencher com #">
                       </div>
 
                       <div class="form-group">
@@ -481,23 +481,41 @@
                         <th scope="col">#</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Desc.</th>
+                        <th scope="col">Btn?</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                          <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
-                              <i class="fa fa-eye"></i>
-                          </button>
-                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
-                              <i class="fa fa-times"></i>
-                          </button>
-                        </td>
-                      </tr>
+                      <?php
+                      //echo '<option value="'.$efect['code_texteffect'].'">'.$efect['desc_texteffect'].'</option>';
+                      include '../../../php/conn.php';
+                      $query = "SELECT id_slide,slide_state,image_slide,title_slide,desc_slide,button_slide FROM slider";
+                      $slides = mysqli_query($conn,$query);
+                      $ordem = 1;
+                      while ($slide=mysqli_fetch_assoc($slides)) {
+                        echo '
+                        <tr>
+                          <th scope="row">'.$ordem.'</th>
+                          <td>'.$slide['title_slide'].'</td>
+                          <td>'.$slide['desc_slide'].'</td>
+                          <td>';
+                          if ($slide['button_slide']=='on') {
+                            echo '<i class="fa fa-check"></i>';
+                          }
+                          echo '</td>
+                          <td>
+                          <input type="hidden" name="" value="'.$slide['id_slide'].'">
+                            <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                            <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+                                <i class="fa fa-times"></i>
+                            </button>
+                          </td>
+                        </tr>
+                        ';
+                        $ordem = $ordem+1;
+                      }?>
                     </tbody>
                   </table>
 

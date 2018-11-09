@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Nov-2018 às 20:01
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 09-Nov-2018 às 23:26
+-- Versão do servidor: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,6 +24,21 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_edit_cliente` (IN `id` INT, IN `password` VARCHAR(50), IN `nome` VARCHAR(20), IN `apelido` VARCHAR(20), IN `datanasc` DATE, IN `morada` VARCHAR(100), IN `codigopostal` VARCHAR(11), IN `idpais` INT, IN `nif` INT, IN `tele` INT, IN `email` VARCHAR(100))  BEGIN
+UPDATE cliente SET
+  cliente_password = password,
+  cliente_nome = nome,
+  cliente_apelido = apelido,
+  cliente_datanasc = datanasc,
+  cliente_morada = morada,
+  cliente_codigopostal = codigopostal,
+  cliente_idpais = idpais,
+  cliente_nif = nif,
+  cliente_tele = tele,
+  cliente_email = email
+  WHERE cliente_id = id;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `usp_login` (IN `username` VARCHAR(20), IN `password` VARCHAR(50))  BEGIN
 SELECT cliente_id, cliente_tipo, cliente_username, cliente_nome, cliente_apelido, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_email, cliente_img_path
 FROM cliente WHERE cliente_username like username AND cliente_password like password;
@@ -150,6 +163,17 @@ INSERT INTO `imgcategoria` (`id_imgcategoria`, `nome_imgcategoria`) VALUES
 (1, 'principal'),
 (2, 'icon'),
 (3, 'galeria');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `marca`
+--
+
+CREATE TABLE `marca` (
+  `id_marca` int(11) NOT NULL,
+  `nome_marca` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -459,6 +483,7 @@ CREATE TABLE `produto` (
   `produto_id` int(11) NOT NULL,
   `produto_idcategoria` int(11) NOT NULL,
   `produto_nome` varchar(50) NOT NULL,
+  `produto_idmarca` int(11) NOT NULL,
   `produto_desc` varchar(100) NOT NULL,
   `id_publico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -557,6 +582,42 @@ CREATE TABLE `stock` (
   `stock_prodpreco` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tamanho`
+--
+
+CREATE TABLE `tamanho` (
+  `id_tamanho` int(11) NOT NULL,
+  `nome_tamanho` varchar(20) NOT NULL,
+  `id_categoria_tamanho` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tamanho`
+--
+
+INSERT INTO `tamanho` (`id_tamanho`, `nome_tamanho`, `id_categoria_tamanho`) VALUES
+(1, 'XS', 1),
+(2, 'S', 1),
+(3, 'M', 1),
+(4, 'L', 1),
+(5, 'XL', 1),
+(6, 'XXL', 1),
+(7, '38', 2),
+(8, '39', 2),
+(10, '40', 0),
+(11, '41', 0),
+(12, '42', 0),
+(13, '43', 0),
+(14, '44', 0),
+(15, '40', 2),
+(16, '41', 2),
+(17, '42', 2),
+(18, '43', 2),
+(19, '44', 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -634,6 +695,12 @@ ALTER TABLE `stock`
   ADD PRIMARY KEY (`stock_id`);
 
 --
+-- Indexes for table `tamanho`
+--
+ALTER TABLE `tamanho`
+  ADD PRIMARY KEY (`id_tamanho`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -642,68 +709,61 @@ ALTER TABLE `stock`
 --
 ALTER TABLE `carrinho`
   MODIFY `carrinho_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `carrinho_stock`
 --
 ALTER TABLE `carrinho_stock`
   MODIFY `carstock_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `imagem`
 --
 ALTER TABLE `imagem`
   MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `imgcategoria`
 --
 ALTER TABLE `imgcategoria`
   MODIFY `id_imgcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
   MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `publico`
 --
 ALTER TABLE `publico`
   MODIFY `id_publico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
   MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `slider_texteffects`
 --
 ALTER TABLE `slider_texteffects`
   MODIFY `id_texteffect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
   MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
+--
+-- AUTO_INCREMENT for table `tamanho`
+--
+ALTER TABLE `tamanho`
+  MODIFY `id_tamanho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

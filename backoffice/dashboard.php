@@ -253,6 +253,17 @@ function myFunction_inf(x){
 				}
 		});
 }
+function myFunction_edit(x){
+		$id = x;
+		$.ajax({
+				url:"menu_files/Share_files/editar.php",
+				method:"POST",
+				data: {id: $id},
+				success:function(data){
+					$('#sub_menu_aqui').html(data);
+				}
+		});
+}
 
 function mySubFunction(x){
 		$tipo = x;
@@ -510,19 +521,28 @@ function mySuubFunction(x){
 				<?php
 					if (isset($_POST['submeter_produto'])) {
 						include '../php/conn.php';
-						echo "kasdasd";
 						$query = "INSERT INTO produto(produto_nome,produto_idcategoria,produto_desc,id_publico) VALUES('$_POST[nome_produto]','$_POST[categoria_produto]','$_POST[descricao_produto]','$_POST[categoria_publico]')";
 						mysqli_query($conn,$query);
 						include '../php/deconn.php';
 					}
 				 ?>
+
+				 <?php if (isset($_POST['editar'])) {
+					 include '../php/conn.php';
+					 require_once '../php/functions.php';
+					 $codpost = $_POST['codigo'].'-'.$_POST['postal'];
+	 				 $query = "CALL usp_edit_cliente('$_POST[id]','$_POST[password]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]')";
+	 				 mysqli_query($conn,$query);
+	 				 include '../php/deconn.php';
+				 } ?>
+
 				<?php
 				if(isset($_POST['submeter'])){
 					require_once '../php/functions.php';
 					include '../php/conn.php';
 					$codpost = $_POST['codigo'].'-'.$_POST['postal'];
-					$img_path="images/unknown.png";
 
+					$img_path="images/unknown.png";
 					if(isset($_FILES['image'])){
 						$file_name = $_FILES['image']['name'];
 						$file_size = $_FILES['image']['size'];

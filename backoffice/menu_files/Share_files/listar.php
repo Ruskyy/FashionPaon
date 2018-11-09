@@ -5,7 +5,7 @@ session_start();
   $id = $_POST['id'];
   $output = '';
 
-  $dado=mysqli_fetch_assoc(mysqli_query($conn,"SELECT cliente_id, cliente_password, cliente_apelido, cliente_nome, cliente_apelido, cliente_email, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_img_path  FROM cliente WHERE cliente_id = $id"));
+  $dado=mysqli_fetch_assoc(mysqli_query($conn,"SELECT cliente_id, cliente_tipo, cliente_password, cliente_apelido, cliente_nome, cliente_apelido, cliente_email, cliente_datanasc, cliente_morada, cliente_codigopostal, cliente_idpais, cliente_nif, cliente_tele, cliente_img_path  FROM cliente WHERE cliente_id = $id"));
 $decpassword = md5($dado['cliente_password']);
 $codigo = strtok($dado['cliente_codigopostal'],  '-');
 $postal = explode('-', $dado['cliente_codigopostal']);

@@ -5,6 +5,7 @@ session_start();
   $tipo = $_POST['tipo'];
   $output = '';
   $dado =mysqli_query($conn,"SELECT cliente_id, cliente_username, cliente_nome, cliente_apelido, cliente_email  FROM cliente WHERE cliente_tipo = 0");
+
   $output .='
   <div class="container-fluid">
       <div class="row">
@@ -37,7 +38,7 @@ session_start();
                       <button type="button" rel="tooltip" title="Informação" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_inf('.$rows['cliente_id'].')">
                           <i class="fa fa-list-alt"></i>
                       </button>
-                      <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
+                      <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_edit('.$rows['cliente_id'].')">
                           <i class="fa fa-edit"></i>
                       </button>
                       <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_delet('.$rows['cliente_id'].')">
@@ -83,7 +84,6 @@ echo $output;
                   </td>
 
                 </tr>
-
                 -->
 <script>
 

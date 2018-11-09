@@ -300,6 +300,30 @@ function myFunction_delet(x){
 		});
 }
 
+function myFunction_editt(id, password, fname, lname, data, morada, codpos, paises, nif, tele, email){
+		$id = id;
+		$pass = password;
+		$fname = fname;
+		$lname = lname;
+		$data = data;
+		$morada = morada;
+		$codpos = codpos;
+		$paises = paises;
+		$nif = nif;
+		$tele = tele;
+		$email = emai;
+		$.ajax({
+				url:"menu_files/Share_files/editt.php",
+				method:"POST",
+				data: {id: $id, pass: $pass, fname: $fname, lname: $lname, data: $data, morada: $morada, codpos: $codpos, paises: $paises, nif: $nif, tele: $tele, email: $email},
+				success:function(data){
+					myFunction_list(data);
+				}
+		});
+}
+
+
+//-------------------------------------------
 function mySubFunction(x){
 		$tipo = x;
 		$.ajax({

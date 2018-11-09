@@ -22,7 +22,7 @@ $output .='
                 </div>
                 <div class="content table-responsive table-full-width">
                   <form class="" method="post" style="padding: 20px; position:relative; top:-100px;">
-                  <input type="hidden" name="id" value="'.$dado['cliente_id'].'">
+                  <input type="hidden" id="id" value="'.$dado['cliente_id'].'">
                     <div class="row">
                       <div style=" border: 4px double #d9dbdd; width:130px; height:130px; position:relative; top:30px;left:610px;">
                         <img src="../'.$dado['cliente_img_path'].'" style="width:120px; height:120px;"/>
@@ -32,41 +32,41 @@ $output .='
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Nome</label>
-                              <input class="form-control form-control-lg" type="text" name="fname" value="'.$dado['cliente_nome'].'" placeholder="First name"  />
+                              <input class="form-control form-control-lg" type="text" id="fname" value="'.$dado['cliente_nome'].'" placeholder="First name"  />
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Apelido</label>
-                              <input class="form-control form-control-lg" type="text" name="lname" value="'.$dado['cliente_apelido'].'" placeholder="Last name"  />
+                              <input class="form-control form-control-lg" type="text" id="lname" value="'.$dado['cliente_apelido'].'" placeholder="Last name"  />
                             </div>
                           </div>
                         </div>
                         <label>Username</label>
-                        <input class="form-control form-control-lg" type="text" name="user" value="'.$dado['cliente_apelido'].'" placeholder="Username" >
+                        <input class="form-control form-control-lg" type="text" id="user" value="'.$dado['cliente_apelido'].'" placeholder="Username" >
                         <br>
                         <label>Data</label>
-                        <input class="form-control form-control-lg" type="text" name="data" value="'.$dado['cliente_datanasc'].'" placeholder="Data" >
+                        <input class="form-control form-control-lg" type="text" id="data" value="'.$dado['cliente_datanasc'].'" placeholder="Data" >
                         <br>
                         <label>Mail</label>
-                        <input class="form-control form-control-lg" type="email" name="email" value="'.$dado['cliente_email'].'" placeholder="email@email.com" >
+                        <input class="form-control form-control-lg" type="email" id="email" value="'.$dado['cliente_email'].'" placeholder="email@email.com" >
                         <br>
                         <label>Password</label>
-                        <input class="form-control form-control-lg" type="text" name="password" value="'.$dado['cliente_password'].'" placeholder="email@email.com" disabled>
+                        <input class="form-control form-control-lg" type="text" id="password" value="'.$dado['cliente_password'].'" placeholder="email@email.com" disabled>
                         <br>
-                        <button class="btn btn-primary btn-lg btn-block" type="submit" name="editar">EDITAR</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="button" id="start" id="editar">EDITAR</button>
 
                       </div>
                       <div class="col-md-5">
                         <div style="position:relative; top:5px; left: 100px;">
                         <div class="form-group" style="position:relative; top:45px;">
                           <label>Morada / Lote, nº Predio</label>
-                          <input class="form-control form-control-lg" type="text" name="morada" value="'.$dado['cliente_morada'].'" placeholder="Morada" >
+                          <input class="form-control form-control-lg" type="text" id="morada" value="'.$dado['cliente_morada'].'" placeholder="Morada" >
                         </div>
                         <br>
                         <div style="position:relative; top:24px;">
                           <label>Países</label>
-                          <select class="form-control" id="paises" name="paises" style="position:relative; top:6px;">
+                          <select class="form-control"id="paises" style="position:relative; top:6px;">
                           <option value="'.$curparis['paisId'].'">'.$curparis['paisNome'].'</option>';
                           $querypaises = "SELECT paisId, paisNome FROM paises";
                           $paises = mysqli_query($conn,$querypaises);
@@ -79,18 +79,18 @@ $output .='
                               <div class="row form-group">
                                 <div class="col-xs-6">
                                   <label>Código</label>
-                                    <input class="form-control form-control-lg" type="text" name="codigo" value="'.$codigo.'" placeholder="Codigo"  />
+                                    <input class="form-control form-control-lg" type="text" id="codigo" value="'.$codigo.'" placeholder="Codigo"  />
                                 </div>
                                 <div class="col-xs-6">
                                   <label>Postal</label>
-                                    <input class="form-control form-control-lg" type="text" name="postal" value="'.$postal[1].'" placeholder="Postal"  />
+                                    <input class="form-control form-control-lg" type="text" id="postal" value="'.$postal[1].'" placeholder="Postal"  />
                                 </div>
                               </div>
                               <label>Telefone</label>
-                              <input class="form-control form-control-lg" type="text" name="tele" value="'.$dado['cliente_tele'].'" placeholder="TELEFONE" maxlength="9" size="9" >
+                              <input class="form-control form-control-lg" type="text" id="tele" value="'.$dado['cliente_tele'].'" placeholder="TELEFONE" maxlength="9" size="9" >
                               <br>
                               <label>NIF</label>
-                              <input class="form-control form-control-lg" type="text" name="nif" value="'.$dado['cliente_nif'].'" placeholder="NIF" maxlength="9" size="9" >
+                              <input class="form-control form-control-lg" type="text" id="nif" value="'.$dado['cliente_nif'].'" placeholder="NIF" maxlength="9" size="9" >
                             </div>
                             </div>
                         <br>
@@ -105,14 +105,26 @@ $output .='
   echo $output;
 
   ?>
-
   <script>
   $(document).ready(function(){
-  	$("#btn2").click(function(){
-        $(".pass").attr("type", "text");
-      });
-      $("#btn3").click(function(){
-        $(".pass").attr("type", "password");
-      });
+      $("#start").click(function(){
+        var codigo = $('#codigo').val();
+        var postal = $('#postal').val();
+        var id = $('#id').val();
+        var pass = $('#password').val();
+        var fname = $('#fname').val();
+        var lname = $('#lname').val();
+        var data = $('#data').val();
+        var morada = $('#morada').val();
+        var codpos = codigo+"-"+postal;
+        var paises = $('#paises').val();
+        var nif = $('#nif').val();
+        var tele = $('#tele').val();
+        var email = $('#email').val();
+        var todo = codigo+""+postal+""+id+""+fname+""+lname+""+data+""+morada+""+codpos+""+paises+""+nif+""+tele+""+email;
+        alert(todo);
+        myFunction_editt(id, pass, fname, lname, data, morada, codpos, paises, nif, tele, email);
+    });
   });
+
   </script>

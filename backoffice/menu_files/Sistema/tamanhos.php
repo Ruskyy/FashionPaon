@@ -1,10 +1,10 @@
 <?php
 include '../../../php/conn.php';
-require_once '../../../php/functions.php';
 $querycat = "SELECT categoria_id, categoria_nome FROM categoria";
-
 $categorias = mysqli_query($conn, $querycat);
 $categorialista = mysqli_query($conn, $querycat);
+
+
 
 include '../../../php/deconn.php';
 ?>
@@ -27,10 +27,11 @@ include '../../../php/deconn.php';
                               <option value="0">Mostrar tudo</option>
                               <?php
                               include '../../../php/conn.php';
+
                               while ($categoria = mysqli_fetch_assoc($categorias)) {
                                 echo $categoria['categoria_id'];
                               ?>
-                              <option value=" <?php echo $categoria['categoria_id']; ?> "> <?php echo $categoria['categoria_nome']; ?> </option>
+                              <option value="<?php echo $categoria['categoria_id']; ?>"> <?php echo $categoria['categoria_nome']; ?> </option>
                               <?php
                               }
                               include '../../../php/deconn.php';?>
@@ -48,12 +49,15 @@ include '../../../php/deconn.php';
                           <th>Nome</th>
                         </thead>
                         <tbody>
-                          <?php while (@$tamanho = mysqli_fetch_assoc($listatamanhos)) {
+                          <?php
+                          $querytam = "SELECT nome_tamanho, id_categoria_tamanho FROM tamanho";
+                          $tamanhos = mysqli_query($conn,$querytam);
+                          while (@$tamanho = mysqli_fetch_assoc($tamanhos)) {
                             ?>
-
-                            <td><?php echo $tamanho['nome_tamanho']; ?></td>
-                            <td><?php echo $tamanho['id_categoria_tamanho']; ?></td>
-
+                            <tr>
+                              <td><?php echo $tamanho['nome_tamanho']; ?></td>
+                              <td><?php echo $tamanho['id_categoria_tamanho']; ?></td>
+                            </tr>
                             <?php
                           }  ?>
                           <td></td>
@@ -105,7 +109,7 @@ include '../../../php/deconn.php';
 
                     <button type="submit" class="btn btn-primary btn-lg btn-block" name="addtamanho" id="btn_sub"> Adicionar </button>
                   </form>
-                  
+
                 </div>
             </div>
           </div>

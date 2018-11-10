@@ -50,6 +50,7 @@ include '../../../php/deconn.php';
                         </thead>
                         <tbody>
                           <?php
+                          include '../../../php/conn.php';
                           $querytam = "SELECT nome_tamanho, id_categoria_tamanho FROM tamanho";
                           $tamanhos = mysqli_query($conn,$querytam);
                           while (@$tamanho = mysqli_fetch_assoc($tamanhos)) {
@@ -59,7 +60,8 @@ include '../../../php/deconn.php';
                               <td><?php echo $tamanho['id_categoria_tamanho']; ?></td>
                             </tr>
                             <?php
-                          }  ?>
+                          }
+                          include '../../../php/deconn.php';?>
                           <td></td>
                           <td></td>
                         </tbody>

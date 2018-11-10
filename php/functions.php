@@ -76,12 +76,14 @@ include 'conn.php';
   $listatamanhos = mysqli_query($conn, $querytam);
 
   $queryaddtam = "INSERT INTO tamanho(nome_tamanho,id_categoria_tamanho) VALUES('$_POST[nome]','$_POST[categoria_insert]')";
-
-    if ($result=mysqli_query($conn, $querytam." WHERE nome_tamanho like '$nome' AND id_categoria_tamanho = '$cat'")) {
-      echo 'errou';
+  $result = mysqli_query($conn, $querytam." WHERE nome_tamanho like '$nome' AND id_categoria_tamanho = '$cat'");
+  $count = mysqli_num_rows($result);
+    if ($count == 0) {
+      mysqli_query($conn,$queryaddtam);
     }
     else {
-      mysqli_query($conn,$queryaddtam);
+      echo $count;
+      echo 'errou';
     }
 
   include 'deconn.php';

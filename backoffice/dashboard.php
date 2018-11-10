@@ -262,7 +262,7 @@ $(document).ready(function(){
 function myFunction_list(x){
 	var tipo = x;
 	$tipo = 0;
-	if(x == 0){
+	if(tipo == 0){
 		$.ajax({
 				url:"menu_files/Clientes/list_cliente.php",
 				method:"POST",
@@ -271,7 +271,7 @@ function myFunction_list(x){
 					$('#menu_aqui').html(data);
 				}
 		});
-	}else{
+	}if(tipo == 1){
 		$.ajax({
 				url:"menu_files/Admins/list_admin.php",
 				method:"POST",
@@ -318,23 +318,28 @@ function myFunction_delet(x){
 		});
 }
 
-function myFunction_editt(id, password, fname, lname, data, morada, codpos, paises, nif, tele, email){
-		$id = id;
-		$pass = password;
-		$fname = fname;
-		$lname = lname;
-		$data = data;
-		$morada = morada;
+function myFunction_editt(){
+
+		var codigo = $('#codigo').val();
+		var postal = $('#postal').val();
+		var codpos = codigo+"-"+postal;
+		$id = $('#id').val();
+		$pass = $('#password').val();
+		$fname = $('#fname').val();
+		$lname = $('#lname').val();
+		$data = $('#data').val();
+		$morada = $('#morada').val();
 		$codpos = codpos;
-		$paises = paises;
-		$nif = nif;
-		$tele = tele;
-		$email = emai;
+		$paises = $('#paises').val();
+		$nif = $('#nif').val();
+		$tele = $('#tele').val();
+		$email =  $('#email').val();
 		$.ajax({
 				url:"menu_files/Share_files/editt.php",
 				method:"POST",
 				data: {id: $id, pass: $pass, fname: $fname, lname: $lname, data: $data, morada: $morada, codpos: $codpos, paises: $paises, nif: $nif, tele: $tele, email: $email},
 				success:function(data){
+					alert(data);
 					myFunction_list(data);
 				}
 		});

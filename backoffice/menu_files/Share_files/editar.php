@@ -54,7 +54,7 @@ $output .='
                         <label>Password</label>
                         <input class="form-control form-control-lg" type="text" id="password" value="'.$dado['cliente_password'].'" placeholder="email@email.com" disabled>
                         <br>
-                        <button class="btn btn-primary btn-lg btn-block" type="button" id="start" id="editar">EDITAR</button>
+                        <button class="btn btn-primary btn-lg btn-block" onclick="myFunction_editt()" type="button">EDITAR</button>
 
                       </div>
                       <div class="col-md-5">
@@ -123,7 +123,7 @@ $output .='
         var email = $('#email').val();
         var todo = codigo+""+postal+""+id+""+fname+""+lname+""+data+""+morada+""+codpos+""+paises+""+nif+""+tele+""+email;
         alert(todo);
-        myFunction_editt(id, pass, fname, lname, data, morada, codpos, paises, nif, tele, email);
+        //myFunction_editt(id, pass, fname, lname, data, morada, codpos, paises, nif, tele, email);
     });
   });
 

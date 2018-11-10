@@ -58,8 +58,12 @@ $output .='
                         </div>
                         <br>
                         <div style="position:relative; top:24px;">
-                          <label>Países</label>
-                              <input class="form-control form-control-lg" type="text" name="paises" value="'.$dado['cliente_idpais'].'" placeholder="País" disabled>
+                          <label>Países</label>';
+                          $querypaises = "SELECT paisId, paisNome FROM paises WHERE paisId like '$dado[cliente_idpais]'";
+                          $paises = mysqli_query($conn,$querypaises);
+                          $pais=mysqli_fetch_assoc($paises);
+                            $output.='
+                              <input class="form-control form-control-lg" type="text" name="paises" value="'.$pais['paisNome'].'" placeholder="País" disabled>
                               <br>
                               <div class="row form-group">
                                 <div class="col-xs-6">

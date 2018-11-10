@@ -66,12 +66,11 @@ $output .='
                         <br>
                         <div style="position:relative; top:24px;">
                           <label>Países</label>
-                          <select class="form-control"id="paises" style="position:relative; top:6px;">
-                          <option value="'.$curparis['paisId'].'">'.$curparis['paisNome'].'</option>';
+                          <select class="form-control"id="paises" style="position:relative; top:6px;">';
                           $querypaises = "SELECT paisId, paisNome FROM paises";
                           $paises = mysqli_query($conn,$querypaises);
                           while ($pais=mysqli_fetch_assoc($paises)) {
-                            $output.='<option value="'.$pais['paisId'].'">'.$pais['paisNome'].'</option>';
+                            $output.='<option value="'.$pais['paisId'].'"';if($pais['paisId'] == $dado['cliente_idpais']){$output.='selected';} $output.='>'.$pais['paisNome'].'</option>';
                           }
                             $output.='
                           </select>
@@ -99,13 +98,11 @@ $output .='
                     </form>
                 </div>
             </div>
-        </div>
-';
-
+        </div>';
   echo $output;
 
   ?>
-  <script>
+<!--  <script>
   $(document).ready(function(){
       $("#start").click(function(){
         var codigo = $('#codigo').val();
@@ -127,4 +124,4 @@ $output .='
     });
   });
 
-  </script>
+</script>-->

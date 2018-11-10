@@ -339,7 +339,6 @@ function myFunction_editt(){
 				method:"POST",
 				data: {id: $id, pass: $pass, fname: $fname, lname: $lname, data: $data, morada: $morada, codpos: $codpos, paises: $paises, nif: $nif, tele: $tele, email: $email},
 				success:function(data){
-					alert(data);
 					myFunction_list(data);
 				}
 		});

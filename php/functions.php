@@ -75,17 +75,12 @@ include 'conn.php';
   $querytam = "SELECT nome_tamanho, id_categoria_tamanho FROM tamanho";
   $listatamanhos = mysqli_query($conn, $querytam);
 
-  $queryaddtam = "INSERT INTO tamanho(nome_tamanho,id_categoria_tamanho) VALUES('$_POST[nome]','$_POST[categoria_insert]')";
+  $queryaddtam = "INSERT INTO tamanho(nome_tamanho,id_categoria_tamanho) VALUES('$nome','$cat')";
   $result = mysqli_query($conn, $querytam." WHERE nome_tamanho like '$nome' AND id_categoria_tamanho = '$cat'");
   $count = mysqli_num_rows($result);
     if ($count == 0) {
       mysqli_query($conn,$queryaddtam);
     }
-    else {
-      echo $count;
-      echo 'errou';
-    }
-
   include 'deconn.php';
 }
 

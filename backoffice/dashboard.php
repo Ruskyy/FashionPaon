@@ -109,6 +109,21 @@ $(document).ready(function(){
 				$("#navact7").addClass("active");
 			});
 
+			// 0.1
+			$("#navact0").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact0").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/backoff_home.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+
+						}
+				});
+			});
 
 			// 1.1
 			$("#navact11").click(function(){
@@ -245,7 +260,7 @@ $(document).ready(function(){
 				$("#navact51").addClass("active");
 				$tipo = 0;
 				$.ajax({
-						url:"menu_files/Sistema/tamanhos.php",
+						url:"menu_files/Sistema/list_tamanhos.php",
 						method:"POST",
 						data: {tipo: $tipo},
 						success:function(data){
@@ -345,8 +360,44 @@ function myFunction_editt(){
 }
 
 
+function myFunction_addtamanho(){
+		$nome = $('#tamanho').val();
+		$categoria = $('#categoria_tamanho').val();
+		$tipo = 0;
+		alert($nome+" "+$categoria);
+		$.ajax({
+				url:"menu_files/Sistema/addT.php",
+				method:"POST",
+				data: {tipo: $tipo, nome: $nome, categoria: $categoria},
+				success:function(data){}
+		});
+		$tipo = 0;
+		$.ajax({
+				url:"menu_files/Sistema/list_tamanhos.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#menu_aqui').html(data);
+				}
+		});
+}
+
+
 //-------------------------------------------
 function mySubFunction(x){
+		$tipo = x;
+		$.ajax({
+				url:"ajax_files/menu.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#sub_menu_aqui').html(data);
+				}
+		});
+}
+
+
+function mySbFunction(x){
 		$tipo = x;
 		$.ajax({
 				url:"ajax_files/sub_menu.php",
@@ -608,15 +659,6 @@ function mySuubFunction(x){
 					}
 				 ?>
 
-				 <?php if (isset($_POST['editar'])) {
-					 include '../php/conn.php';
-					 require_once '../php/functions.php';
-					 $codpost = $_POST['codigo'].'-'.$_POST['postal'];
-	 				 $query = "CALL usp_edit_cliente('$_POST[id]','$_POST[password]','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]')";
-	 				 mysqli_query($conn,$query);
-	 				 include '../php/deconn.php';
-				 } ?>
-
 				<?php
 				if(isset($_POST['submeter'])){
 					require_once '../php/functions.php';
@@ -674,15 +716,6 @@ function mySuubFunction(x){
 					include '../php/deconn.php';
 				}
 				?>
-				<?php
-
-					if (isset($_REQUEST['addtamanho'])) {
-						require_once '../php/functions.php';
-						addTamanho($_POST['nome'], $_POST['categoria_insert']);
-
-					}
-
-				 ?>
 
 				<?php
 				if(isset($_POST['submeter_slide'])){

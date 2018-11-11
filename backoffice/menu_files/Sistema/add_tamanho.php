@@ -29,7 +29,7 @@
                             </div>
                             <br>
                               <div class="form-group">
-                              <label>Descrição</label>
+                              <label>Tamanho</label>
                               <input id="tamanho" type="text" value="" class="form-control form-control-lg" placeholder="Tamanho">
                             </div>
                           </div>

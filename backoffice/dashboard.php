@@ -334,7 +334,6 @@ function myFunction_delet(x){
 }
 
 function myFunction_editt(){
-
 		var codigo = $('#codigo').val();
 		var postal = $('#postal').val();
 		var codpos = codigo+"-"+postal;

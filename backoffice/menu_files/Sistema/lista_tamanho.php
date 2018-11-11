@@ -13,7 +13,7 @@ session_start();
 
 <table class="table table-hover table-striped" id="myTable">
   <thead>
-    <th>tamanho</th>
+    <th>Tamanho</th>
     <th>Categoria</th>
   </thead>
   <tbody>

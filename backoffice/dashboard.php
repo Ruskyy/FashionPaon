@@ -423,18 +423,65 @@ function myFunction_addtamanho(){
 		});
 }
 
+//----------------------Produtos----------------------
+function myFunction_editProd(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Produtos/editar.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+			$('#sub_menu_aqui').html(data);
+		}
+	});
+}
+
 function myFunction_addProdStock(x){
 	$id = x;
 	$.ajax({
 		url:"menu_files/Produtos/add_stock.php",
 		method:"POST",
 		data: {id: $id},
-		success:function(data){}
+		success:function(data){
+		$('#sub_menu_aqui').html(data);}
+	});
+}
+
+function myFunction_addProdImg(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Produtos/add_img.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+		$('#sub_menu_aqui').html(data);}
+	});
+}
+
+function myFunction_gerProdStock(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Produtos/info_stock.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+		$('#sub_menu_aqui').html(data);}
+	});
+}
+
+function myFunction_gerProdImg(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Produtos/info_img.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+		$('#sub_menu_aqui').html(data);}
 	});
 }
 
 
-//-------------------------------------------
+//--------------------------------------------------------------------------------------
 function mySubFunction(x){
 		$tipo = x;
 		$.ajax({

@@ -37,25 +37,25 @@ session_start();
                               <td>'.$pub["nome_publico"].'</td>
                               <td>'.$rows["produto_desc"].'</td>
                               <td>
-                                <button type="button" rel="tooltip" title="Desconto" class="btn btn-success btn-simple btn-xs" onclick="mySbFunction(5)">
+                                <button type="button" rel="tooltip" title="Desconto" class="btn btn-success btn-simple btn-xs" onclick="">
                                     <i class="fa fa-ticket"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Informação" class="btn btn-warning btn-simple btn-xs" onclick="mySbFunction(6)">
+                                <button type="button" rel="tooltip" title="Informação" class="btn btn-warning btn-simple btn-xs" onclick="">
                                     <i class="fa fa-list-alt"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="mySbFunction(7)">
+                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdStock('.$rows['produto_id'].')">
                                     <i class="fa fa-cubes"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="mySbFunction(8)">
+                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdImg('.$rows['produto_id'].')">
                                     <i class="fa fa-image"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="mySbFunction(9)">
+                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdStock('.$rows['produto_id'].')">
                                     <i class="fa fa-cube"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="mySbFunction(10)">
+                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdImg('.$rows['produto_id'].')">
                                     <i class="fa fa-file-image-o"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="mySbFunction(11)">
+                                <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_editProd('.$rows['produto_id'].')">
                                     <i class="fa fa-edit"></i>
                                 </button>
                                 <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
@@ -75,6 +75,14 @@ session_start();
         </div>';
 
     echo $output;
+
+    /*
+    myFunction_editProd
+    myFunction_addProdStock
+    myFunction_addProdImg
+    myFunction_gerProdStock
+    myFunction_gerProdImg
+    */
     ?>
         <script>
         var $table = document.getElementById("myTable"),

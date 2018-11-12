@@ -301,35 +301,6 @@ function myFunction_list(x){
 }
 
 function Function_AddCliente(x){
-	/*var codigo = $('#codigo').val();
-	var postal = $('#postal').val();
-	var morada1 = $('#morada').val();
-	var morada2 = $('#morada2').val();
-	var moradacompleta = morada1+" "+morada1;
-	var codpos = codigo+"-"+postal;
-	$tipo = x;
-	$codpos = codpos;
-	$moradacompleta = moradacompleta;
-	$fname = $('#fname').val();
-	$lname = $('#lname').val();
-	$file = $('#file').files[0];
-	$user = $('#user').val();
-	$pass = $('#pass').val();
-	$confpass = $('#confpass').val();
-	$data = $('#data').val();
-	$email = $('#email').val();
-	$paises = $('#paises').val();
-	$tele = $('#tele').val();
-	$nif = $('#nif').val();
-	$.ajax({
-			url:"menu_files/Share_files/add.php",
-			method:"POST",
-			data: {tipo: $tipo, fname: $fname, lname: $lname, file: $file, user: $user, pass: $pass, confpass: $confpass, data: $data, email: $email, paises: $paises, tele: $tele, nif: $nif, codpos: $codpos, moradacompleta: $moradacompleta},
-			success:function(data){
-				alert(data);
-				//myFunction_list(data);
-			}
-	});*/
 	$tipo = x;
 	var formData = new FormData($('#form')[0]);
 	$.ajax({

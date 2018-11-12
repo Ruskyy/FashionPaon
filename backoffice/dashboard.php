@@ -340,6 +340,9 @@ function Function_AddCliente(x){
 		 async: false,
 		 success: function(data) {
 				 alert(data);
+				 if(data == 'sucesso'){
+					 myFunction_list(x);
+				 }
 		 },
 		 cache: false,
 		 contentType: false,
@@ -380,6 +383,26 @@ function myFunction_delet(x){
 					myFunction_list(data);
 				}
 		});
+}
+
+function myFunction_tamanh_delet(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Sistema/tamanho_delet.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+			$tipo = 0;
+			$.ajax({
+				url:"menu_files/Sistema/list_tamanhos.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#menu_aqui').html(data);
+				}
+			});
+		}
+	});
 }
 
 function myFunction_editt(){

@@ -19,7 +19,7 @@ session_start();
   <tbody>
     <?php
     include '../../../php/conn.php';
-    $querytam = "SELECT nome_tamanho, id_categoria_tamanho FROM tamanho".$tipos;
+    $querytam = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho".$tipos;
     $tamanhos = mysqli_query($conn,$querytam);
     while (@$tamanho = mysqli_fetch_assoc($tamanhos)) {
       $categoria = mysqli_query($conn,"SELECT categoria_id, categoria_nome FROM categoria WHERE categoria_id like $tamanho[id_categoria_tamanho]");
@@ -29,7 +29,7 @@ session_start();
         <td><?php echo $tamanho['nome_tamanho']; ?></td>
         <td><?php echo $categoria['categoria_nome']; ?></td>
         <td>
-          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_tamanh_delet(<?php echo $tamanho['id_tamanho']; ?>)">
               <i class="fa fa-times"></i>
           </button>
         </td>

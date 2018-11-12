@@ -84,4 +84,9 @@ include 'conn.php';
   include 'deconn.php';
 }
 
+function addStock(){
+  include 'conn.php';
+    
+  include 'deconn.php';
+}
  ?>

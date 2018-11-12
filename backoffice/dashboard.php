@@ -423,6 +423,16 @@ function myFunction_addtamanho(){
 		});
 }
 
+function myFunction_addProdStock(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Produtos/add_stock.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){}
+	});
+}
+
 
 //-------------------------------------------
 function mySubFunction(x){

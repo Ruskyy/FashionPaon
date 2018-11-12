@@ -301,7 +301,6 @@ function myFunction_list(x){
 }
 
 function Function_AddCliente(x){
-
 	/*var codigo = $('#codigo').val();
 	var postal = $('#postal').val();
 	var morada1 = $('#morada').val();

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Nov-2018 às 23:26
--- Versão do servidor: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: 12-Nov-2018 às 23:59
+-- Versão do servidor: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -174,6 +176,36 @@ CREATE TABLE `marca` (
   `id_marca` int(11) NOT NULL,
   `nome_marca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `marcas`
+--
+
+CREATE TABLE `marcas` (
+  `id_marca` int(11) NOT NULL,
+  `nome_marca` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `marcas`
+--
+
+INSERT INTO `marcas` (`id_marca`, `nome_marca`) VALUES
+(1, 'Average'),
+(2, 'Hugo Employee'),
+(3, 'Coentros'),
+(4, 'Mara'),
+(5, 'Y&Z'),
+(6, 'Clean Girl'),
+(7, 'Luis Vitor'),
+(8, 'Gutchy'),
+(9, 'Intimisimisimisimisimi'),
+(10, 'Aclidas'),
+(11, 'Nlke'),
+(12, 'PacoRoubbame'),
+(13, 'Timberlinde');
 
 -- --------------------------------------------------------
 
@@ -476,6 +508,29 @@ INSERT INTO `paises` (`paisId`, `paisNome`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `parallax`
+--
+
+CREATE TABLE `parallax` (
+  `id` int(11) NOT NULL,
+  `img_path` varchar(150) NOT NULL,
+  `first_line` varchar(35) NOT NULL,
+  `second_line` varchar(35) NOT NULL,
+  `btn` int(11) NOT NULL,
+  `btn_text` varchar(15) NOT NULL,
+  `btn_video` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `parallax`
+--
+
+INSERT INTO `parallax` (`id`, `img_path`, `first_line`, `second_line`, `btn`, `btn_text`, `btn_video`) VALUES
+(1, 'img/parallax/parallax.jpg', 'hehe', 'Im chinese and i can see you', 1, 'Play Video', 'https://www.youtube.com/embed/RV5jJrv2kjY?rel=0&amp;showinfo=0');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `produto`
 --
 
@@ -659,10 +714,22 @@ ALTER TABLE `imgcategoria`
   ADD PRIMARY KEY (`id_imgcategoria`);
 
 --
+-- Indexes for table `marcas`
+--
+ALTER TABLE `marcas`
+  ADD PRIMARY KEY (`id_marca`);
+
+--
 -- Indexes for table `paises`
 --
 ALTER TABLE `paises`
   ADD PRIMARY KEY (`paisId`);
+
+--
+-- Indexes for table `parallax`
+--
+ALTER TABLE `parallax`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `produto`
@@ -709,61 +776,86 @@ ALTER TABLE `tamanho`
 --
 ALTER TABLE `carrinho`
   MODIFY `carrinho_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `carrinho_stock`
 --
 ALTER TABLE `carrinho_stock`
   MODIFY `carstock_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `categoria_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `imagem`
 --
 ALTER TABLE `imagem`
   MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `imgcategoria`
 --
 ALTER TABLE `imgcategoria`
   MODIFY `id_imgcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `marcas`
+--
+ALTER TABLE `marcas`
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `parallax`
+--
+ALTER TABLE `parallax`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
   MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `publico`
 --
 ALTER TABLE `publico`
   MODIFY `id_publico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
   MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `slider_texteffects`
 --
 ALTER TABLE `slider_texteffects`
   MODIFY `id_texteffect` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
   MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `tamanho`
 --
 ALTER TABLE `tamanho`
   MODIFY `id_tamanho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

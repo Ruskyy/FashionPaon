@@ -49,7 +49,10 @@ if($_FILES['image']['error'] == 0) {
    $expensions= array("jpeg","jpg","png");
    if(in_array($file_ext,$expensions)== false){
       echo "Extension not allowed, please choose a JPEG or PNG file.";
-   }else{
+   }else if($_FILES['image']['size'] > 2097152 || $_FILES['image']['size'] == 0 ){
+     
+   }
+     else{
      $generatedname = generateRandomString(100).'.'.$file_ext;
      $img_path="images/uploads/".$generatedname;
       move_uploaded_file($file_tmp,"../../../images/uploads/".$generatedname);

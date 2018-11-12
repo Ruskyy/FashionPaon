@@ -862,6 +862,18 @@ function mySuubFunction(x){
 
 				?>
 
+				<?php
+					if(isset($_POST['submeter_stock'])){
+						include '../php/conn.php';
+					    $queryaddstock = "INSERT INTO stock VALUES($id,0,'','$_POST[categoria_stock]','$_POST[preco]')";
+					    $queryasstock = "SELECT COUNT(stock_id) FROM stock WHERE stock_idproduto = '$id' AND stock_prodtamanho = '$_POST[categoria_stock]'";
+					    $hasrows = mysqli_query($conn, $queryasstock);
+					    if ($hasrows == 0) {
+					      mysqli_query($conn, $queryaddstock);
+					    }
+					  include '../php/deconn.php';
+					}
+				 ?>
 
         <footer class="footer">
             <div class="container-fluid">

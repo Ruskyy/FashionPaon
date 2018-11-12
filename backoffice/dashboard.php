@@ -268,12 +268,14 @@ $(document).ready(function(){
 						}
 				});
 			});
-
 });
-
 </script>
 <script>
-
+function ABRE(){
+	var codigo = $('#file')[0].files[0];
+	alert(codigo.name+"//"+codigo.size+"//-->"+codigo.tmp_name+"<--//"+codigo.type);
+	//console.log(codigo.name+"//"+codigo.size+"//-->"+codigo.tmp_name+"<--//"+codigo.type);
+}
 function myFunction_list(x){
 	var tipo = x;
 	$tipo = 0;
@@ -296,6 +298,53 @@ function myFunction_list(x){
 				}
 		});
 	}
+}
+
+function Function_AddCliente(x){
+
+	/*var codigo = $('#codigo').val();
+	var postal = $('#postal').val();
+	var morada1 = $('#morada').val();
+	var morada2 = $('#morada2').val();
+	var moradacompleta = morada1+" "+morada1;
+	var codpos = codigo+"-"+postal;
+	$tipo = x;
+	$codpos = codpos;
+	$moradacompleta = moradacompleta;
+	$fname = $('#fname').val();
+	$lname = $('#lname').val();
+	$file = $('#file').files[0];
+	$user = $('#user').val();
+	$pass = $('#pass').val();
+	$confpass = $('#confpass').val();
+	$data = $('#data').val();
+	$email = $('#email').val();
+	$paises = $('#paises').val();
+	$tele = $('#tele').val();
+	$nif = $('#nif').val();
+	$.ajax({
+			url:"menu_files/Share_files/add.php",
+			method:"POST",
+			data: {tipo: $tipo, fname: $fname, lname: $lname, file: $file, user: $user, pass: $pass, confpass: $confpass, data: $data, email: $email, paises: $paises, tele: $tele, nif: $nif, codpos: $codpos, moradacompleta: $moradacompleta},
+			success:function(data){
+				alert(data);
+				//myFunction_list(data);
+			}
+	});*/
+	$tipo = x;
+	var formData = new FormData($('#form')[0]);
+	$.ajax({
+		 url: 'menu_files/Share_files/add.php',
+		 type: 'POST',
+		 data: formData, tipo: $tipo,
+		 async: false,
+		 success: function(data) {
+				 alert(data);
+		 },
+		 cache: false,
+		 contentType: false,
+		 processData: false
+	});
 }
 
 function myFunction_inf(x){
@@ -658,63 +707,70 @@ function mySuubFunction(x){
 					}
 				 ?>
 
-				<?php
-				if(isset($_POST['submeter'])){
-					require_once '../php/functions.php';
-					include '../php/conn.php';
-					$codpost = $_POST['codigo'].'-'.$_POST['postal'];
+				 <?php
+ 				if(isset($_POST['submeter'])){
+ 					require_once '../php/functions.php';
+ 					include '../php/conn.php';
+ 					$codpost = $_POST['codigo'].'-'.$_POST['postal'];
 
-					$img_path="images/unknown.png";
-					if(isset($_FILES['image'])){
-						$file_name = $_FILES['image']['name'];
-						$file_size = $_FILES['image']['size'];
-						$file_tmp =$_FILES['image']['tmp_name'];
-						$file_type=$_FILES['image']['type'];
-						@$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+ 					$img_path="images/unknown.png";
+ 					if(isset($_FILES['image'])){
+ 						$file_name = $_FILES['image']['name'];
+ 						$file_size = $_FILES['image']['size'];
+ 						$file_tmp =$_FILES['image']['tmp_name'];
+ 						$file_type=$_FILES['image']['type'];
+ 						@$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+ 						$var = (string)$file_ext;
+ 						echo "name".$file_name."<br>";
+ 						echo "size".$file_size."<br>";
+ 						echo "tmp".$file_tmp."<br>";
+ 						echo "type".$file_type."<br>";
+ 						echo "ext->".$var."<br>";
+ 						echo "Post->".$_FILES['image']."<br>";
 
-						$expensions= array("jpeg","jpg","png");
+ 						$expensions= array("jpeg","jpg","png");
 
-						echo $file_size;
-						echo $file_name;
-						if(in_array($file_ext,$expensions)== false){
-							 echo "Extension not allowed, please choose a JPEG or PNG file.";
-						}
-						if($_FILES['image']['size'] > 2097152 ||$_FILES['image']['size'] == 0 ){
-							 echo 'ERROR : File size error, it must be excately 2 MB';
-						}else{
-							$generatedname = generateRandomString(100).'.'.$file_ext;
-							$img_path="images/uploads/".$generatedname;
-							 move_uploaded_file($file_tmp,"../images/uploads/".$generatedname);
-						}
-					}
+ 						echo $file_size;
+ 						echo $file_name;
+ 						if(in_array($file_ext,$expensions)== false){
+ 							 echo "Extension not allowed, please choose a JPEG or PNG file.";
+ 						}
+ 						if($_FILES['image']['size'] > 2097152 ||$_FILES['image']['size'] == 0 ){
+ 							 echo 'ERROR : File size error, it must be excately 2 MB';
+ 						}else{
+ 							$generatedname = generateRandomString(100).'.'.$file_ext;
+ 							$img_path="images/uploads/".$generatedname;
+ 							 move_uploaded_file($file_tmp,"../images/uploads/".$generatedname);
+ 						}
+ 					}
 
-						$username=mysqli_fetch_array(mysqli_query($conn,"SELECT cliente_username FROM cliente WHERE cliente_username='$_POST[user]'"));
-						$email=mysqli_fetch_array(mysqli_query($conn,"SELECT cliente_email FROM cliente WHERE cliente_email='$_POST[email]'"));
+ 						$username=mysqli_fetch_array(mysqli_query($conn,"SELECT cliente_username FROM cliente WHERE cliente_username='$_POST[user]'"));
+ 						$email=mysqli_fetch_array(mysqli_query($conn,"SELECT cliente_email FROM cliente WHERE cliente_email='$_POST[email]'"));
 
-					if(!$username && !$email){
-						$codpost = $_POST['codigo'].'-'.$_POST['postal'];
+ 					if(!$username && !$email){
+ 						$codpost = $_POST['codigo'].'-'.$_POST['postal'];
 
-						//Encripta a password
-						$encpassword =md5( $_POST['pass']);
-						if ($_POST['tipo'] == 0) {
-							mysqli_query($conn,"CALL usp_register_user('$_POST[user]','$encpassword','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
-						}
-						else{
-							 mysqli_query($conn,"CALL usp_register_admin('$_POST[user]','$encpassword','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
-						}
+ 						//Encripta a password
+ 						$encpassword =md5( $_POST['pass']);
+ 						if ($_POST['tipo'] == 0) {
+ 							mysqli_query($conn,"CALL usp_register_user('$_POST[user]','$encpassword','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
+ 						}
+ 						else{
+ 							 mysqli_query($conn,"CALL usp_register_admin('$_POST[user]','$encpassword','$_POST[fname]','$_POST[lname]','$_POST[data]','$_POST[morada]','$codpost','$_POST[paises]','$_POST[nif]','$_POST[tele]','$_POST[email]','$img_path')");
+ 						}
 
 
-						echo 'sucesso';
-					}else {
-						if ($username) {
-							echo 'O username é repetido';
-						}if ($email) {
-							echo 'O email é repetido';
-						}
-					}
-					include '../php/deconn.php';
-				}
-				?>
+ 						echo 'sucesso';
+ 					}else {
+ 						if ($username) {
+ 							echo 'O username é repetido';
+ 						}if ($email) {
+ 							echo 'O email é repetido';
+ 						}
+ 					}
+ 					include '../php/deconn.php';
+ 				}
+ 				?>
 
 				<?php
 				if(isset($_POST['submeter_slide'])){

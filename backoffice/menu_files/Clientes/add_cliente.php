@@ -13,7 +13,7 @@ session_start();
                   <h4 class="title">Clientes > Adicionar</h4>
                 </div>
                 <div class="content table-responsive table-full-width">
-                  <form class="" method="post" style="padding: 20px; position:relative; top:-100px;"  enctype="multipart/form-data">
+                  <form id="form" class="" method="post" style="padding: 20px; position:relative; top:-100px;"  enctype="multipart/form-data">
                     <div class="row">
                       <div style=" border: 4px double #d9dbdd; width:130px; height:130px; position:relative; top:30px;left:610px;">
                         <img id="output" src=""style="width:120px; height:120px;"/>
@@ -101,7 +101,7 @@ session_start();
                       </div>
                       <br>
                       <input type="hidden" name="tipo" value="0">
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub"> Adicionar </button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub" onclick="Function_AddCliente(0)"> Adicionar </button>
                       <script type="text/java">
                           function enforce_maxlength(event) {
                             var t = event.target;
@@ -114,7 +114,8 @@ session_start();
                     </form>
                 </div>
             </div>
-        </div>';
+        </div>
+        <button type="button" onclick="ABRE()">adsa</button>';
         echo $output;
         include '../../../php/deconn.php';
 ?>

@@ -467,9 +467,6 @@
                     <button type="submit" name="submeter_slide" class="btn btn-success">Adicionar</button>
 
                   </form>
-                  <?php
-
-                   ?>
                 </div>
 
                 <div class="col-md-6 form-group" style="margin-top:1%;">

@@ -15,7 +15,7 @@
 
           <div class="card" style="height:750px;">
               <div class="header">
-                <h4 class="title">Configuracao > Parallax</h4>
+                <h4 class="title">Configuração > Parallax</h4>
                 <hr>
               </div>
 
@@ -51,21 +51,10 @@
                       <div class="col">
                           <label>Butão: </label>
                       </div>';
-                      if ($dado['btn'] == 1) {
-                        echo '
-                        <script>
-
-                        </script>';
-                      }else {
-                        echo '
-                        <script>
-                        
-                        </script>';
-                      }
                       echo '
                       <div class="col">
                         <label class="switch">
-                          <input class="togBtn" name="buton_status" type="checkbox">
+                          <input class="togBtn" id="check" name="buton_status" type="checkbox">
                           <span class="slider round"></span>
                         </label>
                       </div>
@@ -75,16 +64,15 @@
                     <div id="buttoninfo">
                       <div class="form-group">
                         <label for="formGroupExampleInput">Texto Butão</label>
-                        <input type="text" class="form-control" id="text_btn" placeholder="Example input">
+                        <input type="text" class="form-control" value="'.$dado['btn_text'].'" id="text_btn" placeholder="Example input">
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Video Butão</label>
-                        <input type="text" class="form-control" name="link_btn" placeholder="Another input">
+                        <input type="text" class="form-control" value="'.$dado['btn_video'].'" name="link_btn" placeholder="Another input">
                         <small id="emailHelp" class="form-text text-muted">O Link deve ser o embed to youtube</small>
                       </div>
                     </div>
                       <button type="submit" name="submeter_paralax" class="btn btn-primary">Alterar</button>
-                      <button type="reset" name="submeter_slide" id="resetbtnus" class="btn btn-danger" onclick="hideOnReset()">Reset</button>
                   </form>
               </div>
 
@@ -98,12 +86,25 @@
       </div>
 
       ';
+      if ($dado['btn'] == '1') {
+        echo '
+        <script>
+        document.getElementById("check").checked = true;
+        $("#buttoninfo").show();
+        </script>';
+      }else {
+        echo '
+        <script>
+        document.getElementById("check").checked = false;
+        $("#buttoninfo").hide();
+        </script>';
+      }
     }
     ?>
 
       <script>
       $(document).ready(function(){
-      $("#buttoninfo").hide();
+      // $("#buttoninfo").hide();
       var switchStatus = false;
       $(".togBtn").on('change', function() {
         if ($(this).is(':checked')) {

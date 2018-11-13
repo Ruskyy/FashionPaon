@@ -68,6 +68,8 @@ session_start();
                       </div>
                       </div>
                       <br>
+                      <input type="hidden" name="idd" value="<?php echo $dado['produto_id'];?>">
+                      <input type="hidden" name="tipoo" value="2">
                       <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction_AllAddProd(<?php echo $dado['produto_id'];?>,2)" name="submeter_produto"> Gravar </button>
 
                       <script type="text/java">

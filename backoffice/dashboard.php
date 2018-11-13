@@ -428,14 +428,14 @@ function myFunction_tamanh_delet(x){
 //0-Delete, 1- add do produto, 2-Edit do produto, 3-add stock, 4- add de imagens
 
 function myFunction_AllAddProd(x,y){
-	$id = x;
-	$tipo = y;
+	var id = x;
+	var tipo = y;
 	if($tipo != 0)
 	{var formData = new FormData($('#formProd')[0]);}
 	$.ajax({
 		 url: 'menu_files/Produtos/addAllProd.php',
 		 type: 'POST',
-		 data: formData, id: $id, tipo: $tipo,
+		 data: formData, id, tipo,
 		 async: false,
 		 success: function(data) {
 			 alert(data);

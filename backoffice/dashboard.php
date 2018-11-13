@@ -355,25 +355,6 @@ function myFunction_delet(x){
 		});
 }
 
-function myFunction_tamanh_delet(x){
-	$id = x;
-	$.ajax({
-		url:"menu_files/Sistema/tamanho_delet.php",
-		method:"POST",
-		data: {id: $id},
-		success:function(data){
-			$tipo = 0;
-			$.ajax({
-				url:"menu_files/Sistema/list_tamanhos.php",
-				method:"POST",
-				data: {tipo: $tipo},
-				success:function(data){
-					$('#menu_aqui').html(data);
-				}
-			});
-		}
-	});
-}
 
 function myFunction_editt(){
 		var codigo = $('#codigo').val();
@@ -400,7 +381,7 @@ function myFunction_editt(){
 		});
 }
 
-
+//----------------------Sistema Tamanho
 function myFunction_addtamanho(){
 		$nome = $('#tamanho').val();
 		$categoria = $('#categoria_tamanho').val();
@@ -423,7 +404,49 @@ function myFunction_addtamanho(){
 		});
 }
 
+
+function myFunction_tamanh_delet(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Sistema/tamanho_delet.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+			$tipo = 0;
+			$.ajax({
+				url:"menu_files/Sistema/list_tamanhos.php",
+				method:"POST",
+				data: {tipo: $tipo},
+				success:function(data){
+					$('#menu_aqui').html(data);
+				}
+			});
+		}
+	});
+}
 //----------------------Produtos----------------------
+//0-Delete, 1- add do produto, 2-Edit do produto, 3-add stock, 4- add de imagens
+
+function myFunction_AllAddProd(x,y){
+	$id = x;
+	$tipo = y;
+	if($tipo != 0)
+	{var formData = new FormData($('#formProd')[0]);}
+	$.ajax({
+		 url: 'menu_files/Produtos/addAllProd.php',
+		 type: 'POST',
+		 data: formData, id: $id, tipo: $tipo,
+		 async: false,
+		 success: function(data) {
+			 alert(data);
+		 },
+		 cache: false,
+		 contentType: false,
+		 processData: false
+	});
+}
+
+
 function myFunction_editProd(x){
 	$id = x;
 	$.ajax({
@@ -480,7 +503,75 @@ function myFunction_gerProdImg(x){
 	});
 }
 
+//------------------Configuração-----SlideShow
+function Function_AddSlideshow(){
+	var formData = new FormData($('#form1')[0]);
+	$.ajax({
+		 url: 'menu_files/Configuracao/addSlideshow.php',
+		 type: 'POST',
+		 data: formData,
+		 async: false,
+		 success: function(data) {
+				 alert(data);
+				 if(data == 'sucesso'){
+					 $tipo = 0;
+					 $.ajax({
+							 url:"menu_files/Configuracao/Slideshow.php",
+							 method:"POST",
+							 data: {tipo: $tipo},
+							 success:function(data){
+								 $('#menu_aqui').html(data);
+							 }
+					 });
+				 }
+		 },
+		 cache: false,
+		 contentType: false,
+		 processData: false
+	});
+}
 
+
+function myFunction_updateSlideshow(x,y){
+	$id = x;
+	$tipo = y;
+	$.ajax({
+			url:"menu_files/Configuracao/upstateslideShow.php",
+			method:"POST",
+			data: {id: $id, tipo: $tipo},
+			success:function(data){
+				$tipo = 0;
+        $.ajax({
+            url:"menu_files/Configuracao/list_slideshow.php",
+            method:"POST",
+            data: {tipo: $tipo},
+            success:function(data){
+              $('#sub_menu_aqui').html(data);
+            }
+        });
+			}
+	});
+}
+
+function myFunction_deletSlideshow(x){
+	$id = x;
+	$.ajax({
+			url:"menu_files/Configuracao/delet_slideshow.php",
+			method:"POST",
+			data: {id: $id},
+			success:function(data){
+				$tipo = 0;
+        $.ajax({
+            url:"menu_files/Configuracao/list_slideshow.php",
+            method:"POST",
+            data: {tipo: $tipo},
+            success:function(data){
+              $('#sub_menu_aqui').html(data);
+            }
+        });
+			}
+	});
+}
 //--------------------------------------------------------------------------------------
 function mySubFunction(x){
 		$tipo = x;
@@ -845,7 +936,7 @@ function mySuubFunction(x){
 						}else{
 							$generatedname = generateRandomString(100).'.'.$file_ext;
 							$img_path="images/slider/".$generatedname;
-							 move_uploaded_file($file_tmp,"../images/slider/".$generatedname);
+							move_uploaded_file($file_tmp,"../images/slider/".$generatedname);
 						}
 					}
 

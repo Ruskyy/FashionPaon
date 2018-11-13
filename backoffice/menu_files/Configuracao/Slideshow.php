@@ -24,7 +24,7 @@
                 <div class="col-md-6 form-group" style="margin-top:1%;">
                   <h4 class="title">Adicionar Slide</h4>
                   <hr>
-                  <form class="" method="post" enctype="multipart/form-data">
+                  <form id="form1" class="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="slider_img">Imagem</label>
                       <input type="file" class="form-control-file" id="slider_img" name="slider_img" accept="image/*" onchange="loadFile(event)" required>
@@ -311,10 +311,20 @@
                     </div>
                   </div>
 
-                    <script>
+                  <script>
                     $(document).ready(function(){
                       $("#buttoninfo").hide();
                     var switchStatus = false;
+                      $( "#btscryp" ).remove();
+                      $tipo = 0;
+                      $.ajax({
+                          url:"menu_files/Configuracao/list_slideshow.php",
+                          method:"POST",
+                          data: {tipo: $tipo},
+                          success:function(data){
+                            $('#sub_menu_aqui').html(data);
+                          }
+                      });
                     $(".togBtn").on('change', function() {
                       if ($(this).is(':checked')) {
                           switchStatus = $(this).is(':checked');
@@ -326,7 +336,7 @@
                       }
                       });
                     });
-                    </script>
+                  </script>
 
                     <div id="buttoninfo">
                       <div class="form-group">
@@ -463,61 +473,10 @@
                           </select>
                       </div>
                     </div>
-
-                    <button type="submit" name="submeter_slide" class="btn btn-success">Adicionar</button>
-
+                    <button type="button" name="submeter_slide" class="btn btn-success" onclick="Function_AddSlideshow()">Adicionar</button>
                   </form>
                 </div>
-
-                <div class="col-md-6 form-group" style="margin-top:1%;">
-                  <h4 class="title">Slides</h4>
-                  <hr>
-                  <table class="table">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Desc.</th>
-                        <th scope="col">Btn?</th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      //echo '<option value="'.$efect['code_texteffect'].'">'.$efect['desc_texteffect'].'</option>';
-                      include '../../../php/conn.php';
-                      $query = "SELECT id_slide,slide_state,image_slide,title_slide,desc_slide,button_slide FROM slider";
-                      $slides = mysqli_query($conn,$query);
-                      $ordem = 1;
-                      while ($slide=mysqli_fetch_assoc($slides)) {
-                        echo '
-                        <tr>
-                          <th scope="row">'.$ordem.'</th>
-                          <td>'.$slide['title_slide'].'</td>
-                          <td>'.$slide['desc_slide'].'</td>
-                          <td>';
-                          if ($slide['button_slide']=='on') {
-                            echo '<i class="fa fa-check"></i>';
-                          }
-                          echo '</td>
-                          <td>
-                          <input type="hidden" name="" value="'.$slide['id_slide'].'">
-                            <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
-                                <i class="fa fa-eye"></i>
-                            </button>
-                            <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
-                                <i class="fa fa-times"></i>
-                            </button>
-                          </td>
-                        </tr>
-                        ';
-                        $ordem = $ordem+1;
-                      }?>
-                    </tbody>
-                  </table>
-
-                </div>
-
+                <div id="sub_menu_aqui"></div>
               </div>
           </div>
       </div>

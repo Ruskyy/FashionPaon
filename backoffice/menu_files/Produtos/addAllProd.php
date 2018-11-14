@@ -59,7 +59,7 @@ session_start();
      }
 
   }if($tipo == 4){
-
+    
     echo 'sucesso';
   }
 

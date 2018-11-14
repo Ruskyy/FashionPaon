@@ -76,7 +76,10 @@ session_start();
                                 include '../../../php/conn.php';
                                 $queryimg = "SELECT id_imagem, id_produto, id_imgcategoria, nome_imagem  FROM imagem WHERE id_produto = '$id'";
                                 $img = mysqli_fetch_assoc(mysqli_query($conn,$queryimg));
-                                if($img){$querycategoria = "SELECT imgcategoria.id_imgcategoria, nome_imgcategoria FROM imgcategoria WHERE not exists (select imagem.id_imgcategoria from imagem where imagem.id_imgcategoria = imgcategoria.id_imgcategoria and imagem.id_produto = '$id')";}
+                                if($img){$querycategoria = "SELECT imgcategoria.id_imgcategoria, nome_imgcategoria FROM imgcategoria
+                                                              WHERE not exists (select imagem.id_imgcategoria
+                                                                from imagem where imagem.id_imgcategoria = imgcategoria.id_imgcategoria
+                                                                  and imagem.id_produto = '$id')";}
                                 else{$querycategoria = "SELECT imgcategoria.id_imgcategoria, nome_imgcategoria FROM imgcategoria";}
                                 $categorias = mysqli_query($conn,$querycategoria);
                                 while ($categoria=mysqli_fetch_assoc($categorias)){

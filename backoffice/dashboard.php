@@ -435,27 +435,27 @@ function myFunction_AllAddProd(id,tipo){
 		formData.append('tipo',tipo);
 	}
 	$.ajax({
-		 url: 'menu_files/Produtos/addAllProd.php',
-		 type: 'POST',
-		 data: formData,
-		 async: false,
-		 success: function(data) {
-			 alert(data);
-			 if(data == 'sucesso'){
-				 $tipo = 0;
- 				$.ajax({
- 						url:"menu_files/Produtos/list_produto.php",
- 						method:"POST",
- 						data: {tipo: $tipo},
- 						success:function(data){
- 							$('#menu_aqui').html(data);
- 						}
- 				});
-			 }
-		 },
-		 cache: false,
-		 contentType: false,
-		 processData: false
+		url: 'menu_files/Produtos/addAllProd.php',
+		type: 'POST',
+		data: formData,
+		async: false,
+		success: function(data) {
+			alert(data);
+			if(data == 'sucesso'){
+				$tipo = 0;
+				$.ajax({
+					url:"menu_files/Produtos/list_produto.php",
+					method:"POST",
+					data: {tipo: $tipo},
+					success:function(data){
+						$('#menu_aqui').html(data);
+					}
+				});
+			}
+		},
+		cache: false,
+		contentType: false,
+		processData: false
 	});
 }
 

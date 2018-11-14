@@ -12,7 +12,7 @@ $id = $_POST['id'];
                     <p id="btns" class="category">Adicionar Stock</p>
                 </div>
                 <div class="content table-responsive table-full-width">
-                  <form class="" method="post" style="padding: 20px;">
+                  <form id="form"class="" method="post" style="padding: 20px;">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="row">
@@ -23,15 +23,16 @@ $id = $_POST['id'];
                                     <option value="0">-- Select --</option>
                                     <?php
                                     include '../../../php/conn.php';
-
-                                    $quertyidcat = "SELECT produto_idcategoria FROM produto WHERE produto_id = '$id'";
-                                    $querytam = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho, categoria_nome FROM tamanho
-                                    INNER JOIN categoria ON tamanho.id_categoria_tamanho = categoria.categoria_id WHERE id_categoria_tamanho = ($quertyidcat)";
-                                    $tamanhos = mysqli_query($conn, $querytam);
-
-                                    while ($tamanho = mysqli_fetch_assoc($tamanhos)) {
+                                    $querystock = "SELECT stock_id, stock_idproduto, stock_quantidade, stock_prodtamanho, stock_prodpreco FROM stock WHERE stock_idproduto = '$id'";
+                                    $stock = mysqli_fetch_assoc(mysqli_query($conn,$querystock));
+                                    $querystockquant = "SELECT produto_id, produto_idcategoria,	produto_nome,	produto_idmarca,	produto_desc,	id_publico FROM produto WHERE produto_id = $id";
+                                    $stockquant = mysqli_fetch_assoc(mysqli_query($conn,$querystockquant));
+                                    //SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE exists (select stock_idproduto from stock where stock_prodtamanho = id_categoria_tamanho and id_tamanho != '1' and stock_idproduto  = '1')
+                                    if($stock){$querycategoria = "SELECT id_tamanho	nome_tamanho, id_categoria_tamanho FROM tamanho WHERE not exists (select stock_idproduto from stock where  and  = '$id')";}
+                                    else{$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE id_categoria_tamanho = $stockquant['produto_idcategoria']";}
+                                    $categorias = mysqli_query($conn,$querycategoria);
+                                    while ($categoria=mysqli_fetch_assoc($categorias)){
                                       ?>
-
                                       <option value="<?php echo $tamanho['id_tamanho'] ?>"><?php echo $tamanho['nome_tamanho'] ?></option>
 
                                       <?php

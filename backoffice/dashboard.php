@@ -301,12 +301,12 @@ function myFunction_list(x){
 }
 
 function Function_AddCliente(x){
-	$tipo = x;
 	var formData = new FormData($('#form')[0]);
+	formData.append('tipo',x);
 	$.ajax({
 		 url: 'menu_files/Share_files/add.php',
 		 type: 'POST',
-		 data: formData, tipo: $tipo,
+		 data: formData,
 		 async: false,
 		 success: function(data) {
 				 alert(data);
@@ -425,20 +425,33 @@ function myFunction_tamanh_delet(x){
 	});
 }
 //----------------------Produtos----------------------
-//0-Delete, 1- add do produto, 2-Edit do produto, 3-add stock, 4- add de imagens
+//0-Delete, 1- add do produto, 2-Edit do produto, 3-add imagens, 4- add de stock
 
-function myFunction_AllAddProd(x,y){
-	var id = x;
-	var tipo = y;
-	if($tipo != 0)
-	{var formData = new FormData($('#formProd')[0]);}
+function myFunction_AllAddProd(id,tipo){
+	if(tipo != 0)
+	{
+		var formData = new FormData($('#form')[0]);
+		formData.append('id',id);
+		formData.append('tipo',tipo);
+	}
 	$.ajax({
 		 url: 'menu_files/Produtos/addAllProd.php',
 		 type: 'POST',
-		 data: formData, id, tipo,
+		 data: formData,
 		 async: false,
 		 success: function(data) {
 			 alert(data);
+			 if(data == 'sucesso'){
+				 $tipo = 0;
+ 				$.ajax({
+ 						url:"menu_files/Produtos/list_produto.php",
+ 						method:"POST",
+ 						data: {tipo: $tipo},
+ 						success:function(data){
+ 							$('#menu_aqui').html(data);
+ 						}
+ 				});
+			 }
 		 },
 		 cache: false,
 		 contentType: false,

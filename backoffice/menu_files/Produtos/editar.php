@@ -16,7 +16,7 @@ session_start();
                     <p id="btns" class="category">Editar produtos</p>
                 </div>
                 <div class="content table-responsive table-full-width">
-                  <form id="formProd" class="" method="post" style="padding: 20px;">
+                  <form id="form" class="" method="post" style="padding: 20px;">
                     <div class="row">
                       <div class="col-md-8">
                         <div class="row">
@@ -68,9 +68,7 @@ session_start();
                       </div>
                       </div>
                       <br>
-                      <input type="hidden" name="idd" value="<?php echo $dado['produto_id'];?>">
-                      <input type="hidden" name="tipoo" value="2">
-                      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction_AllAddProd(<?php echo $dado['produto_id'];?>,2)" name="submeter_produto"> Gravar </button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction_AllAddProd(<?php echo $id;?>,2)" name="submeter_produto"> Gravar </button>
 
                       <script type="text/java">
                                   function enforce_maxlength(event) {

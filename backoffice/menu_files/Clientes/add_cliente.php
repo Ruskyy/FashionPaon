@@ -100,7 +100,6 @@ session_start();
                       </div>
                       </div>
                       <br>
-                      <input type="hidden" name="tipo" value="0">
                       <button type="button" class="btn btn-primary btn-lg btn-block" name="submeter" id="btn_sub" onclick="Function_AddCliente(0)"> Adicionar </button>
                       <script type="text/java">
                           function enforce_maxlength(event) {

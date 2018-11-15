@@ -25,15 +25,16 @@ $id = $_POST['id'];
                                     include '../../../php/conn.php';
                                     $querystock = "SELECT stock_id, stock_idproduto, stock_quantidade, stock_prodtamanho, stock_prodpreco FROM stock WHERE stock_idproduto = '$id'";
                                     $stock = mysqli_fetch_assoc(mysqli_query($conn,$querystock));
+
                                     $querystockquant = "SELECT produto_id, produto_idcategoria,	produto_nome,	produto_idmarca,	produto_desc,	id_publico FROM produto WHERE produto_id = $id";
                                     $stockquant = mysqli_fetch_assoc(mysqli_query($conn,$querystockquant));
                                     //SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE exists (select stock_idproduto from stock where stock_prodtamanho = id_categoria_tamanho and id_tamanho != '1' and stock_idproduto  = '1')
-                                    if($stock){$querycategoria = "SELECT id_tamanho	nome_tamanho, id_categoria_tamanho FROM tamanho WHERE not exists (select stock_idproduto from stock where  and  = '$id')";}
-                                    else{$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE id_categoria_tamanho = $stockquant['produto_idcategoria']";}
+                                    if($stock){$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE exists (select stock_idproduto from stock where stock_prodtamanho = id_categoria_tamanho and id_tamanho != '$stock[stock_prodtamanho]' and stock_idproduto  = '$id')";}
+                                    else{$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE id_categoria_tamanho = '$stockquant[produto_idcategoria]'";}
                                     $categorias = mysqli_query($conn,$querycategoria);
                                     while ($categoria=mysqli_fetch_assoc($categorias)){
                                       ?>
-                                      <option value="<?php echo $tamanho['id_tamanho'] ?>"><?php echo $tamanho['nome_tamanho'] ?></option>
+                                      <option value="<?php echo $categoria['id_tamanho'] ?>"><?php echo $categoria['nome_tamanho'] ?></option>
 
                                       <?php
                                     }
@@ -51,7 +52,7 @@ $id = $_POST['id'];
                       </div>
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" name="submeter_stock" id="btn_sub"> Adicionar </button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" name="submeter_stock" onclick="myFunction_AllAddProd(<?php echo $id;?>,4)"> Adicionar </button>
                       <script type="text/java">
                                   function enforce_maxlength(event) {
                                     var t = event.target;

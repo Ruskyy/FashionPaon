@@ -8,9 +8,11 @@ session_start();
 
   //$id = $_POST['idd'];
   //$tipo = $_POST['tipoo'];
-
+  //0-Delete, 1- add do produto, 2-Edit do produto, 3-add imagens, 4- add de stock
   if($tipo == 1){
-
+    mysqli_query($conn,"DELETE FROM imagem WHERE id_produto = '$id'");
+    mysqli_query($conn,"DELETE FROM stock WHERE stock_idproduto = '$id'");
+    mysqli_query($conn,"DELETE FROM produto WHERE produto = '$id'");
     echo 'sucesso';
   }if($tipo == 2){
     $nome_produto = $_POST['nome_produto'];
@@ -59,7 +61,11 @@ session_start();
      }
 
   }if($tipo == 4){
-    
+    $s_quantidade = 0;
+    $s_prodtamanho = $_POST['categoria_stock'];
+    $s_prodpreco = $_POST['preco'];
+    mysqli_query($conn,"INSERT INTO stock(stock_idproduto, stock_quantidade, stock_prodtamanho, stock_prodpreco)
+    VALUES ('$id', '$s_quantidade', '$s_prodtamanho', '$s_prodpreco')");
     echo 'sucesso';
   }
 

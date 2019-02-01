@@ -43,7 +43,7 @@ $output .='
                           </div>
                         </div>
                         <label>Username</label>
-                        <input class="form-control form-control-lg" type="text" id="user" value="'.$dado['cliente_apelido'].'" placeholder="Username" >
+                        <input class="form-control form-control-lg" type="text" id="user" value="'.$dado['cliente_apelido'].'" placeholder="Username" disabled>
                         <br>
                         <label>Data</label>
                         <input class="form-control form-control-lg" type="text" id="data" value="'.$dado['cliente_datanasc'].'" placeholder="Data" >
@@ -52,7 +52,7 @@ $output .='
                         <input class="form-control form-control-lg" type="email" id="email" value="'.$dado['cliente_email'].'" placeholder="email@email.com" >
                         <br>
                         <label>Password</label>
-                        <input class="form-control form-control-lg" type="text" id="password" value="'.$dado['cliente_password'].'" placeholder="email@email.com" disabled>
+                        <input class="form-control form-control-lg" type="text" id="password" value="'.$dado['cliente_password'].'" placeholder="Password" disabled>
                         <br>
                         <button class="btn btn-primary btn-lg btn-block" onclick="myFunction_editt()" type="button">EDITAR</button>
 

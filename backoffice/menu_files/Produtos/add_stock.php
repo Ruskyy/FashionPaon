@@ -25,11 +25,12 @@ $id = $_POST['id'];
                                     include '../../../php/conn.php';
                                     $querystock = "SELECT stock_id, stock_idproduto, stock_quantidade, stock_prodtamanho, stock_prodpreco FROM stock WHERE stock_idproduto = '$id'";
                                     $stock = mysqli_fetch_assoc(mysqli_query($conn,$querystock));
-
                                     $querystockquant = "SELECT produto_id, produto_idcategoria,	produto_nome,	produto_idmarca,	produto_desc,	id_publico FROM produto WHERE produto_id = $id";
                                     $stockquant = mysqli_fetch_assoc(mysqli_query($conn,$querystockquant));
                                     //SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE exists (select stock_idproduto from stock where stock_prodtamanho = id_categoria_tamanho and id_tamanho != '1' and stock_idproduto  = '1')
-                                    if($stock){$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE exists (select stock_idproduto from stock where stock_prodtamanho = id_categoria_tamanho and id_tamanho != '$stock[stock_prodtamanho]' and stock_idproduto  = '$id')";}
+                                    if($stock){$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE
+                                    exists (select stock_idproduto from stock where 1 = id_categoria_tamanho)
+                                    and not exists (select stock_prodtamanho from stock where id_tamanho = stock_prodtamanho and stock_idproduto = '$stockquant[produto_id]')";}
                                     else{$querycategoria = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE id_categoria_tamanho = '$stockquant[produto_idcategoria]'";}
                                     $categorias = mysqli_query($conn,$querycategoria);
                                     while ($categoria=mysqli_fetch_assoc($categorias)){

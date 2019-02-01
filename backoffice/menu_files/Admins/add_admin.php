@@ -45,7 +45,7 @@ session_start();
                           </div>
                         </div>
                         <label>Username</label>
-                        <input id="user" class="form-control form-control-lg" type="text" name="user"  placeholder="Username" required>
+                        <input id="user" class="form-control form-control-lg" type="text" name="user"  placeholder="Username">
                         <br>
                         <label>Password</label>
                         <input id="pass" class="form-control form-control-lg" type="password" name="pass"  placeholder="Password" required>

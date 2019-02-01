@@ -69,14 +69,14 @@ session_start();
                       <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="addFunction()" name="submeter_produto" id="btn_sub"> Adicionar </button>
 
                       <script type="text/java">
-                                  function enforce_maxlength(event) {
-                                    var t = event.target;
-                                    if (t.hasAttribute('maxlength')) {
-                                    t.value = t.value.slice(0, t.getAttribute('maxlength'));
-                                      }
-                                    }
-                                    document.body.addEventListener('input', enforce_maxlength);
-                              </script>
+                          function enforce_maxlength(event) {
+                            var t = event.target;
+                            if (t.hasAttribute('maxlength')) {
+                            t.value = t.value.slice(0, t.getAttribute('maxlength'));
+                              }
+                            }
+                            document.body.addEventListener('input', enforce_maxlength);
+                      </script>
                     </form>
                 </div>
               </div>

@@ -271,11 +271,11 @@ $(document).ready(function(){
 });
 </script>
 <script>
-function ABRE(){
+/*function ABRE(){
 	var codigo = $('#file')[0].files[0];
 	alert(codigo.name+"//"+codigo.size+"//-->"+codigo.tmp_name+"<--//"+codigo.type);
-	//console.log(codigo.name+"//"+codigo.size+"//-->"+codigo.tmp_name+"<--//"+codigo.type);
-}
+	console.log(codigo.name+"//"+codigo.size+"//-->"+codigo.tmp_name+"<--//"+codigo.type);
+}*/
 function myFunction_list(x){
 	var tipo = x;
 	$tipo = 0;
@@ -625,7 +625,7 @@ function mySuubFunction(x){
 
 </script>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-4.png">
+     <div class="sidebar" data-color="blue"><!-- data-image="assets/img/sidebar-4.png"> -->
 
     <!--
 

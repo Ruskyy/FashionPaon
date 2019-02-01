@@ -113,8 +113,8 @@ session_start();
                     </form>
                 </div>
             </div>
-        </div>
-        <button type="button" onclick="ABRE()">adsa</button>';
+        </div>';
+        //<button type="button" onclick="ABRE()">adsa</button>
         echo $output;
         include '../../../php/deconn.php';
 ?>

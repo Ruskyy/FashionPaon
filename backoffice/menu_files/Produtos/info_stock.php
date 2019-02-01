@@ -25,20 +25,33 @@ $(document).ready(function(){
                     <th>Preço</th>
                   </thead>
                   <tbody style="border:2px solid #bfbfbf;">
-                      <tr>
-                        <td>XL</td>
-                        <td>6</td>
-                        <td>10,00€</td>
-                        <td>
-                          <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs edit" onclick="">
-                              <i class="fa fa-edit"></i>
-                          </button>
-                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
-                              <i class="fa fa-times"></i>
-                          </button>
-                        </td>
-                      </tr>
-                    </table>
+										<?php
+											require_once '../../../php/functions.php';
+											session_start();
+												include '../../../php/conn.php';
+										$id = $_POST['id'];
+										$dado =mysqli_query($conn,"SELECT stock_id, stock_idproduto, stock_quantidade, stock_prodtamanho, stock_prodpreco FROM stock WHERE stock_idproduto = $id");
+										while ($rows = mysqli_fetch_assoc($dado)){
+											$queryidtamanho = "SELECT id_tamanho, nome_tamanho, id_categoria_tamanho FROM tamanho WHERE ".$rows['stock_prodtamanho']." = id_tamanho";
+											$cat = mysqli_fetch_assoc(mysqli_query($conn, $queryidtamanho));
+											 ?>
+											 <tr>
+												 <td><?php echo $cat['nome_tamanho']; ?></td>
+												 <td><?php echo $rows['stock_quantidade']; ?></td>
+												 <td><?php echo $rows['stock_prodpreco'].'€'; ?></td>
+												 <td>
+													 <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs edit" onclick="">
+															 <i class="fa fa-edit"></i>
+													 </button>
+													 <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+															 <i class="fa fa-times"></i>
+													 </button>
+												 </td>
+											 </tr>
+											<?php
+											}include '../../../php/deconn.php';?>
+									</tbody>
+                </table>
               <script>
                   $('table.paginated2').each(function() {
                       var currentPage = 0;

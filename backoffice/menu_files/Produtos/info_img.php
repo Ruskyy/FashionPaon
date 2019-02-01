@@ -26,8 +26,32 @@ $(document).ready(function(){
                     <th></th>
                   </thead>
                   <tbody style="border:2px solid #bfbfbf;">
-                      <tr>
-                        <td><img src="../00_Recources/final-4914.jpg" style="width:40px; height:60px;"></td>
+										<?php
+											require_once '../../../php/functions.php';
+											session_start();
+											  include '../../../php/conn.php';
+										$id = $_POST['id'];
+										$dado =mysqli_query($conn,"SELECT id_imagem, id_produto, id_imgcategoria, nome_imagem FROM imagem WHERE id_produto = $id");
+										while ($rows = mysqli_fetch_assoc($dado)){
+											$queryidcategoria = "SELECT id_imgcategoria, nome_imgcategoria FROM imgcategoria WHERE ".$rows['id_imgcategoria']." = id_imgcategoria";
+											$cat = mysqli_fetch_assoc(mysqli_query($conn, $queryidcategoria));
+											 ?>
+												<tr>
+													<td><img src="../<?php echo $rows['nome_imagem']; ?>" style="width:40px; height:60px;"></td>
+	                        <td><?php echo $cat['nome_imgcategoria']; ?></td>
+	                        <td>
+	                          <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs edit" onclick="">
+	                              <i class="fa fa-edit"></i>
+	                          </button>
+	                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
+	                              <i class="fa fa-times"></i>
+	                          </button>
+	                        </td>
+												</tr>
+												<?php
+											}include '../../../php/deconn.php';?>
+                      <!-- <tr>
+                        <td><img src="../../../images/uploads/img.png |!| ../00_Recources/final-4914.jpg" style="width:40px; height:60px;"></td>
                         <td>Dakota Rice</td>
                         <td>
                           <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs edit" onclick="">
@@ -37,7 +61,8 @@ $(document).ready(function(){
                               <i class="fa fa-times"></i>
                           </button>
                         </td>
-                      </tr>
+                      </tr> -->
+									</tbody>
               </table>
               <script>
                   $('table.paginated2').each(function() {

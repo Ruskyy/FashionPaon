@@ -14,7 +14,7 @@ session_start();
                     <p id="btns" class="category">Adicionar produtos</p>
                 </div>
                 <div class="content table-responsive table-full-width">
-                  <form class="" method="post" style="padding: 20px;">
+                  <form id="form" class="" method="post" style="padding: 20px;">
                     <div class="row">
                       <div class="col-md-8">
                         <div class="row">
@@ -66,7 +66,7 @@ session_start();
                       </div>
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="addFunction()" name="submeter_produto" id="btn_sub"> Adicionar </button>
+                      <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunction_AllAddProd(0,5)" name="submeter_produto" id="btn_sub"> Adicionar </button>
 
                       <script type="text/java">
                           function enforce_maxlength(event) {

@@ -58,7 +58,7 @@ session_start();
                                 <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_editProd('.$rows['produto_id'].')">
                                     <i class="fa fa-edit"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_AllAddProd('.$rows['produto_id'].',3)">
+                                <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_AllAddProd('.$rows['produto_id'].',1)">
                                     <i class="fa fa-times"></i>
                                 </button>
                               </td>

@@ -1,0 +1,41 @@
+->Estrutura
+    -configuração da página backoffice
+        -interface
+            -painel do lado esquerdo
+                -mudar cor
+                -mudar imagem
+                -mudar o nome
+            -painel do lado cima
+
+            -painel do lado baixo
+
+            -base de dados
+                -adicionar o que for preciso
+
+        -Falta programar
+            -Marca
+                -CRUD
+            -Listar informação
+                -Search avançado
+            -Produto
+                -adicionar marca
+                -Descontos(páginas(min.(2)), CRUD e descontos poderem associar ao produto)
+                    -Base de dados
+                        -criar pelo menos duas tabelas
+                          -criação do desconto
+                          -associar os produtos aos descontos
+                -Stock
+                    -editar, apagar e adicionar stock ao tamanho
+                -Imagem
+                    -editar e apagar
+            -Cliente(maybe o Admin)
+                -Historico dos carrinhos e compras
+                    -possibilidade de gestão na compra ou historico
+                -melhoria no css da página
+            -Notificações
+                -CRUD
+                -ter notificações ou alerts no backoffice
+
+
+      -configuração da página frontoffice
+          -fazer todoooo

@@ -425,12 +425,16 @@ function myFunction_tamanh_delet(x){
 	});
 }
 //----------------------Produtos----------------------
-//0-Delete, 1- add do produto, 2-Edit do produto, 3-add imagens, 4- add de stock
+//0-Delete, 1- add do produto, 2-Edit do produto, 3-add imagens, 4- add de stock, 5- add produto
 
 function myFunction_AllAddProd(id,tipo){
 	if(tipo != 0)
 	{
 		var formData = new FormData($('#form')[0]);
+		formData.append('id',id);
+		formData.append('tipo',tipo);
+	}else{
+		var formData = new FormData();
 		formData.append('id',id);
 		formData.append('tipo',tipo);
 	}
@@ -852,15 +856,6 @@ function mySuubFunction(x){
         <div id="menu_aqui" class="content">
 
         </div>
-				<?php
-					if (isset($_POST['submeter_produto'])) {
-						include '../php/conn.php';
-						$query = "INSERT INTO produto(produto_nome,produto_idcategoria,produto_desc,id_publico) VALUES('$_POST[nome_produto]','$_POST[categoria_produto]','$_POST[descricao_produto]','$_POST[categoria_publico]')";
-						mysqli_query($conn,$query);
-						include '../php/deconn.php';
-					}
-				 ?>
-
 				 <?php
  				if(isset($_POST['submeter'])){
  					require_once '../php/functions.php';
@@ -925,60 +920,6 @@ function mySuubFunction(x){
  					include '../php/deconn.php';
  				}
  				?>
-
-				<?php
-				if(isset($_POST['submeter_slide'])){
-					require_once '../php/functions.php';
-					include '../php/conn.php';
-
-					if(isset($_FILES['slider_img'])){
-						$file_name = $_FILES['slider_img']['name'];
-						$file_size = $_FILES['slider_img']['size'];
-						$file_tmp =$_FILES['slider_img']['tmp_name'];
-						$file_type=$_FILES['slider_img']['type'];
-						@$file_ext=strtolower(end(explode('.',$_FILES['slider_img']['name'])));
-
-						$expensions= array("jpeg","jpg","png");
-
-
-						if(in_array($file_ext,$expensions)== false){
-							 echo "Extension not allowed, please choose a JPEG or PNG file.";
-						}
-						if($_FILES['slider_img']['size'] > 2097152 ||$_FILES['slider_img']['size'] == 0 ){
-							 echo 'ERROR : File size error, it must be excately 2 MB';
-						}else{
-							$generatedname = generateRandomString(100).'.'.$file_ext;
-							$img_path="images/slider/".$generatedname;
-							move_uploaded_file($file_tmp,"../images/slider/".$generatedname);
-						}
-					}
-
-						mysqli_query($conn,"INSERT INTO slider(slide_state, image_slide, title_slide, title_effect, title_anim, desc_slide, desc_anim, button_slide, button_text, buton_anim, button_link)
-						VALUES (0,'$img_path','$_POST[slide_titulo]','$_POST[effect_titulo]','$_POST[anim_titulo]','$_POST[slide_desc]','$_POST[anim_desc]','$_POST[buton_status]','$_POST[button_text]','$_POST[anim_button]','$_POST[button_link]')");
-
-						echo $_POST['buton_status'];
-
-
-
-						echo 'Sucesso';
-						include '../php/deconn.php';
-					}
-
-				?>
-
-				<?php
-					if(isset($_POST['submeter_stock'])){
-						include '../php/conn.php';
-					    $queryaddstock = "INSERT INTO stock VALUES($id,0,'','$_POST[categoria_stock]','$_POST[preco]')";
-					    $queryasstock = "SELECT COUNT(stock_id) FROM stock WHERE stock_idproduto = '$id' AND stock_prodtamanho = '$_POST[categoria_stock]'";
-					    $hasrows = mysqli_query($conn, $queryasstock);
-					    if ($hasrows == 0) {
-					      mysqli_query($conn, $queryaddstock);
-					    }
-					  include '../php/deconn.php';
-					}
-				 ?>
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -1006,7 +947,7 @@ function mySuubFunction(x){
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Me</a>, made with JS and love for a better web
                 </p>
             </div>
         </footer>

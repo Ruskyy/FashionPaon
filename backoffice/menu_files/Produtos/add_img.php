@@ -17,8 +17,8 @@ session_start();
                 <div class="content table-responsive table-full-width">
                   <form id="form" class="" method="post" style="padding: 20px;" enctype="multipart/form-data">
                     <div class="row">
-                      <div  class="change" style=" border: 4px double #d9dbdd; width:520px; height:330px; position:relative;">
-                        <img class="change" id="output"style="width:512px; height:322px;"/>
+                      <div  class="change" style=" border: 4px double #d9dbdd; width:400px; height:240px; position:relative;">
+                        <img class="change" id="output"style="width:392px; height: 232px;"/>
                       </div>
                       <script>
 

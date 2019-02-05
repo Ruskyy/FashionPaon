@@ -49,6 +49,9 @@ session_start();
                                 <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdImg('.$rows['produto_id'].')">
                                     <i class="fa fa-image"></i>
                                 </button>
+                                <button type="button" rel="tooltip" title="Informação" class="btn btn-info btn-simple btn-xs" onclick="">
+                                    <i class="fa fa-list-alt"></i>
+                                </button>
                                 <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdStock('.$rows['produto_id'].')">
                                     <i class="fa fa-cube"></i>
                                 </button>

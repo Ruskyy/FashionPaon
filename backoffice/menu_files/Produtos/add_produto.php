@@ -66,7 +66,7 @@ session_start();
                       </div>
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="myFunction_AllAddProd(0,5)" name="submeter_produto" id="btn_sub"> Adicionar </button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction_AllAddProd(0,5)" name="submeter_produto" id="btn_sub"> Adicionar </button>
 
                       <script type="text/java">
                           function enforce_maxlength(event) {

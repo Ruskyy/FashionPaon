@@ -444,7 +444,7 @@ function myFunction_AllAddProd(id,tipo){
 		data: formData,
 		async: false,
 		success: function(data) {
-			alert(data);
+			//alert(data);
 			if(data == 'sucesso'){
 				$tipo = 0;
 				$.ajax({
@@ -812,7 +812,7 @@ function mySuubFunction(x){
                               </ul>
                         </li>
                         <li>
-                           <a href="">
+                           <a href="#">
                                 <i class="fa fa-search"></i>
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>

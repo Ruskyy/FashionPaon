@@ -22,7 +22,6 @@ session_start();
                           <th>Nome</th>
                           <th>Categoria</th>
                           <th>Género</th>
-                          <th>Descrição</th>
                         </thead>
                         <tbody>';
                         while ($rows = mysqli_fetch_assoc($dado)){
@@ -35,7 +34,6 @@ session_start();
                               <td>'.$rows["produto_nome"].'</td>
                               <td>'.$cat["categoria_nome"].'</td>
                               <td>'.$pub["nome_publico"].'</td>
-                              <td>'.$rows["produto_desc"].'</td>
                               <td>
                                 <button type="button" rel="tooltip" title="Desconto" class="btn btn-success btn-simple btn-xs" onclick="">
                                     <i class="fa fa-ticket"></i>

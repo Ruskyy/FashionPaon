@@ -6,12 +6,9 @@
                 -mudar imagem
                 -mudar o nome
             -painel do lado cima
-
             -painel do lado baixo
-
             -base de dados
                 -adicionar o que for preciso
-
         -Falta programar
             -Marca
                 -CRUD
@@ -26,6 +23,10 @@
                           -associar os produtos aos descontos
                 -Stock
                     -editar, apagar e adicionar stock ao tamanho
+                    -add quantidade «( seria método de encomenda popup com descrição, quantidade, oque que é encomenda, data e hora que foi feita (duração seria 5 min), estado(entregado, processar  e cancelado) )»
+                      -tabela encomenda
+                        -estado(0-processado, 1-processar ,2-cancelado)
+                    -remove quantidade
                 -Imagem
                     -editar e apagar
             -Cliente(maybe o Admin)
@@ -35,7 +36,22 @@
             -Notificações
                 -CRUD
                 -ter notificações ou alerts no backoffice
-
-
-      -configuração da página frontoffice
+            -Descontos
+                -
+                -Tabelas
+                  -Desconto
+                    -ID, Nome, Descrição, Quantidade(%),
+                    Género(ON(1)/OFF(0)),
+                    Categoria(ON(1)/OFF(0)),
+                    Marca(ON(1)/OFF(0)),
+                  -ProdWDesc
+                    -ID, ID_Produto, ID_Desconto, Desc_fim(data e hora que termina desconto)
+      -configuração da página front office
           -fazer todo
+Hierarquia
+  -Admin
+    -1
+    -
+    -
+  -Cliente
+    -0

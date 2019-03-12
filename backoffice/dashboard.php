@@ -268,6 +268,17 @@ $(document).ready(function(){
 						}
 				});
 			});
+
+			function IntervNotification(){
+				$.ajax({
+						url:"menu_files/Notification/.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							console.log(data);
+						}
+				});
+			}
 });
 </script>
 <script>

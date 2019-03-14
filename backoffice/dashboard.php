@@ -269,19 +269,42 @@ $(document).ready(function(){
 				});
 			});
 
-			function IntervNotification(){
+
+			function convertSegMilSeg(i){
+				i = i*1000;
+				return i;
+			}
+
+			function generateNotification(){
+				$tipo = 1;
 				$.ajax({
-						url:"menu_files/Notification/.php",
+						url:"menu_files/Notification/AllNotification.php",
 						method:"POST",
 						data: {tipo: $tipo},
 						success:function(data){
-							console.log(data);
+							
 						}
 				});
 			}
+
+			function IntervNotification(){
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Notification/AllNotification.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							if (data != 0) {
+								generateNotification();
+							}
+						}
+				});
+			}
+			setInterval(IntervNotification, convertSegMilSeg(15));
 });
 </script>
 <script>
+
 /*function ABRE(){
 	var codigo = $('#file')[0].files[0];
 	alert(codigo.name+"//"+codigo.size+"//-->"+codigo.tmp_name+"<--//"+codigo.type);

@@ -11,15 +11,23 @@
     2-- encomenda no estado 'cancelado'
   */
   if($tipo == 0){
-    $dateToday = date("Y-m-d H:i:s",time());
-    $schedule_date = new DateTime($dateToday, new DateTimeZone('Europe/Lisbon'));
     $estado = 0;
+    $minutes_to_add = 10;
+
+    $time = new DateTime();
+    $time->setTimezone(new DateTimeZone('Europe/Lisbon'));
+    $timesToday = $time->format("Y/m/d G:i:s");
+    $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+    $timesEnd = $time->format("Y/m/d G:i:s");
+    echo $timesToday; //+00 |
+    echo $timesEnd;   //+10 |
     mysqli_query($conn,"INSERT INTO ad_encomendas(
                 ad_encomendas_descricao,
                  ad_encomendas_idstock,
                   ad_encomendas_quantidade,
                    ad_encomendas_data,
-                    ad_encomendas_estado)
+                    ad_encomendas_estado,
+                      ad_encomendas_datafim)
                 VALUES ('','$id','','$schedule_date','$estado')");
   }else if ($tipo == 1) {
     $estado = 1;

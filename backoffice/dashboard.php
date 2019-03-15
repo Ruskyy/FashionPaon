@@ -282,7 +282,7 @@ $(document).ready(function(){
 						method:"POST",
 						data: {tipo: $tipo},
 						success:function(data){
-							
+
 						}
 				});
 			}
@@ -300,7 +300,7 @@ $(document).ready(function(){
 						}
 				});
 			}
-			setInterval(IntervNotification, convertSegMilSeg(15));
+			setInterval(IntervNotification, convertSegMilSeg(30));
 });
 </script>
 <script>

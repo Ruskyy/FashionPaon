@@ -7,7 +7,6 @@ session_start();
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
             <div class="card">
                 <div class="header">
                     <h4 class="title">Produtos</h4>
@@ -79,7 +78,6 @@ session_start();
                       </script>
                     </form>
                 </div>
-              </div>
           </div>
     </div>
 </div>

@@ -29,7 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <script>
@@ -887,7 +887,7 @@ function mySuubFunction(x){
                 </div>
             </div>
         </nav>
-        <div id="menu_aqui" class="content">
+        <div id="menu_aqui" class="content" style="border:4px solid red;">
 
         </div>
 				 <?php

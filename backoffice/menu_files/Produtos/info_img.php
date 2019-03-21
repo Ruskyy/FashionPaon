@@ -10,8 +10,7 @@ $(document).ready(function(){
 </script>
 <div id="4520" class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
-          <div class="card" style="height:420px;">
+        <div class="card" style="height:420px;">
             <div class="header">
               <h4 class="title">Produtos</h4>
               <p class="category">Gerir Imagens</p>
@@ -89,7 +88,6 @@ $(document).ready(function(){
                   });
               </script>
           </div>
-        </div>
       </div>
     </div>
   </div>

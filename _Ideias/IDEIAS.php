@@ -1,4 +1,5 @@
-->Estrutura
+<?php/**
+  ->Estrutura
     -configuração da página backoffice
         -interface
             -painel do lado esquerdo
@@ -10,6 +11,15 @@
             -base de dados
                 -adicionar o que for preciso
         -Falta programar
+            -Delete
+                -Converter todas as querys que tenham delete para update ao estado para 1
+                  (em vez de apagar logo dado ficar indisponivel se quiser pode depois por disponivel outra vez ou remover definitivamente)
+                    -0 disponivel
+                        -sempre que fizer um Insert
+                    -1 indisponivel
+                        -sempre que fizer um Delete
+                -Criar um separado para todos os dados que o estado tenha valor 1 para gerir todos os dados da tabela que tenham o estado 1
+                -Ter popup de confirmação para por indisponivel e depois se for para por disponivel ou eliminar definitivamente
             -Marca
                 -CRUD
             -Listar informação
@@ -48,10 +58,4 @@
                     -ID, ID_Produto, ID_Desconto, Desc_fim(data e hora que termina desconto)
       -configuração da página front office
           -fazer todo
-Hierarquia
-  -Admin
-    -1
-    -
-    -
-  -Cliente
-    -0
+*/?>

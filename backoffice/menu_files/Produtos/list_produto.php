@@ -8,9 +8,9 @@ session_start();
 
   $dado =mysqli_query($conn,"SELECT  produto_id, produto_idcategoria, produto_nome, produto_desc, id_publico FROM produto ");
   $output .='
-<div class="container-fluid">
+<div class="container-fluid" style="border:4px solid red;">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" style="border:4px solid green;">
             <div class="card">
                 <div class="header">
                     <h4 class="title">Striped Table with Hover</h4>
@@ -70,10 +70,46 @@ session_start();
                     </table>
                 </div>
             </div>
-        </div>
-        <div id="sub_menu_aqui">
+          </div>
+          <div class="col-md-6" style="border:4px solid blue;">
+            <div id="sub_menu_aqui">
 
-        </div>';
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" style="border:4px solid orange;">
+        <div class="row">
+            <div class="col-md-6" style="border:4px solid black;">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Striped Table with Hover</h4>
+                        <p id="btns" class="category">Here is a subtitle for this table</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="border:4px solid black;">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Striped Table with Hover</h4>
+                        <p id="btns" class="category">Here is a subtitle for this table</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>';
+/**
+  DADOS
+    -ID
+    -Quantidade
+*/
 
     echo $output;
 
@@ -130,10 +166,7 @@ session_start();
           // create the pagination buttons
           document.getElementById("btscryp").innerHTML = pageButtons($pageCount,$p);
           // CSS Stuff
-
         }
-
-
         // ($pCount) : number of pages,($cur) : current page, the selected one ..
         function pageButtons($pCount,$cur) {
           /* this variables will disable the "Prev" button on 1st page
@@ -146,9 +179,9 @@ session_start();
           */
           $buttons = "<div class='btn-group mr-2' role='group' aria-label='First group'>";
             $buttons += "<input type='button' class='btn btn-secondary' style='padding:2px 10px;' value='&lt;&lt; Prev' onclick='sort("+($cur - 1)+")' "+$prevDis+">";
-            for ($i=1; $i<=$pCount;$i++){
+            /*for ($i=1; $i<=$pCount;$i++){
               $buttons += "<input type='button' class='btn btn-secondary' style='padding:2px 10px;' id='id"+$i+"'value='"+$i+"' onclick='sort("+$i+")'>";
-            }
+            }*/
             $buttons += "<input type='button' class='btn btn-secondary' style='padding:2px 10px;' class='btn btn-secondary' style='padding:2px 10px;' value='Next &gt;&gt;' onclick='sort("+($cur + 1)+")' "+$nextDis+"></div>";
             return $buttons;
           }

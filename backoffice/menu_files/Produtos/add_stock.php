@@ -5,8 +5,7 @@ $id = $_POST['id'];
  ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
+          <div class="card">
                 <div class="header">
                     <h4 class="title">Produtos</h4>
                     <p id="btns" class="category">Adicionar Stock</p>
@@ -65,7 +64,6 @@ $id = $_POST['id'];
                               </script>
                     </form>
                 </div>
-              </div>
           </div>
     </div>
 </div>

@@ -8,7 +8,6 @@ $(document).ready(function(){
 </script>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
           <div class="card" style="height:420px;">
             <div class="header">
               <h4 class="title">Produtos</h4>
@@ -134,5 +133,4 @@ $(document).ready(function(){
                 </div>
               </div>
           </div>
-    </div>
     </div>

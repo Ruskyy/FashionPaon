@@ -554,6 +554,43 @@ function myFunction_gerProdImg(x){
 	});
 }
 
+
+function myFunction_SockEnc(x){
+	$id = x;
+	$.ajax({
+		url:"menu_files/Produtos/stock_encomend.php",
+		method:"POST",
+		data: {id: $id},
+		success:function(data){
+		$('#sub_sub_menu_aqui').html(data);}
+	});
+}
+
+function myFunction_AllAddStock(x){
+	var formData = new FormData($('#form2')[0]);
+	formData.append('tipo',x);
+	$.ajax({
+		 url: 'menu_files/Produtos/addAllStock.php',
+		 type: 'POST',
+		 data: formData,
+		 cache: false,
+		 contentType: false,
+		 processData: false,
+		 success: function(data) {
+			 var numero = data.split(':')[0];
+			 var estado = data.split(':')[1];
+			 var preco = data.split('/')[1];
+			 var estado = estado.split('/')[0];
+			 if(estado == "sucesso"){
+				 if( x == 0 || x == 1 ){
+					 $("#StockEncQuant").attr("value", numero);
+					 $("#StockEncTotal").attr("value", preco+"€");
+				 }
+			 }
+		 },
+	});
+}
+
 //------------------Configuração-----SlideShow
 function Function_AddSlideshow(){
 	var formData = new FormData($('#form1')[0]);
@@ -887,7 +924,7 @@ function mySuubFunction(x){
                 </div>
             </div>
         </nav>
-        <div id="menu_aqui" class="content" style="border:4px solid red;">
+        <div id="menu_aqui" class="content" >
 
         </div>
 				 <?php

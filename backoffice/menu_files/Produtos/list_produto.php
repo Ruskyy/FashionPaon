@@ -3,14 +3,14 @@ require_once '../../../php/functions.php';
 session_start();
   include '../../../php/conn.php';
   $tipo = $_POST['tipo'];
-  $output = '';
+
 
 
   $dado =mysqli_query($conn,"SELECT  produto_id, produto_idcategoria, produto_nome, produto_desc, id_publico FROM produto ");
-  $output .='
-<div class="container-fluid" style="border:4px solid red;">
+?>
+<div class="container-fluid" >
     <div class="row">
-        <div class="col-md-6" style="border:4px solid green;">
+        <div class="col-md-6" >
             <div class="card">
                 <div class="header">
                     <h4 class="title">Striped Table with Hover</h4>
@@ -23,17 +23,17 @@ session_start();
                           <th>Categoria</th>
                           <th>Género</th>
                         </thead>
-                        <tbody>';
+                        <tbody>
+                        <?php
                         while ($rows = mysqli_fetch_assoc($dado)){
                           $queryidcategoria = "SELECT categoria_nome FROM categoria WHERE ".$rows['produto_idcategoria']." = categoria_id ";
                           $cat = mysqli_fetch_assoc(mysqli_query($conn, $queryidcategoria));
                           $queryidpublico = "SELECT nome_publico FROM publico WHERE ".$rows['id_publico']." = id_publico ";
-                          $pub = mysqli_fetch_assoc(mysqli_query($conn, $queryidpublico));
-                            $output .='
+                          $pub = mysqli_fetch_assoc(mysqli_query($conn, $queryidpublico));?>
                             <tr>
-                              <td>'.$rows["produto_nome"].'</td>
-                              <td>'.$cat["categoria_nome"].'</td>
-                              <td>'.$pub["nome_publico"].'</td>
+                              <td><?php echo $rows["produto_nome"];?></td>
+                              <td><?php echo $cat["categoria_nome"];?></td>
+                              <td><?php echo $pub["nome_publico"];?></td>
                               <td>
                                 <button type="button" rel="tooltip" title="Desconto" class="btn btn-success btn-simple btn-xs" onclick="">
                                     <i class="fa fa-ticket"></i>
@@ -41,46 +41,45 @@ session_start();
                                 <button type="button" rel="tooltip" title="Informação" class="btn btn-warning btn-simple btn-xs" onclick="">
                                     <i class="fa fa-list-alt"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdStock('.$rows['produto_id'].')">
+                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdStock(<?php echo $rows['produto_id'];?>)">
                                     <i class="fa fa-cubes"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdImg('.$rows['produto_id'].')">
+                                <button type="button" rel="tooltip" title="Gerir" class="btn btn-warning btn-simple btn-xs" onclick="myFunction_gerProdImg(<?php echo $rows['produto_id'];?>)">
                                     <i class="fa fa-image"></i>
                                 </button>
                                 <button type="button" rel="tooltip" title="Informação" class="btn btn-info btn-simple btn-xs" onclick="">
                                     <i class="fa fa-list-alt"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdStock('.$rows['produto_id'].')">
+                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdStock(<?php echo $rows['produto_id'];?>)">
                                     <i class="fa fa-cube"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdImg('.$rows['produto_id'].')">
+                                <button type="button" rel="tooltip" title="Adicionar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_addProdImg(<?php echo $rows['produto_id'];?>)">
                                     <i class="fa fa-file-image-o"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_editProd('.$rows['produto_id'].')">
+                                <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="myFunction_editProd(<?php echo $rows['produto_id'];?>)">
                                     <i class="fa fa-edit"></i>
                                 </button>
-                                <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_AllAddProd('.$rows['produto_id'].',1)">
+                                <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_AllAddProd(<?php echo $rows['produto_id'];?>,1)">
                                     <i class="fa fa-times"></i>
                                 </button>
                               </td>
-                            </tr>';
-                          }
-                          $output.='
+                            </tr>
+                            <?php }?>
                         </tbody>
                     </table>
                 </div>
             </div>
           </div>
-          <div class="col-md-6" style="border:4px solid blue;">
+          <div class="col-md-6" >
             <div id="sub_menu_aqui">
 
             </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid" style="border:4px solid orange;">
+      <div class="container-fluid" >
         <div class="row">
-            <div class="col-md-6" style="border:4px solid black;">
+            <div class="col-md-6" >
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Striped Table with Hover</h4>
@@ -92,26 +91,20 @@ session_start();
                 </div>
             </div>
 
-            <div class="col-md-6" style="border:4px solid black;">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p id="btns" class="category">Here is a subtitle for this table</p>
-                    </div>
-                    <div class="content table-responsive table-full-width">
+            <div class="col-md-6">
+              <div id="sub_sub_menu_aqui">
 
-                    </div>
-                </div>
+              </div>
             </div>
         </div>
-      </div>';
+      </div>
+<?php
 /**
   DADOS
     -ID
     -Quantidade
 */
 
-    echo $output;
 
     /*
     myFunction_editProd
@@ -186,17 +179,3 @@ session_start();
             return $buttons;
           }
         </script>
-
-<script>
-        function Produto_edit(x){
-        		$id = x;
-        		$.ajax({
-        				url:"menu_files/Share_files/listar.php",
-        				method:"POST",
-        				data: {id: $id},
-        				success:function(data){
-        					$('#sub_menu_aqui').html(data);
-        				}
-        		});
-        }
-</script>

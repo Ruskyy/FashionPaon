@@ -39,7 +39,7 @@ $(document).ready(function(){
 													<td><img src="../<?php echo $rows['nome_imagem']; ?>" style="width:40px; height:60px;"></td>
 	                        <td><?php echo $cat['nome_imgcategoria']; ?></td>
 	                        <td>
-	                          <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs edit" onclick="">
+	                          <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
 	                              <i class="fa fa-edit"></i>
 	                          </button>
 	                          <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">

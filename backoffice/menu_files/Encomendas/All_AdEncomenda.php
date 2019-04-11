@@ -11,8 +11,8 @@
     2-- encomenda no estado 'cancelado'
   */
   if($tipo == 0){
-    $estado = 0;
-    $minutes_to_add = 10;
+    /*$estado = 0;
+    $minutes_to_add = 5;
 
     $time = new DateTime();
     $time->setTimezone(new DateTimeZone('Europe/Lisbon'));
@@ -28,10 +28,10 @@
                    ad_encomendas_data,
                     ad_encomendas_estado,
                       ad_encomendas_datafim)
-                VALUES ('','$id','','$schedule_date','$estado')");
+                VALUES ('','$id','','$schedule_date','$estado')");*/
   }else if ($tipo == 1) {
-    $estado = 1;
-    mysqli_query($conn, "UPDATE ad_encomendas
+      $estado = 1;
+      mysqli_query($conn, "UPDATE ad_encomendas
        SET ad_encomendas_estado = $estado
         WHERE ad_encomendas_id = $id");
 
@@ -51,6 +51,5 @@
     mysqli_query($conn,"DELETE FROM ad_encomendas
        WHERE ad_encomendas_id  = '$id' AND (ad_encomendas_estado = 1 OR ad_encomendas_estado = 2)");
   }
-
   include '../../../php/deconn.php';
  ?>

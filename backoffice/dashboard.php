@@ -566,28 +566,29 @@ function myFunction_SockEnc(x){
 	});
 }
 
-function myFunction_AllAddStock(x){
+function myFunction_AllAddStock(x, y){
 	var formData = new FormData($('#form2')[0]);
-	formData.append('tipo',x);
+	formData.append('id',x);
+	formData.append('tipo',y);
 	$.ajax({
 		 url: 'menu_files/Produtos/addAllStock.php',
 		 type: 'POST',
 		 data: formData,
-		 cache: false,
-		 contentType: false,
-		 processData: false,
 		 success: function(data) {
-			 var numero = data.split(':')[0];
-			 var estado = data.split(':')[1];
-			 var preco = data.split('/')[1];
-			 var estado = estado.split('/')[0];
-			 if(estado == "sucesso"){
-				 if( x == 0 || x == 1 ){
+			 if( y == 0 || y == 1 ){
+				 var numero = data.split(':')[0];
+				 var estado = data.split(':')[1];
+				 var preco = data.split('/')[1];
+				 var estado = estado.split('/')[0];
+				 if( estado == "sucesso" ){
 					 $("#StockEncQuant").attr("value", numero);
 					 $("#StockEncTotal").attr("value", preco+"€");
 				 }
 			 }
 		 },
+		 cache: false,
+ 		contentType: false,
+ 		processData: false
 	});
 }
 

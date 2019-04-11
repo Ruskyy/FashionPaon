@@ -43,12 +43,12 @@ session_start();
               </div>
               <div class="col-md-1">
                 <div class="form-group">
-                  <button type="button" class="btn btn-primary btn-block" style="position:relative; top:23px;" onclick="myFunction_AllAddStock(0)">-</button>
+                  <button type="button" class="btn btn-primary btn-block" style="position:relative; top:23px;" onclick="myFunction_AllAddStock(<?php echo $id; ?>,0)">-</button>
                 </div>
               </div>
               <div class="col-md-1">
                 <div class="form-group">
-                  <button type="button" class="btn btn-primary btn-block" style="position:relative; top:23px;" onclick="myFunction_AllAddStock(1)">+</button>
+                  <button type="button" class="btn btn-primary btn-block" style="position:relative; top:23px;" onclick="myFunction_AllAddStock(<?php echo $id; ?>,1)">+</button>
                 </div>
               </div>
             </div>
@@ -57,12 +57,12 @@ session_start();
             <div class="col-md-8"></div>
             <div class="col-md-4">
               <label>Total</label>
-              <input id="StockEncTotal" class="form-control form-control-lg" type="text" value="<?php echo $dados['stock_prodpreco'].'€'; ?>" readonly>
+              <input id="StockEncTotal" class="form-control form-control-lg" type="text" name="precoTotal" value="<?php echo $dados['stock_prodpreco'].'€'; ?>" readonly>
             </div>
           </div>
         </div>
         <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick=""> Adicionar </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" name="submeter" onclick="myFunction_AllAddStock(<?php echo $id; ?>,2)">Adicionar</button>
       </form>
     </div>
 </div>

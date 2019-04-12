@@ -9,7 +9,7 @@
     -3:
   */
   if($tipo == 0){
-    $notf_rows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM ad_notification"));
+    $notf_rows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM ad_notification WHERE ad_notification_estado = '1'"));
     echo $notf_rows;
   }
   if($tipo == 1){

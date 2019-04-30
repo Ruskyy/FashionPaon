@@ -17,7 +17,7 @@
     "SELECT ad_notification_id, ad_notification_tipo, ad_notification_content, ad_notification_estado
       FROM ad_notification");
         while ($rows = mysqli_fetch_assoc($dado)){
-
+            
         }
   }
   include '../../../php/deconn.php';

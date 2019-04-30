@@ -106,6 +106,8 @@ $(document).ready(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
 				$(".sidabarmenu").removeClass("active");
 
+				$("#navactasub7").show();
+				$("#change").html("Notificação");
 				$("#navact7").addClass("active");
 			});
 
@@ -268,6 +270,7 @@ $(document).ready(function(){
 						}
 				});
 			});
+			//7.1
 
 
 			function convertSegMilSeg(i){
@@ -693,9 +696,7 @@ function mySuubFunction(x){
 				url:"ajax_files/suub_menu.php",
 				method:"POST",
 				data: {tipo: $tipo},
-				success:function(data){
-
-				}
+				success:function(data){}
 		});
 }
 
@@ -828,6 +829,18 @@ function mySuubFunction(x){
 															<p onclick="">Tamanhos</p>
 													</a>
 											</li>
+											<li id="navact52" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-science"></i>
+															<p onclick="">Encomendas</p>
+													</a>
+											</li>
+											<li id="navact53" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-science"></i>
+															<p onclick="">Tabelas</p>
+													</a>
+											</li>
 										</ul>
 
                 <li id="navact6" class="sidabarmenu">
@@ -839,9 +852,24 @@ function mySuubFunction(x){
                 <li id="navact7" class="sidabarmenu">
                     <a href="#">
                         <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
+                        <p>Notificações</p>
                     </a>
                 </li>
+								<!-- submenu -->
+										<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub7">
+											<li id="navact71" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-science"></i>
+															<p onclick="">Conteúdo</p>
+													</a>
+											</li>
+											<li id="navact72" class="sidabarsubsubmenu">
+													<a href="#">
+															<i class="pe-7s-science"></i>
+															<p onclick="">Listar</p>
+													</a>
+											</li>
+										</ul>
             </ul>
     	</div>
     </div>

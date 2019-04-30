@@ -51,18 +51,20 @@ include '../../../php/conn.php';
     mysqli_query($conn,"INSERT INTO
       ad_encomendas(ad_encomendas_preco, ad_encomendas_quantidades, ad_encomendas_data, ad_encomendas_datafim, ad_encomendas_estado, ad_encomendas_tabela, ad_encomendas_id_tabela)
       VALUES ('$preco_total', '$quantidade', '$timesToday', '$timesEnd', '$estado', '$tabeladb', '$id')");
-      $last_id = mysqli_insert_id($conn);
-     $tabela2 = "encomenda";
-     $tipo_notify = 1;
-     $content_notify = "A encomenda de [&quantidade&] [&nome&] com o tamanho [&tamanho&] foi entregue agora ao armazem";
-                    //"Na gestão de encomendas confirme que foi entregue";
-     /***
+    $last_id = mysqli_insert_id($conn);
+    $tabela2 = "ad_encomendas";
+    $tipo_notify = 1;
+    $content_notify = "A encomenda de [&quantidade&] [&nome&] com o tamanho [&tamanho&] foi entregue agora ao armazem.";
+    //"Na gestão de encomendas confirme que foi entregue";
+    /***
       quantidade do produto - &quantidade&
       tamanho do nome - &nome&
       tamanho do produto - &tamanho&
-     */
+    */
      $estado_notify = 1;//0-off 1-on
-     $tabela_notify = $tabela2;
+     $dados = mysqli_query($conn,"SELECT ad_tabelas_nome, ad_tabelas_num FROM ad_tabelas WHERE ad_tabelas_nome = '$tabela2'");
+     $rowss = mysqli_fetch_assoc($dados);
+     $tabela_notify = $rowss['ad_tabelas_num'];
      $idtabela_notify = $last_id;
     mysqli_query($conn,"INSERT INTO
       ad_notification(ad_notification_tipo, ad_notification_content, ad_notification_estado, ad_notification_tabela, ad_notification_idtabela)

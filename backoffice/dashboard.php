@@ -271,7 +271,19 @@ $(document).ready(function(){
 				});
 			});
 			//7.1
-
+			$("#navact71").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact71").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Notification/.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
+			});
 
 			function convertSegMilSeg(i){
 				i = i*1000;
@@ -285,7 +297,7 @@ $(document).ready(function(){
 						method:"POST",
 						data: {tipo: $tipo},
 						success:function(data){
-
+							console.log(data);
 						}
 				});
 			}

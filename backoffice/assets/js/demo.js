@@ -244,10 +244,10 @@ demo = {
 
 	showNotification: function(from, align, text){
     	color = Math.floor((Math.random() * 4) + 1);
-
+      content = ""+text;
     	$.notify({
         	icon: "pe-7s-gift",
-        	message: text
+        	message: content
           //message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
 
         },{

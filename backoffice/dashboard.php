@@ -297,6 +297,7 @@ $(document).ready(function(){
 						method:"POST",
 						data: {tipo: $tipo},
 						success:function(data){
+							$('#notification').html(data);
 							console.log(data);
 						}
 				});
@@ -315,7 +316,7 @@ $(document).ready(function(){
 						}
 				});
 			}
-			setInterval(IntervNotification, convertSegMilSeg(30));
+			setInterval(IntervNotification, convertSegMilSeg(1));
 });
 </script>
 <script>
@@ -966,6 +967,9 @@ function mySuubFunction(x){
             </div>
         </nav>
         <div id="menu_aqui" class="content" >
+
+        </div>
+				<div id="notification">
 
         </div>
 				 <?php

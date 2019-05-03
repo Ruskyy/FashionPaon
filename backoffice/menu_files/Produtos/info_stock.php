@@ -40,10 +40,10 @@ $(document).ready(function(){
 												 <td>
 													 <button type="button" rel="tooltip" title="Comprar" class="btn btn-success btn-simple btn-xs" onclick="myFunction_SockEnc(<?php echo $rows['stock_id']; ?>)">
 															 <i class="fa fa-shopping-cart"></i>
-													 </button><!--
+													 </button>
 													 <button type="button" rel="tooltip" title="Editar" class="btn btn-info btn-simple btn-xs" onclick="">
 															 <i class="fa fa-edit"></i>
-													 </button>-->
+													 </button>
 													 <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-simple btn-xs" onclick="">
 															 <i class="fa fa-times"></i>
 													 </button>

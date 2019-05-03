@@ -286,7 +286,7 @@ $(document).ready(function(){
 			});
 
 			function convertSegMilSeg(i){
-				i = i*1000;
+				i = i * 1000;
 				return i;
 			}
 
@@ -316,7 +316,7 @@ $(document).ready(function(){
 						}
 				});
 			}
-			setInterval(IntervNotification, convertSegMilSeg(1));
+			setInterval(IntervNotification, convertSegMilSeg(30));
 });
 </script>
 <script>

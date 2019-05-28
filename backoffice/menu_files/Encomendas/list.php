@@ -114,20 +114,6 @@ session_start();
           </div>
         </div>
       </div>
-<?php
-/**
-
-*/
-
-
-    /*
-    myFunction_editProd
-    myFunction_addProdStock
-    myFunction_addProdImg
-    myFunction_gerProdStock
-    myFunction_gerProdImg
-    */
-    ?>
         <script>
         var $table = document.getElementById("myTable"),
         $bttns = document.getElementById("btns"),

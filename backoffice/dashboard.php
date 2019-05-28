@@ -270,6 +270,20 @@ $(document).ready(function(){
 						}
 				});
 			});
+			//5.2
+			$("#navact52").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact52").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files/Encomendas/list.php",
+						method:"POST",
+						data: {},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
+			});
 			//7.1
 			$("#navact71").click(function(){
 				$(".sidabarsubsubmenu").removeClass("active");
@@ -298,7 +312,6 @@ $(document).ready(function(){
 						data: {tipo: $tipo},
 						success:function(data){
 							$('#notification').html(data);
-							console.log(data);
 						}
 				});
 			}

@@ -4,7 +4,6 @@
   $id = $_POST['id'];
   $tipo = $_POST['tipo'];
 
-
   /* NOTE:
     0-- encomenda no estado 'processar'
     1-- encomenda no estado 'processado'
@@ -37,7 +36,7 @@
 
     $dado = mysqli_fetch_assoc(mysqli_query($conn,
     "SELECT ad_encomendas_quantidades, ad_encomendas_idstock
-      FROM ad_encomendas WHERE ad_encomendas_id = $id");
+      FROM ad_encomendas WHERE ad_encomendas_id = $id"));
 
     mysqli_query($conn, "UPDATE stock
        SET stock_quantidade = stock_quantidade + $dado['ad_encomendas_quantidades']
@@ -51,7 +50,7 @@
     mysqli_query($conn,"DELETE FROM ad_encomendas
        WHERE ad_encomendas_id  = '$id' AND (ad_encomendas_estado = 1 OR ad_encomendas_estado = 2)");
   }else if ($tipo == 4) {
-    
+    echo 'sucessso';
   }
   include '../../../php/deconn.php';
  ?>

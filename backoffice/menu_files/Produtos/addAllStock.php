@@ -39,7 +39,7 @@ include '../../../php/conn.php';
   }
   elseif($tipo == 2){
     $estado = 1;
-    $minutes_to_add = 5;
+    $minutes_to_add = 10;
     $time = new DateTime();
     $time->setTimezone(new DateTimeZone('Europe/Lisbon'));
     $timesToday = $time->format("Y/m/d G:i:s");

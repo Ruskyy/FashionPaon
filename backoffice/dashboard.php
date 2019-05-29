@@ -603,7 +603,7 @@ function myFunction_AllAddStock(x, y){
 		 url: 'menu_files/Produtos/addAllStock.php',
 		 type: 'POST',
 		 data: formData,
-		 success: function(data) {;
+		 success: function(data) {
 			 if( y == 0 || y == 1 ){
 				 var numero = data.split(':')[0];
 				 var estado = data.split(':')[1];
@@ -618,6 +618,20 @@ function myFunction_AllAddStock(x, y){
 		 cache: false,
  		contentType: false,
  		processData: false
+	});
+}
+
+//-----------------Encomendas-----------------
+function myFunction_EncDelete(x){
+	$id = x;
+	$tipo = 4;
+	$.ajax({
+		 url:"menu_files/Encomendas/All_AdEncomenda.php",
+		 type: 'POST',
+		 data: {id: $id, tipo: $tipo},
+		 success: function(data) {
+			 	console.log(data);
+		 }
 	});
 }
 

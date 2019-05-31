@@ -39,8 +39,8 @@
       FROM ad_encomendas WHERE ad_encomendas_id = $id"));
 
     mysqli_query($conn, "UPDATE stock
-       SET stock_quantidade = stock_quantidade + $dado['ad_encomendas_quantidades']
-        WHERE stock_id = $dado['ad_encomendas_idstock']");
+      SET stock_quantidade = stock_quantidade + '$dado[ad_encomendas_quantidades]'
+        WHERE stock_id = '$dado[ad_encomendas_idstock]'");
   }else if ($tipo == 2) {
     $estado = 2;
     mysqli_query($conn, "UPDATE ad_encomendas
@@ -50,7 +50,19 @@
     mysqli_query($conn,"DELETE FROM ad_encomendas
        WHERE ad_encomendas_id  = '$id' AND (ad_encomendas_estado = 1 OR ad_encomendas_estado = 2)");
   }else if ($tipo == 4) {
-    echo 'sucessso';
+    $estado_notify = 1;
+    $tabela_notify = 2;
+    $tipo_notify = 3;
+    $content_notify = "A encomenda de [&quantidade&] [&nome&] com o tamanho [&tamanho&] foi cancelada.";
+    mysqli_query($conn, "UPDATE ad_encomendas
+      SET ad_encomendas_estado = 3
+        WHERE ad_encomendas_id = $id");
+    mysqli_query($conn, "UPDATE ad_notification
+      SET ad_notification_estado = 0
+        WHERE ad_notification_idtabela = $id");
+      mysqli_query($conn,"INSERT INTO
+        ad_notification(ad_notification_tipo, ad_notification_content, ad_notification_estado, ad_notification_tabela, ad_notification_idtabela)
+        VALUES ('$tipo_notify', '$content_notify', '$estado_notify', '$tabela_notify', '$id')");
   }
   include '../../../php/deconn.php';
  ?>

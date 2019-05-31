@@ -312,6 +312,7 @@ $(document).ready(function(){
 						data: {tipo: $tipo},
 						success:function(data){
 							$('#notification').html(data);
+							console.log(data);
 						}
 				});
 			}
@@ -329,7 +330,7 @@ $(document).ready(function(){
 						}
 				});
 			}
-			setInterval(IntervNotification, convertSegMilSeg(30));
+			setInterval(IntervNotification, convertSegMilSeg(5));
 });
 </script>
 <script>
@@ -630,7 +631,6 @@ function myFunction_EncDelete(x){
 		 type: 'POST',
 		 data: {id: $id, tipo: $tipo},
 		 success: function(data) {
-			 	console.log(data);
 		 }
 	});
 }

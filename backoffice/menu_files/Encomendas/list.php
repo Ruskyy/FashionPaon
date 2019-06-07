@@ -12,6 +12,23 @@ session_start();
                 <div class="header">
                     <h4 class="title">Striped Table with Hover</h4>
                     <p id="btns" class="category">Here is a subtitle for this table</p>
+                    <p>
+                      <button type="button" rel="tooltip" title="Entregado" class="btn btn-success btn-simple btn-xs">
+                        <i class="fa fa-cube"></i> Entregado
+                      </button>
+
+                      <button type="button" rel="tooltip" title="Processar" class="btn btn-info btn-simple btn-xs">
+                        <i class="fa fa-cube"></i> Processar
+                      </button>
+
+                      <button type="button" rel="tooltip" title="Cancelado" class="btn btn-warning btn-simple btn-xs">
+                        <i class="fa fa-cube"></i> Cancelado
+                      </button>
+
+                      <button type="button" rel="tooltip" title="Perdido" class="btn btn-danger btn-simple btn-xs">
+                        <i class="fa fa-cube"></i> Perdido
+                      </button>
+                  </p>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-hover table-striped" id="myTable">
@@ -21,9 +38,9 @@ session_start();
                           <th>Quantidade</th>
                           <th>Preço</th>
                           <th>Começou</th>
-                          <th>Acaba</th>
-                          <th></th>
-                          <th></th>
+                          <th>Termina</th>
+                          <th>Tempo Restante</th>
+                          <th>Estado</th>
                         </thead>
                         <tbody id = "contentData">
 

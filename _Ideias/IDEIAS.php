@@ -33,7 +33,7 @@
                           -associar os produtos aos descontos
                 -Stock
                     -editar, apagar e adicionar stock ao tamanho
-                    -add quantidade «( seria método de encomenda popup com descrição, quantidade, oque que é encomenda, data e hora que foi feita (duração seria 5 min), estado(entregado-0, processar-1  e cancelado-2) )»
+                    -add quantidade «( seria método de encomenda popup com descrição, quantidade, oque que é encomenda, data e hora que foi feita (duração seria 5 min), estado(entregado-0, processar-1, cancelado-2 e perdido-3) )»
                       -tabela encomenda
                         -estado(0-processado, 1-processar ,2-cancelado)
                     -remove quantidade

@@ -20,6 +20,13 @@ while ($rows = mysqli_fetch_assoc($dado)){
 
       $finalDate = strtotime($rows['ad_encomendas_datafim']);
       $finalDate = date("Y/m/d G:i:s",$finalDate);
+
+      if($nowDate >= $finalDate){
+        $messr = "+";
+      }else {
+        $messr = "-";
+      }
+
       $finalDate = strtotime($finalDate);
       $nowDate = strtotime($nowDate);
       $diff = abs($nowDate - $finalDate);
@@ -38,11 +45,6 @@ while ($rows = mysqli_fetch_assoc($dado)){
                - $diffmth*30*60*60*24 - $diffd*60*60*24
                       - $diffh*60*60 - $diffm*60));
 
-      if($diff >= 0){
-        $messr = "+";
-      }else {
-        $messur = "-";
-      }
       ?>
         <tr>
           <td><?php echo $prod["produto_nome"];?></td>
@@ -56,22 +58,26 @@ while ($rows = mysqli_fetch_assoc($dado)){
 
             <?php
             /**
-            info - 1
-            danger - 3
-            warning - 2'
-            success - 0
+            danger  - 3 - perdido
+            warning - 2 - cancelado
+            info    - 1 - processar
+            success - 0 - entregado
             */
             $class = "";
              if($rows['ad_encomendas_estado'] == 0){
                 $class = "success";
+                $title = 'Entregado';
             }else if($rows['ad_encomendas_estado'] == 1){
               $class = "info";
+              $title = 'Processar';
             }else if($rows['ad_encomendas_estado'] == 3){
-              $class = "danger";
-            }else{
               $class = "warning";
+              $title = 'Cancelado';
+            }else{
+              $class = "danger";
+              $title = 'Perdido';
             } ?>
-            <button type="button" rel="tooltip" title="Estado" class="btn btn-<?php echo $class;?> btn-simple btn-xs" onclick="">
+            <button type="button" rel="tooltip" title="<?php echo $title; ?>" class="btn btn-<?php echo $class;?> btn-simple btn-xs" onclick="">
                 <i class="fa fa-cube"></i>
             </button>
             <?php

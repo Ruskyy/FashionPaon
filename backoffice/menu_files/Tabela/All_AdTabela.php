@@ -5,19 +5,19 @@ Tables_in_fashedot
 
 SHOW COLUMNS FROM slider
 
-Field 	Type 	Null 	Key 	Default 	Extra
-id_slide 	int(11) 	NO 	PRI 	NULL 	auto_increment
-slide_state 	int(11) 	NO 		NULL
-image_slide 	varchar(150) 	NO 		NULL
-title_slide 	varchar(50) 	NO 		NULL
-title_effect 	varchar(50) 	NO 		NULL
-title_anim 	varchar(50) 	NO 		NULL
-desc_slide 	varchar(150) 	NO 		NULL
-desc_anim 	varchar(50) 	NO 		NULL
-button_slide 	varchar(10) 	NO 		off
-button_text 	varchar(50) 	NO 		NULL
-buton_anim 	varchar(50) 	NO 		NULL
-button_link 	varchar(150) 	NO 		NULL
+Field 	Type          	   Null 	Key 	Default 	Extra
+id_slide 	int(11)         	NO 	  PRI 	  NULL 	auto_increment
+slide_state 	int(11)     	NO 	          NULL
+image_slide 	varchar(150) 	NO 		        NULL
+title_slide 	varchar(50) 	NO 	        	NULL
+title_effect 	varchar(50) 	NO 		        NULL
+title_anim 	varchar(50)    	NO 		        NULL
+desc_slide 	varchar(150)  	NO 		        NULL
+desc_anim 	varchar(50)   	NO 		        NULL
+button_slide 	varchar(10) 	NO 	         	off
+button_text 	varchar(50) 	NO 		        NULL
+buton_anim 	varchar(50)   	NO 		        NULL
+button_link 	varchar(150) 	NO 		        NULL
 
 mysqli_num_rows(mysqli_query($conn,""));
 

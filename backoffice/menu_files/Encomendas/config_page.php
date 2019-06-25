@@ -44,19 +44,6 @@ while ($rows = mysqli_fetch_assoc($dado)){
       $diffs = floor(($diff - $diffy * 365*60*60*24
                - $diffmth*30*60*60*24 - $diffd*60*60*24
                       - $diffh*60*60 - $diffm*60));
-
-      ?>
-        <tr>
-          <td><?php echo $prod["produto_nome"];?></td>
-          <td><?php echo $stock["stock_prodtamanho"];?></td>
-          <td><?php echo $rows["ad_encomendas_quantidades"];?></td>
-          <td><?php echo $rows["ad_encomendas_preco"];?></td>
-          <td><?php echo date("d/m/Y G:i:s",strtotime($rows["ad_encomendas_data"]));?></td>
-          <td><?php echo date("d/m/Y G:i:s",strtotime($rows["ad_encomendas_datafim"]));?></td>
-          <td><?php echo $messr." ".$diffy."Y ".$diffmth."M ".$diffd."d ".$diffh."h ".$diffm."m ".$diffs."s" ?></td>
-          <td>
-
-            <?php
             /**
             danger  - 3 - perdido
             warning - 2 - cancelado
@@ -76,20 +63,30 @@ while ($rows = mysqli_fetch_assoc($dado)){
             }else{
               $class = "danger";
               $title = 'Perdido';
-            } ?>
-            <button type="button" rel="tooltip" title="<?php echo $title; ?>" class="btn btn-<?php echo $class;?> btn-simple btn-xs" onclick="">
-                <i class="fa fa-cube"></i>
-            </button>
-            <?php
-              if($rows['ad_encomendas_estado'] == 1){?>
-                <button type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_EncDelete(<?php echo $rows['ad_encomendas_id'];?>)">
-                      <i class="fa fa-times"></i>
-                </button><?php
+            }
+            $button ="";
+            $button2 ="";
+            $button =
+            '<button type="button" rel="tooltip" title="'.$title.'" class="btn btn-'.$class.' btn-simple btn-xs" onclick="">
+                  <i class="fa fa-cube"></i>
+              </button>';
+              if($rows['ad_encomendas_estado'] == 1){
+                $button2 =
+                '<button type="button" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs" onclick="myFunction_EncDelete('.$rows["ad_encomendas_id"].')">
+                        <i class="fa fa-times"></i>
+                  </button>';
               }
-             ?>
-          </td>
-        </tr>
-        <?php
+              $horas_atuais = $messr." ".$diffy."Y ".$diffmth."M ".$diffd."d ".$diffh."h ".$diffm."m ".$diffs."s";
+              $marks =
+                  array(
+                      "id"            => $rows['ad_encomendas_id'],
+                      "horas"         => $horas_atuais,
+                      "first_button"  => $button,
+                      "second_button" => $button2,
+                  );
+              $script[] = $marks;
       }
     }
+
+  echo json_encode($script);
 ?>

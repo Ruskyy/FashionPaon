@@ -5,9 +5,20 @@ session_start();
 
 
 ?>
-<style>
-  .tabelax:hover{
-    background-color: black;
+<style type="text/css">
+  .tabela_tr{
+    border: 3px bisque solid;
+    background-color:transparent !important;
+  }
+  .tabela_tr:hover{
+    background-color: #f9f9f9 !important;
+    cursor: pointer;
+  }
+  .campos_tr{
+    background-color:#f9f9f9 !important;
+  }
+  .campos_tr:hover{
+    background-color: transparent !important;
   }
 </style>
 <div class="container-fluid" >
@@ -36,7 +47,7 @@ session_start();
                           while ($rows = mysqli_fetch_assoc($dado)){
                             $dados = mysqli_query($conn,"SHOW COLUMNS FROM ".$rows['Tables_in_fashedot']);
                             $how_many = mysqli_num_rows($dados);?>
-                            <tr id="<?php  echo "TB_".$rows['Tables_in_fashedot'];?>" class="tabelax" style="border: 5px bisque solid;">
+                            <tr id="<?php  echo "TB_".$rows['Tables_in_fashedot'];?>" class="tabela_tr" onclick="sdfgh(this.id)">
                               <td><?php  echo $rows['Tables_in_fashedot'];?></td>
                               <td><?php  echo $how_many;?></td>
                               <td></td>
@@ -54,7 +65,7 @@ session_start();
                               ?>
                             </tr><?php
                               while ($rowss = mysqli_fetch_assoc($dados)){
-                                ?><tr class="<?php  echo "SUB-TB_".$rows['Tables_in_fashedot'];?>">
+                                ?><tr class="campos_tr <?php echo "SUB-TB_".$rows['Tables_in_fashedot'];?>">
                                   <td></td>
                                   <td></td>
                                   <td><?php  echo $rowss['Field'];?></td>
@@ -84,20 +95,31 @@ session_start();
         </div>
       </div>
       <script>
-      $(document).ready(function(){
-        var obj = {};
-        <?php
-        foreach ($script as $key) {?>
-          obj['<?php echo $key['tabela']; ?>'] = true;
-          $("#<?php echo $key['tabela'];?>").click(function(){
-              if(obj.<?php echo $key['tabela'];?> == true){
-                  $(".<?php echo $key['subtabela']; ?>").css("display","none");
-                  obj.<?php echo $key['tabela'];?> = false;
-              }else{
-                $(".<?php echo $key['subtabela']; ?>").css("display","");
-                obj.<?php echo $key['tabela'];?> = true;
-              }
-            });<?php
-        }?>
-      });
+      var obj = {};
+      var obj2 = <?php echo json_encode($script);?>;
+      console.log(obj2);
+      <?php
+      foreach ($script as $key) {?>
+        obj['<?php echo $key['tabela']; ?>'] = false;
+        console.log(obj['<?php echo $key['tabela']; ?>']);<?php
+      }?>
+
+      function sdfgh(x){
+        for (var i = 0; i < obj2.length; i++) {
+          console.log("0"+obj2[i]['tabela']);
+          if (x == obj2[i]['tabela']) {
+            console.log("1");
+            if(obj.x == true){
+              console.log("2");
+              $("."+obj2[i]['subtabela']).css("display","none");
+              obj.x = false;
+            }else {
+              console.log("3");
+              $("."+obj2[i]['subtabela']).css("display","");
+              console.log(obj2[i]['subtabela']);
+              obj.x = false;
+            }
+          }
+        }
+      }
       </script>

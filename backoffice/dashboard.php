@@ -343,7 +343,14 @@ $(document).ready(function(){
 						}
 				});
 			}
+			var intervalID = null;
 			setInterval(IntervNotification, convertSegMilSeg(5));
+			function killInterval(){
+				clearInterval(intervalID);
+			}
+			$(".sidabarsubsubmenu").click(function(){
+				killInterval();
+			});
 });
 </script>
 <script>

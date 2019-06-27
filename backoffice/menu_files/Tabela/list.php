@@ -28,6 +28,14 @@ session_start();
                 <div class="header">
                   <h4 class="title">Striped Table with Hover</h4>
                   <p id="btns" class="category">Here is a subtitle for this table</p>
+                  <p>
+                    <button type="button" rel="tooltip" title="open" class="btn btn-success btn-simple btn-xs" onclick="OpenAllTabs()">
+                      <i class="fa fa-cube"></i> Open Tabs
+                    </button>
+                    <button type="button" rel="tooltip" title="close" class="btn btn-danger btn-simple btn-xs" onclick="CloseAllTabs()">
+                      <i class="fa fa-cube"></i> Close Tabs
+                    </button>
+                </p>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-hover table-striped" id="myTable">
@@ -47,7 +55,7 @@ session_start();
                           while ($rows = mysqli_fetch_assoc($dado)){
                             $dados = mysqli_query($conn,"SHOW COLUMNS FROM ".$rows['Tables_in_fashedot']);
                             $how_many = mysqli_num_rows($dados);?>
-                            <tr id="<?php  echo "TB_".$rows['Tables_in_fashedot'];?>" class="tabela_tr" onclick="sdfgh(this.id)">
+                            <tr id="<?php  echo "TB_".$rows['Tables_in_fashedot'];?>" class="tabela_tr" onclick="tab('<?php  echo "TB_".$rows['Tables_in_fashedot'];?>')">
                               <td><?php  echo $rows['Tables_in_fashedot'];?></td>
                               <td><?php  echo $how_many;?></td>
                               <td></td>
@@ -97,27 +105,41 @@ session_start();
       <script>
       var obj = {};
       var obj2 = <?php echo json_encode($script);?>;
-      console.log(obj2);
       <?php
       foreach ($script as $key) {?>
-        obj['<?php echo $key['tabela']; ?>'] = false;
-        console.log(obj['<?php echo $key['tabela']; ?>']);<?php
+        obj['<?php echo $key['tabela']; ?>'] = false;<?php
       }?>
+      for (var i = 0; i < obj2.length; i++) {
+        if(obj[obj2[i]['tabela']] == false){
+          $("."+obj2[i]['subtabela']).css("display","none");
+        }
+      }
 
-      function sdfgh(x){
+      function CloseAllTabs(){
         for (var i = 0; i < obj2.length; i++) {
-          console.log("0"+obj2[i]['tabela']);
+            $("."+obj2[i]['subtabela']).css("display","none");
+            obj[obj2[i]['tabela']]  = false;
+        }
+      }
+
+      function OpenAllTabs(){
+        for (var i = 0; i < obj2.length; i++) {
+            $("."+obj2[i]['subtabela']).css("display","");
+            obj[obj2[i]['tabela']]  = true;
+        }
+      }
+
+      function tab(x){
+        for (var i = 0; i < obj2.length; i++) {
           if (x == obj2[i]['tabela']) {
-            console.log("1");
-            if(obj.x == true){
-              console.log("2");
-              $("."+obj2[i]['subtabela']).css("display","none");
-              obj.x = false;
-            }else {
-              console.log("3");
+            if(obj[x] == false){
               $("."+obj2[i]['subtabela']).css("display","");
-              console.log(obj2[i]['subtabela']);
-              obj.x = false;
+              obj[x] = true;
+              break;
+            }else {
+              $("."+obj2[i]['subtabela']).css("display","none");
+              obj[x] = false;
+              break;
             }
           }
         }

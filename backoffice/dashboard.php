@@ -605,7 +605,7 @@ function myFunction_gerProdImg(x){
 }
 
 
-function myFunction_SockEnc(x){
+function myFunction_StockEnc(x){
 	$id = x;
 	$.ajax({
 		url:"menu_files/Produtos/stock_encomend.php",
@@ -634,6 +634,8 @@ function myFunction_AllAddStock(x, y){
 					 $("#StockEncQuant").attr("value", numero);
 					 $("#StockEncTotal").attr("value", preco+"€");
 				 }
+			 }else if( y == 2){
+				 $('#sub_sub_menu_aqui').empty();
 			 }
 		 },
 		 cache: false,

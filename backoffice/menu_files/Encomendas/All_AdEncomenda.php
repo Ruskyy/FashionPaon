@@ -60,9 +60,9 @@
     mysqli_query($conn, "UPDATE ad_notification
       SET ad_notification_estado = 0
         WHERE ad_notification_idtabela = $id");
-      mysqli_query($conn,"INSERT INTO
-        ad_notification(ad_notification_tipo, ad_notification_content, ad_notification_estado, ad_notification_tabela, ad_notification_idtabela)
-        VALUES ('$tipo_notify', '$content_notify', '$estado_notify', '$tabela_notify', '$id')");
+    mysqli_query($conn,"INSERT INTO
+      ad_notification(ad_notification_tipo, ad_notification_content, ad_notification_estado, ad_notification_tabela, ad_notification_idtabela)
+      VALUES ('$tipo_notify', '$content_notify', '$estado_notify', '$tabela_notify', '$id')");
   }
   include '../../../php/deconn.php';
  ?>

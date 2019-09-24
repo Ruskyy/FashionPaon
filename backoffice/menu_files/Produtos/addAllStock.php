@@ -55,8 +55,9 @@ include '../../../php/conn.php';
     $tabela2 = "ad_encomendas";
     $tipo_notify = 1;
     $content_notify = "A encomenda de [&quantidade&] [&nome&] com o tamanho [&tamanho&] foi entregue agora ao armazem.";
-    //"Na gestão de encomendas confirme que foi entregue";
-    /***
+    /*
+    Na gestão de encomendas confirme que foi entregue";
+
       quantidade do produto - &quantidade&
       tamanho do nome - &nome&
       tamanho do produto - &tamanho&

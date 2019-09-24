@@ -1,4 +1,4 @@
-<?php/
+<?php/**
   ->Estrutura
     -configuração da página backoffice
         -interface

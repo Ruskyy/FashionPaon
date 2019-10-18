@@ -97,7 +97,6 @@
                     "SELECT produto_id, produto_idcategoria, produto_nome, produto_idmarca, produto_desc, id_publico
                       FROM produto WHERE produto_id = '$dadossss[stock_idproduto]'"));
                 mysqli_query($conn, "UPDATE ad_notification SET ad_notification_estado = 0 WHERE ad_notification_id = '$rows[ad_notification_id]'");
-                mysqli_query($conn, "UPDATE ad_encomendas SET ad_encomendas_estado = 0 WHERE ad_encomendas_id = '$dadoss[ad_encomendas_id]'");
                 $test = "".$rows['ad_notification_content'];
                 $test = str_replace("[&quantidade&]",$dadoss['ad_encomendas_quantidades'],$test);
                 $test = str_replace("[&nome&]",$dadosss['produto_nome'],$test);

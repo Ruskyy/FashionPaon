@@ -1,4 +1,5 @@
-show TABLES;
+
+<!-- show TABLES;
 
 Tables_in_fashedot
 
@@ -43,7 +44,7 @@ publico
 slider
 slider_texteffects
 stock
-tamanho
+tamanho -->
 <?php
   require_once '../../../php/functions.php';
   include '../../../php/conn.php';

@@ -109,7 +109,16 @@ $(document).ready(function(){
 				$("#navactasub7").show();
 				$("#change").html("Notificação");
 				$("#navact7").addClass("active");
-			});
+			});	// 8
+				$("#navact8").click(function(){
+					$(".sidabarsubmenu").hide();
+					$(".sidabarsubsubmenu").removeClass("active");
+					$(".sidabarmenu").removeClass("active");
+
+					$("#navactasub8").show();
+					$("#change").html("RANDOM");
+					$("#navact8").addClass("active");
+				});
 
 			// 0.1
 			$("#navact0").click(function(){
@@ -304,7 +313,21 @@ $(document).ready(function(){
 				$("#navact71").addClass("active");
 				$tipo = 0;
 				$.ajax({
-						url:"menu_files/Notification/.php",
+						url:"menu_files/Notification/ListNotification.php",
+						method:"POST",
+						data: {tipo: $tipo},
+						success:function(data){
+							$('#menu_aqui').html(data);
+						}
+				});
+			});
+			//8.1
+			$("#navact81").click(function(){
+				$(".sidabarsubsubmenu").removeClass("active");
+				$("#navact81").addClass("active");
+				$tipo = 0;
+				$.ajax({
+						url:"menu_files//.php",
 						method:"POST",
 						data: {tipo: $tipo},
 						success:function(data){
@@ -652,8 +675,7 @@ function myFunction_EncDelete(x){
 		 url:"menu_files/Encomendas/All_AdEncomenda.php",
 		 type: 'POST',
 		 data: {id: $id, tipo: $tipo},
-		 success: function(data) {
-		 }
+		 success: function(data) { }
 	});
 }
 
@@ -922,16 +944,25 @@ function mySuubFunction(x){
 											<li id="navact71" class="sidabarsubsubmenu">
 													<a href="#">
 															<i class="pe-7s-science"></i>
-															<p onclick="">Conteúdo</p>
-													</a>
-											</li>
-											<li id="navact72" class="sidabarsubsubmenu">
-													<a href="#">
-															<i class="pe-7s-science"></i>
 															<p onclick="">Listar</p>
 													</a>
 											</li>
 										</ul>
+									<li id="navact8" class="sidabarmenu">
+	                    <a href="#">
+	                        <i class="pe-7s-science"></i>
+	                        <p>RANDOM</p>
+	                    </a>
+	                </li>
+									<!-- submenu -->
+											<ul style="list-style: none;" class="sidabarsubmenu" id="navactasub8">
+												<li id="navact81" class="sidabarsubsubmenu">
+														<a href="#">
+																<i class="pe-7s-science"></i>
+																<p onclick="">RANDOM</p>
+														</a>
+												</li>
+											</ul>
             </ul>
     	</div>
     </div>

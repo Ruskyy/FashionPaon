@@ -103,17 +103,18 @@ session_start();
         </div>
       </div>
       <script>
-      var obj = {};
-      var obj2 = <?php echo json_encode($script);?>;
-      <?php
-      foreach ($script as $key) {?>
-        obj['<?php echo $key['tabela']; ?>'] = false;<?php
-      }?>
-      for (var i = 0; i < obj2.length; i++) {
-        if(obj[obj2[i]['tabela']] == false){
-          $("."+obj2[i]['subtabela']).css("display","none");
+        var obj = {};
+        var obj2 = <?php echo json_encode($script);?>;
+        <?php
+        foreach ($script as $key) {?>
+          obj['<?php echo $key['tabela']; ?>'] = false;<?php
+        }?>
+        for (var i = 0; i < obj2.length; i++) {
+          if(obj[obj2[i]['tabela']] == false){
+            $("."+obj2[i]['subtabela']).css("display","none");
+          }
         }
-      }
+
 
       function CloseAllTabs(){
         for (var i = 0; i < obj2.length; i++) {
@@ -135,11 +136,9 @@ session_start();
             if(obj[x] == false){
               $("."+obj2[i]['subtabela']).css("display","");
               obj[x] = true;
-              break;
             }else {
               $("."+obj2[i]['subtabela']).css("display","none");
               obj[x] = false;
-              break;
             }
           }
         }

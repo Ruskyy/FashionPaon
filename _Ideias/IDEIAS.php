@@ -47,7 +47,6 @@
                 -CRUD
                 -ter notificações ou alerts no backoffice
             -Descontos
-                -
                 -Tabelas
                   -Desconto
                     -ID, Nome, Descrição, Quantidade(%),

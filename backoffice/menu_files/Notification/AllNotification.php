@@ -92,10 +92,8 @@
                 "SELECT stock_id, stock_idproduto, stock_quantidade, stock_prodtamanho, stock_prodpreco
                   FROM stock WHERE stock_id = '$dadoss[ad_encomendas_id_tabela]'"));
             if($dadossss){
-                $dadosss = mysqli_fetch_assoc(
-                  mysqli_query($conn,
-                    "SELECT produto_id, produto_idcategoria, produto_nome, produto_idmarca, produto_desc, id_publico
-                      FROM produto WHERE produto_id = '$dadossss[stock_idproduto]'"));
+                $dadosss = mysqli_fetch_assoc(mysqli_query($conn, "SELECT produto_id, produto_idcategoria, produto_nome, produto_idmarca, produto_desc, id_publico
+                  FROM produto WHERE produto_id = '$dadossss[stock_idproduto]'"));
                 mysqli_query($conn, "UPDATE ad_notification SET ad_notification_estado = 0 WHERE ad_notification_id = '$rows[ad_notification_id]'");
                 $test = "".$rows['ad_notification_content'];
                 $test = str_replace("[&quantidade&]",$dadoss['ad_encomendas_quantidades'],$test);
@@ -106,7 +104,6 @@
                 <?php
             }
           }else if ($rows['ad_notification_tipo'] == 4) {
-
             $sl_notification = mysqli_fetch_assoc(
               mysqli_query($conn,
                 "SELECT ad_notify_id, ad_notify_tabela, ad_notify_idtabela, ad_notify_tabela_2, ad_notify_idtabela_2, ad_notify_tipo

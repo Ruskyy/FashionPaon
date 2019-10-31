@@ -142,6 +142,6 @@ session_start();
         });
       }
       $(document).ready(function(){
-          intervalID = setInterval(ReceveData, 1000);
+        intervalID = setInterval(ReceveData, 1000);
       });
       </script>

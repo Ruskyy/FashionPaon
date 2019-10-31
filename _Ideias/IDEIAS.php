@@ -57,4 +57,33 @@
                     -ID, ID_Produto, ID_Desconto, Desc_fim(data e hora que termina desconto)
       -configuração da página front office
           -fazer todo
+
+          Tables_in_fashedot
+
+*/?>
+ad_encomendas
+ad_notification
+ad_tabelas
+carrinho
+carrinho_stock
+categoria
+cliente   ***<->***
+desconto
+imagem
+imgcategoria
+marca
+marcas
+mes
+notify_content
+paises
+parallax
+produto
+publico
+slider   ***<->***
+slider_texteffects
+stock
+tamanho
+
+<?php/**
+
 */?>

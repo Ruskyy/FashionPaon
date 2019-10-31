@@ -20,6 +20,46 @@ session_start();
   .campos_tr:hover{
     background-color: transparent !important;
   }
+
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 88%;
+}
+
+/* The Close Button */
+.close {
+  color: #4d4d4d;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 </style>
 <div class="container-fluid" >
     <div class="row">
@@ -54,7 +94,13 @@ session_start();
                           $dado = mysqli_query($conn,"Show TABLES");
                           while ($rows = mysqli_fetch_assoc($dado)){
                             $dados = mysqli_query($conn,"SHOW COLUMNS FROM ".$rows['Tables_in_fashedot']);
-                            $how_many = mysqli_num_rows($dados);?>
+                            $how_many = mysqli_num_rows($dados);
+                            $marks =
+                                array(
+                                    "tabela"    => "TB_".$rows['Tables_in_fashedot'],
+                                    "subtabela" => "SUB-TB_".$rows['Tables_in_fashedot'],
+                                );
+                            $script[] = $marks;?>
                             <tr id="<?php  echo "TB_".$rows['Tables_in_fashedot'];?>" class="tabela_tr" onclick="tab('<?php  echo "TB_".$rows['Tables_in_fashedot'];?>')">
                               <td><?php  echo $rows['Tables_in_fashedot'];?></td>
                               <td><?php  echo $how_many;?></td>
@@ -63,14 +109,11 @@ session_start();
                               <td></td>
                               <td></td>
                               <td></td>
-                              <td></td><?php
-                              $marks =
-                                  array(
-                                      "tabela"    => "TB_".$rows['Tables_in_fashedot'],
-                                      "subtabela" => "SUB-TB_".$rows['Tables_in_fashedot'],
-                                  );
-                              $script[] = $marks;
-                              ?>
+                              <td>
+                                <button type="button" rel="tooltip" title="Valores" class="btn btn-info btn-simple btn-xs" onclick="ShowTabelContent('<?php echo $rows['Tables_in_fashedot'];?>', 0)">
+                                    <i class="fa fa-cubes"></i>
+                                </button>
+                              </td>
                             </tr><?php
                               while ($rowss = mysqli_fetch_assoc($dados)){
                                 ?><tr class="campos_tr <?php echo "SUB-TB_".$rows['Tables_in_fashedot'];?>">
@@ -107,14 +150,14 @@ session_start();
         var obj2 = <?php echo json_encode($script);?>;
         <?php
         foreach ($script as $key) {?>
-          obj['<?php echo $key['tabela']; ?>'] = false;<?php
+          obj['<?php echo $key['tabela']; ?>'] = false;
+          console.log(obj['<?php echo $key['tabela']; ?>']);<?php
         }?>
         for (var i = 0; i < obj2.length; i++) {
           if(obj[obj2[i]['tabela']] == false){
             $("."+obj2[i]['subtabela']).css("display","none");
           }
         }
-
 
       function CloseAllTabs(){
         for (var i = 0; i < obj2.length; i++) {
@@ -131,8 +174,11 @@ session_start();
       }
 
       function tab(x){
+        console.log("|:--> "+x);
         for (var i = 0; i < obj2.length; i++) {
           if (x == obj2[i]['tabela']) {
+            console.log("||:--> "+obj2[i]['tabela']);
+            console.log("|||:--> "+obj[x]);
             if(obj[x] == false){
               $("."+obj2[i]['subtabela']).css("display","");
               obj[x] = true;
@@ -143,4 +189,14 @@ session_start();
           }
         }
       }
-      </script>
+
+      function CloseModal(){
+        $('#sub_menu_aqui').empty();
+      }
+
+      window.onclick = function(event) {
+        if (event.target.className == "modal") {
+          $('#sub_menu_aqui').empty();
+        }
+      }
+    </script>

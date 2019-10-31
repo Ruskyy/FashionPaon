@@ -366,7 +366,6 @@ $(document).ready(function(){
 						}
 				});
 			}
-			var intervalID = null;
 			setInterval(IntervNotification, convertSegMilSeg(5));
 			function killInterval(){
 				clearInterval(intervalID);
@@ -745,6 +744,23 @@ function myFunction_deletSlideshow(x){
               $('#sub_menu_aqui').html(data);
             }
         });
+			}
+	});
+}
+
+//------------------Tabela----------------------
+function ShowTabelContent(x, y){
+	$tabela = x;
+	$pagin = y;
+	$.ajax({
+			url:"menu_files/Tabela/All_AdTabela.php",
+			method:"POST",
+			data: {
+				tb: $tabela,
+				pg:$pagin
+			 },
+			success:function(data){
+				$('#sub_menu_aqui').html(data);
 			}
 	});
 }

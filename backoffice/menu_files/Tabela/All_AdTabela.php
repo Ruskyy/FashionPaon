@@ -120,7 +120,7 @@ tamanho -->
               > <i class="pe-7s-up-arrow"></i>
             </button>
             <button class="btn btn-simple " style="font-size: 30px; color: #1d6fea;" <?php
-              if($row['end'] < $row['rows']){?>
+              if(($row['end'] + 1) < $row['rows']){?>
                   onclick="ShowTabelContent('<?php echo $Tabela;?>', <?php echo $row['next'];?>)"<?php
               }else{?>
                 disabled<?php
